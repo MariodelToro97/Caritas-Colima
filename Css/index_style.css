@@ -4,14 +4,19 @@ body{
 	background-size: cover;
 }
 
+.cambio{
+	transition: all 1s ease;
+}
+
+/*
 *{
 	margin:0px;
 	padding:0px;
-	font-family: Helvetica Neue; 
+	font-family: Helvetica Neue;
 }
 
 /*titulo*/
-
+/*
 div#titulo{
 	width:100%;
 	margin-top:100px;
@@ -116,78 +121,4 @@ div.contenedor:hover img.icon{
 	font-style: italic;
 	font-size: 30px;
 	color: white;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}*/
