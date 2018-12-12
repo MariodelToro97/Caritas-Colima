@@ -3,10 +3,10 @@
 session_start();
 
 if (isset($_SESSION['user_id'])) {
-  header('Location: login.php');
+  header('Location: Index.php');
 }
 
-require '../Models/database.php';
+require 'Models/database.php';
 
 $message = '';
 
@@ -18,7 +18,7 @@ if (!empty($_POST['user']) && !empty($_POST['password'])) {
 
   if ($results && password_verify($_POST['password'], $results['Contrasena'])) {
     $_SESSION['user_id'] = $results['idUsuarios'];
-    header('Location: Menu.php');
+    header('Location: Views/Menu.php');
   } else {
     $message = $results['Contrasena'];//'Usuario y/o Contraseña incorrectos';
   }
@@ -43,7 +43,7 @@ if (!empty($_POST['user']) && !empty($_POST['password'])) {
 </head>
 <div class="login">
   <body class="text-center">
-    <form class="form-signin" action="login.php" method="POST">
+    <form class="form-signin" action="Index.php" method="POST">
       <img class="mb-4 mt-5" src="../Pictures/LogoC.png" alt="" width="72" height="72">
       <h1 class="h3 mb-4 font-weight-normal">Bienvenido</h1>
       <input type="text" name="user" id="inputEmail" class="form-control" placeholder="Usuario" autofocus="" required="">
@@ -57,7 +57,7 @@ if (!empty($_POST['user']) && !empty($_POST['password'])) {
           </div>
         </label>
       </div>
-      <input class="btn" type="submit" value="Inciar Sesión"><a href="Menu.php"></a>
+      <input class="btn" type="submit" value="Inciar Sesión"><a href="Views/Menu.php"></a>
 
       <?php if(!empty($message)): ?>
       <p class="text-danger font-weight-bold"> <?= $message ?></p>
