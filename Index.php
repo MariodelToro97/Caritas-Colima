@@ -6,7 +6,7 @@ if (isset($_SESSION['user_id'])) {
   header('Location: Menu.php');
 }
 
-require '../Models/database.php';
+require 'Models/database.php';
 
 $message = '';
 
@@ -42,7 +42,7 @@ if (!empty($_POST['user']) && !empty($_POST['password'])) {
 </head>
 <div class="login">
   <body class="text-center">
-    <form class="form-signin" action="Models/login.php" method="POST">
+    <form class="form-signin" action="Index.php" method="POST">
       <img class="mb-4 mt-5" src="Pictures/LogoC.png" alt="" width="72" height="72">
       <h1 class="h3 mb-4 font-weight-normal">Bienvenido</h1>
       <input type="text" name="user" id="inputEmail" class="form-control" placeholder="Usuario" autofocus="" required="">
