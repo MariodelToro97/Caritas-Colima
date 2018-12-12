@@ -77,7 +77,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
-        <button type="button" class="btn btn-danger"><a class="text-white" style="text-decoration:none;" href="login.php">Si</a></button>
+        <button type="button" class="btn btn-danger"><a class="text-white" style="text-decoration:none;" href="../Models/logout.php">Si</a></button>
       </div>
     </div>
   </div>
