@@ -3,7 +3,7 @@
 session_start();
 
 if (isset($_SESSION['user_id'])) {
-  header('Location: Menu.php');
+  header('Location: Views/Menu.php');
 }
 
 require 'Models/database.php';
@@ -18,7 +18,7 @@ if (!empty($_POST['user']) && !empty($_POST['password'])) {
 
   if ($results && password_verify($_POST['password'], $results['Contrasena'])) {
     $_SESSION['user_id'] = $results['idUsuarios'];
-    header('Location: ../Views/Menu.php');
+    header('Location: Views/Menu.php');
   } else {
     $message = 'Usuario y/o Contraseña incorrectos';
   }
