@@ -1,7 +1,7 @@
 html,
 body {
   height: 100%;
-  background: url('../Pictures/back.jpg');
+  background: url('../../Pictures/back.jpg');
   background-size: cover;
 }
 
@@ -61,14 +61,14 @@ body {
 	cursor: pointer;
 	border-radius: 20px;
   font-weight: bold;
-  
+
 }
 
 .form-signin input[type="submit"]:hover{
-  
+
 	background: #fa0000;
   color: #000000;
-  
+
 
 }
 .her{
@@ -85,7 +85,3 @@ body {
   margin-left: auto;
   border-radius: 5%;
 }
-
-
-
-
