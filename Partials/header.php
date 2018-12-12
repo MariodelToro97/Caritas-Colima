@@ -14,7 +14,7 @@
               Grupos
             </a>
             <div class="dropdown-menu bg-danger" aria-labelledby="navbarDropdown">
-              <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="">Visualizar Grupos</a>
+              <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="Menu.php" id="verGrupo">Visualizar Grupos</a>
               <a style="color: rgb(0, 0, 0)" class="dropdown-item" data-toggle="modal" data-target="#agregarGrupo" href="">Agregar Grupo</a>
             </div>
           </li>
@@ -24,13 +24,13 @@
               Actividades
             </a>
             <div class="dropdown-menu bg-danger" aria-labelledby="navbarDropdown">
-              <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="">Visualizar Actividades</a>
-              <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="">Agregar Actividad</a>
+              <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="actividades.php" id="verActividad">Visualizar Actividades</a>
+              <a style="color: rgb(0, 0, 0)" class="dropdown-item" data-toggle="modal" data-target="#agregarActividad" href="">Agregar Actividad</a>
             </div>
           </li>
            <div class="dropdown-divider"></div>
             <a style="color: rgb(255, 255, 255);" class="nav-item nav-link active ml-5" data-toggle="modal" data-target="#cerrarSesion" href="">Cerrar Sesión</a>
         </div>
       </div>
-    </nav>  
+    </nav>
 </header>
