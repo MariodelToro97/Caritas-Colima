@@ -42,6 +42,7 @@ if (!empty($_POST['usuario']) && !empty($_POST['password']) && !empty($_POST['co
 <head>
   <meta charset="utf-8">
   <title>Ingresar usuario</title>
+  <script src="assets/js/Sign.js" charset="utf-8"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link href="../assets/css/signin.css" rel="stylesheet">
 </head>
@@ -50,9 +51,9 @@ if (!empty($_POST['usuario']) && !empty($_POST['password']) && !empty($_POST['co
     <form action="signup.php" method="post" class="form-signin">
       <img class="mb-4 mt-5" src="../Pictures/LogoC.png" alt="" width="72" height="72">
       <h1 class="h3 mb-4 font-weight-normal">Ingresar nuevo Usuario</h1>
-      <input type="text" name="usuario" placeholder="Usuario" autofocus="" class="form-control rounded" required = "">
-      <input type="password" name="password" class="form-control mt-2 mb-2 rounded" placeholder="Contraseña" required = "">
-      <input type="password" name="confirmPassword" class="form-control rounded" placeholder="Confirmar Contraseña" required = "">
+      <input type="text" name="usuario" placeholder="Usuario" autofocus="" class="form-control rounded" required = "" autocomplete="off">
+      <input type="password" name="password" class="form-control mt-2 mb-2 rounded" placeholder="Contraseña" required = "" autocomplete="off">
+      <input type="password" name="confirmPassword" class="form-control rounded" placeholder="Confirmar Contraseña" required = "" autocomplete="off">
       <input class="btn" type="submit" value="Registrar"><a href="Menu.php"></a>
 
       <?php if(!empty($message)): ?>

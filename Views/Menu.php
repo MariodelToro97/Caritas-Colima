@@ -14,7 +14,11 @@
 	<meta charset="UTF-8">
 	<title>Menú Principal</title>
 	<link rel="stylesheet" href="../assets/css/index_style.css">
+	<!--AJAX-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!--Bootstrap-->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<!--FontAwesome-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 
@@ -23,38 +27,43 @@
 	<?php require '../Partials/header.php' ?>
 
 	<div style="padding-top: 80px;">
-	<table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Grupo</th>
-      <th scope="col">Asistentes</th>
-      <th scope="col">Despensas Entregadas</th>
-      <th scope="col">Apoyo Extra</th>
-      <th scope="col">Institución 1</th>
-      <th scope="col">Institución 2</th>
-      <th scope="col">Voluntarios Practicantes</th>
-      <th scope="col">Actividad 1</th>
-      <th scope="col">Actividad 2</th>
-      <th scope="col">Eliminar</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
-<table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Grupo</th>
-			<th scope="col">Acciones</th>
-			
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
-		</div>
+		<!--Inicio de la tabla de Actividades-->
+		<table class="table table-dark" id="tablaActividades">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Grupo</th>
+					<th scope="col">Asistentes</th>
+					<th scope="col">Despensas Entregadas</th>
+					<th scope="col">Apoyo Extra</th>
+					<th scope="col">Institución 1</th>
+					<th scope="col">Institución 2</th>
+					<th scope="col">Voluntarios Practicantes</th>
+					<th scope="col">Actividad 1</th>
+					<th scope="col">Actividad 2</th>
+					<th scope="col">Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		<!--Fin de la tabla de Actividades-->
+
+		<!--Inicio de la tabla de Instituciones-->
+		<table class="table table-dark" id="tablaInstituciones">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Grupo</th>
+					<th scope="col">Acciones</th>
+
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		<!--Fin de la tabla de Instituciones-->
+	</div>
 
 	<!-- Modal de agregar Grupo-->
 	<div class="modal fade" id="agregarGrupo" tabindex="-1" role="dialog" aria-labelledby="agregarGrupoLabel" aria-hidden="true">
@@ -67,10 +76,10 @@
         	</button>
 				</div>
 				<div class="modal-body">
-					<form method="post">
+					<form action="../Models/insertarGrupo.php" method="post">
 						<div class="form-group">
-							<label for="nombreGrupo">Nombre del Grupo</label>
-							<input type="text" id="nombreGrupo" class="form-control" placeholder="Nombre del Grupo">
+							<label for="nomGrupo">Nombre del Grupo</label>
+							<input type="text" id="nomGrupo" name="nombreGrupo" class="form-control" placeholder="Nombre del Grupo" autofocus = "">
 						</div>
 					</form>
 				</div>
