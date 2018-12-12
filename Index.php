@@ -8,13 +8,13 @@
   <meta name="author" content="">
   <title>Login Cáritas</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link href="../assets/css/signin.css" rel="stylesheet">
+  <link href="assets/css/signin.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 <div class="login">
   <body class="text-center">
-    <form class="form-signin" action="../Models/login.php" method="POST">
-      <img class="mb-4 mt-5" src="../Pictures/LogoC.png" alt="" width="72" height="72">
+    <form class="form-signin" action="Models/login.php" method="POST">
+      <img class="mb-4 mt-5" src="Pictures/LogoC.png" alt="" width="72" height="72">
       <h1 class="h3 mb-4 font-weight-normal">Bienvenido</h1>
       <input type="text" name="user" id="inputEmail" class="form-control" placeholder="Usuario" autofocus="" required="">
       <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="">
@@ -27,7 +27,7 @@
           </div>
         </label>
       </div>
-      <input class="btn" type="submit" value="Inciar Sesión"><a href="Menu.php"></a>
+      <input class="btn" type="submit" value="Inciar Sesión"><a href="Views/Menu.php"></a>
 
       <?php if(!empty($message)): ?>
       <p class="text-danger font-weight-bold"> <?= $message ?></p>
