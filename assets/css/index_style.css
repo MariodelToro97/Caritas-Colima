@@ -1,11 +1,7 @@
 
 body{
-	background: url('../../Pictures/back2.jpg');
+	background: blue;
 	background-size: cover;
-}
-
-.cambio{
-	transition: all 1s ease;
 }
 
 /*
