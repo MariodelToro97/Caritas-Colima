@@ -1,33 +1,3 @@
-<?php
-
-session_start();
-
-if (isset($_SESSION['user_id'])) {
-  header('Location: login.php');
-}
-
-require '../Models/database.php';
-
-$message = '';
-
-if (!empty($_POST['user']) && !empty($_POST['password'])) {
-  $records = $conn->prepare('SELECT idUsuarios, Contrasena FROM usuarios WHERE idUsuarios = :user');
-  $records-> bindParam(':user', $_POST['user']);
-  $records->execute();
-  $results = $records->fetch(PDO::FETCH_ASSOC);
-
-  if ($results && password_verify($_POST['password'], $results['Contrasena'])) {
-    $_SESSION['user_id'] = $results['idUsuarios'];
-    header('Location: Menu.php');
-  } else {
-    $message = $results['Contrasena'];//'Usuario y/o Contraseña incorrectos';
-  }
-} else {
-  $message = 'No deje espacios en blanco';
-}
-
- ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -43,7 +13,7 @@ if (!empty($_POST['user']) && !empty($_POST['password'])) {
 </head>
 <div class="login">
   <body class="text-center">
-    <form class="form-signin" action="login.php" method="POST">
+    <form class="form-signin" action="../Models/login.php" method="POST">
       <img class="mb-4 mt-5" src="../Pictures/LogoC.png" alt="" width="72" height="72">
       <h1 class="h3 mb-4 font-weight-normal">Bienvenido</h1>
       <input type="text" name="user" id="inputEmail" class="form-control" placeholder="Usuario" autofocus="" required="">
