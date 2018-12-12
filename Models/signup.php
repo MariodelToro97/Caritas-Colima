@@ -1,6 +1,6 @@
 <?php
 
-require '../Models/database.php';
+require 'database.php';
 
 $message = '';
 
@@ -20,7 +20,7 @@ if (!empty($_POST['usuario']) && !empty($_POST['password']) && !empty($_POST['co
 
       if ($stmt->execute()) {
         $message = 'La inserción se completó satisfactoriamente';
-        header('Location: login.php');
+        header('Location: ../Index.php');
       } else {
         $message = 'Algo salió mal con la inserción';
         header('Location: ../Views/signup.php');

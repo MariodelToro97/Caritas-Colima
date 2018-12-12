@@ -34,7 +34,7 @@
       <?php endif; ?>
 
     </form>
-    <button class="btn" type="submit"><a href="signup.php" style="text-decoration: none;">Registrarse</a></button>
+    <button class="btn" type="submit"><a href="Views/signup.php" style="text-decoration: none;">Registrarse</a></button>
   </body>
 </div>
 </html>

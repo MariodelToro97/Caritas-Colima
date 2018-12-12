@@ -19,9 +19,9 @@
       <?php if(!empty($message)): ?>
       <p class="text-danger font-weight-bold"> <?= $message ?></p>
       <?php endif; ?>
-      
+
     </form>
-    <button class="btn" type="submit"><a href="../Views/login.php" style="text-decoration: none;">Cancelar</a></button>
+    <button class="btn" type="submit"><a href="../Index.php" style="text-decoration: none;">Cancelar</a></button>
   </body>
 </div>
 </html>

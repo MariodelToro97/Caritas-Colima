@@ -21,11 +21,11 @@ if (!empty($_POST['user']) && !empty($_POST['password'])) {
     header('Location: ../Views/Menu.php');
   } else {
     $message = 'Usuario y/o Contraseña incorrectos';
-    header('Location: ../Views/login.php');
+    header('Location: ../Index.php');
   }
 } else {
   $message = 'No deje espacios en blanco';
-  header('Location: ../Views/login.php');
+  header('Location: ../Index.php');
 }
 
 ?>
