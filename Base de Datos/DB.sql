@@ -46,10 +46,10 @@ CREATE TABLE IF NOT EXISTS `Actividades` (
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
-CREATE UNIQUE INDEX `idActividades_UNIQUE` ON `Actividades` (`idActividades` ASC) VISIBLE;
+CREATE UNIQUE INDEX `idActividades_UNIQUE` ON `Actividades` (`idActividades` ASC);
 
 SHOW WARNINGS;
-CREATE INDEX `FK_idInstitucionActividades_idx` ON `Actividades` (`idInstitucion` ASC) VISIBLE;
+CREATE INDEX `FK_idInstitucionActividades_idx` ON `Actividades` (`idInstitucion` ASC);
 
 SHOW WARNINGS;
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `Beneficiarios` (
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
-CREATE UNIQUE INDEX `idBeneficiarios_UNIQUE` ON `Beneficiarios` (`idBeneficiarios` ASC) VISIBLE;
+CREATE UNIQUE INDEX `idBeneficiarios_UNIQUE` ON `Beneficiarios` (`idBeneficiarios` ASC);
 
 SHOW WARNINGS;
 
@@ -93,10 +93,10 @@ CREATE TABLE IF NOT EXISTS `DetalleBeneficiarios` (
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
-CREATE INDEX `FK_idBeneficiariosDetalle_idx` ON `DetalleBeneficiarios` (`idBeneficiarios` ASC) VISIBLE;
+CREATE INDEX `FK_idBeneficiariosDetalle_idx` ON `DetalleBeneficiarios` (`idBeneficiarios` ASC);
 
 SHOW WARNINGS;
-CREATE INDEX `FK_idActividadDetalle_idx` ON `DetalleBeneficiarios` (`idActividad` ASC) VISIBLE;
+CREATE INDEX `FK_idActividadDetalle_idx` ON `DetalleBeneficiarios` (`idActividad` ASC);
 
 SHOW WARNINGS;
 
@@ -113,10 +113,10 @@ CREATE TABLE IF NOT EXISTS `Instituciones` (
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
-CREATE UNIQUE INDEX `idInstituciones_UNIQUE` ON `Instituciones` (`idInstituciones` ASC) VISIBLE;
+CREATE UNIQUE INDEX `idInstituciones_UNIQUE` ON `Instituciones` (`idInstituciones` ASC);
 
 SHOW WARNINGS;
-CREATE UNIQUE INDEX `nombreInstitucion_UNIQUE` ON `Instituciones` (`nombreInstitucion` ASC) VISIBLE;
+CREATE UNIQUE INDEX `nombreInstitucion_UNIQUE` ON `Instituciones` (`nombreInstitucion` ASC);
 
 SHOW WARNINGS;
 
@@ -153,13 +153,17 @@ CREATE TABLE IF NOT EXISTS `Usuarios` (
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
-CREATE UNIQUE INDEX `idUsuarios_UNIQUE` ON `Usuarios` (`idUsuarios` ASC) VISIBLE;
+CREATE UNIQUE INDEX `idUsuarios_UNIQUE` ON `Usuarios` (`idUsuarios` ASC);
 
 SHOW WARNINGS;
-CREATE INDEX `idRol_idx` ON `Usuarios` (`idRol` ASC) VISIBLE;
+CREATE INDEX `idRol_idx` ON `Usuarios` (`idRol` ASC);
 
 SHOW WARNINGS;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+INSERT INTO Roles values (null, 'Administrador');
+INSERT INTO Roles values (null, 'Niños');
+INSERT INTO Roles values (null, 'Adultos');
