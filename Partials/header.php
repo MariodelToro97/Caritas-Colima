@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background: rgba(236, 24, 12, 1)">
       <a href="">
         <img class="rounded" src="../Pictures/LogoC.png" style="height:50px; weight: 50px;">
-        <a class="navbar-brand ml-3" style="font-size: 24px; color: rgb(255, 255, 255)"> Cáritas Colima</a>
+        <a class="navbar-brand ml-3" style="font-size: 24px; color: rgb(255, 255, 255)" href="../Views/Menu.php"> Cáritas Colima</a>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

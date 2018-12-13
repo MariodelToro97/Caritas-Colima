@@ -1,10 +1,13 @@
 
+.carouselExampleIndicators{
+	position:relative;
+}
+
+/*
 body{
 	background: blue;
 	background-size: cover;
 }
-
-/*
 *{
 	margin:0px;
 	padding:0px;
