@@ -10,16 +10,19 @@
       </tr>
     </thead>
     <?php
-    $sql = "SELECT * from beneficiarios";
+    $sql = "SELECT * from instituciones";
     $result = mysqli_query($conexion, $sql);
 
     while($mostrar=mysqli_fetch_array($result)){
 
       ?>
       <tr>
-        <td><?php echo $mostrar['idBeneficiarios'] ?></td>
-        <td><?php echo $mostrar['Nombre'] ?></td>
-        <td><?php echo $mostrar['tipoUsuario'] ?></td>
+        <td><?php echo $mostrar['idInstituciones'] ?></td>
+        <td><?php echo $mostrar['nombreInstitucion'] ?></td>
+        <td>
+          <button class="btn btn-info" type="button" name="EditarInstituto">Editar Campo</button>
+          <button class="btn btn-danger" type="button" name="eliminarInstituto">Eliminar Instituto</button>
+        </td>
 
       </tr>
       <?php

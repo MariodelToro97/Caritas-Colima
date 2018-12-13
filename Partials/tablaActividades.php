@@ -14,7 +14,7 @@
       <th scope="col">Voluntarios Practicantes</th>
       <th scope="col">Actividad 1</th>
       <th scope="col">Actividad 2</th>
-      <th scope="col">Eliminar</th>
+      <th scope="col">Acciones</th>
     </tr>
   </thead>
 
@@ -37,6 +37,11 @@
       <td><?php echo utf8_encode($mostrar['voluntarioActividad']) ?></td>
       <td><?php echo $mostrar['actividadUno'] ?></td>
       <td><?php echo $mostrar['actividadDos'] ?></td>
+      <td><?php echo $mostrar['actividadDos'] ?></td>
+      <td>
+        <button class="btn btn-info" type="button" name="EditarInstituto">Editar Campo</button>
+        <button class="btn btn-danger" type="button" name="eliminarInstituto">Eliminar Instituto</button>
+      </td>
 
     </tr>
     <?php
