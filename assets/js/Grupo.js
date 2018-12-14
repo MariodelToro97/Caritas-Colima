@@ -1,24 +1,62 @@
 $('#formGrupo').submit(function(){
-  $.ajax({
-    type: 'POST',
-    url: '../Peticiones/insertarGrupo.php',
-    data: $(this).serialize(),
-    // Mostramos un mensaje con la respuesta de PHP
-    success: function(data) {
-      alertify.success(data);
-      if (data == 'Grupo guardado exitosamente') {
-        $('#agregarGrupo').modal('hide');
-        $('#tablaInstituciones').load(" #tablaInstituciones");
-      } else {
-        if (data == 'Ya existe una institución idéntica en la base de datos') {
-          $('#nomGrupo').focus();
-          $('#nomGrupo').val('');
+  var idGrupo = $('#btnSaveGroup').val();
+  var nombre = $('#nomGrupo').val();
+
+  if (idGrupo == 'Guardar') {
+    $.ajax({
+      type: 'POST',
+      url: '../Peticiones/insertarGrupo.php',
+      data: $(this).serialize(),
+      // Mostramos un mensaje con la respuesta de PHP
+      success: function(data) {
+        alertify.success(data);
+        $('#nomGrupo').val('');
+        if (data == 'Grupo guardado exitosamente') {
+          $('#agregarGrupo').modal('hide');
+          $('#tablaInstituciones').load(" #tablaInstituciones");
+        } else {
+          if (data == 'Ya existe una institución idéntica en la base de datos') {
+            $('#nomGrupo').focus();
+          }
         }
       }
-    }
-  });
-  return false;
+    });
+    return false;
+  } else {
+    $.ajax({
+      type: 'POST',
+      url: '../Peticiones/editarInstituto.php',
+      data: {
+        idGrupo : idGrupo,
+        nombre : nombre
+      },
+      // Mostramos un mensaje con la respuesta de PHP
+      success: function(data) {
+        alertify.success(data);
+        $('#nomGrupo').val('');
+        if (data == 'Grupo actualizado exitosamente') {
+          $('#agregarGrupo').modal('hide');
+          $('#tablaInstituciones').load(" #tablaInstituciones");
+          reset();
+        } else {
+          if (data == 'Ya existe una institución idéntica en la base de datos') {
+            $('#nomGrupo').focus();
+          }
+        }
+      }
+    });
+    return false;
+  }
 });
+
+function reset(){
+  document.getElementById("contadorGrupo").innerHTML = '<span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-success mt-1 font-weight-bold">100 caracteres restantes</span>';
+  document.getElementById("labelNomGrupohidden").style.display = 'none';
+  document.getElementById("nomGrupohidden").setAttribute ("type", "hidden");
+  document.getElementById("agregarGrupoLabel").innerHTML = '<h5 class="modal-title" id="agregarGrupoLabel">Agregar Grupo</h5>';
+  document.getElementById("labelNomGrupo").innerHTML = '<span id="labelNomGrupo" for="nomGrupo" class="my-2" style="float: left;">Nombre del Grupo:</span>';
+  document.getElementById("btnSaveGroup").outerHTML = '<input id="btnSaveGroup" type="submit" value="Guardar" class="btn btn-success">';
+}
 
 $('#formDeleteIns').submit(function(){
   var idGrupo = $('#btnEliminarInstituto').val();
@@ -39,6 +77,26 @@ $('#formDeleteIns').submit(function(){
    return false;
 });
 
+function editarModalEditar(boton){
+  var idGrupo = boton.value;
+  var nombre = boton.name;
+
+  document.getElementById("contadorGrupo").innerHTML = '<span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-success mt-1 font-weight-bold">100 caracteres restantes</span>';
+  document.getElementById("labelNomGrupohidden").style.display = 'block';
+  document.getElementById("nomGrupohidden").setAttribute ("type", "");
+  document.getElementById("nomGrupohidden").value = nombre;
+  document.getElementById("agregarGrupoLabel").innerHTML = '<h5 class="modal-title" id="agregarGrupoLabel">Editar Grupo</h5>';
+  document.getElementById("labelNomGrupo").innerHTML = '<span id="labelNomGrupo" for="nomGrupo" class="my-2" style="float: left;">¿Cuál es el nuevo nombre del Grupo?</span>';
+  document.getElementById("btnSaveGroup").outerHTML = '<button type="submit" value = "'+idGrupo+'" class="btn btn-success" id="btnSaveGroup">Actualizar</button>';
+
+  $('#agregarGrupo').modal('show');
+
+  $('#nomGrupo').val('');
+  setTimeout(function (){
+    $('#nomGrupo').focus();
+  }, 500);
+};
+
 function editarModalEliminar(boton){
   var idGrupo = boton.value;
   var nombre = boton.name;
@@ -50,76 +108,28 @@ function editarModalEliminar(boton){
 
 $('#btnAgregarGrupo').click(function(){
   $('#nomGrupo').val('');
+  reset();
   setTimeout(function (){
     $('#nomGrupo').focus();
   }, 500);
 });
 
 $('#addGrupos').click(function(){
+  reset();
   $('#nomGrupo').val('');
   setTimeout(function (){
     $('#nomGrupo').focus();
-  }, 600);
+  }, 500);
 });
 
-function saveActivity(){
-  //var datos = $('#formActividad').serialize();
-  var grupo = $('#selectinstitucion').val();
-  var institucion = $('#Institucion1').val();
-  var fecha = $('#fechaActividad').val();
-  var asistentes = $('#numeroAsistentes').val();
-  var despensa = $('#numeroDespensas').val();
-  var actividad = $('#actividadUno').val();
-
-  if (grupo == '' || institucion == '' || fecha == '' || asistentes == '' || despensa == '' || actividad == '') {
-    alertify.error('Dejó campos requeridos en blanco');
-  }
-};
-
-function contador(obj){
-  var maxLength = 1000;
-  var strLength = obj.value.length;
-  var charRemain = (maxLength - strLength);
-
-    if(charRemain == 0){
-        document.getElementById("contadorApoyo").innerHTML = '<span id="contadorApoyo" style="font-size: 12px; float: right;" class="text-danger mt-3 font-weight-bold">Haz llegado al límite de escritura</span>';
-    }else{
-        document.getElementById("contadorApoyo").innerHTML = '<span id="contadorApoyo" style="font-size: 12px; float: right;" class="text-success mt-3 font-weight-bold">'+charRemain+' caracteres restantes</span>';
-    }
-};
-
-function contadorDos(obj){
+function contadorGrupo(obj){
     var maxLength = 100;
     var strLength = obj.value.length;
     var charRemain = (maxLength - strLength);
 
     if(charRemain == 0){
-        document.getElementById("contadorvoluntarios").innerHTML = '<span id="contadorvoluntarios" style="font-size: 12px; float: right;" class="text-danger mt-3 font-weight-bold">Haz llegado al límite de escritura</span>';
+        document.getElementById("contadorGrupo").innerHTML = '<span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-danger mt-3 font-weight-bold">Haz llegado al límite de escritura</span>';
     }else{
-        document.getElementById("contadorvoluntarios").innerHTML = '<span id="contadorvoluntarios" style="font-size: 12px; float: right;" class="text-success mt-3 font-weight-bold">'+charRemain+' caracteres restantes</span>';
-    }
-};
-
-function contadorTres(obj){
-    var maxLength = 1000;
-    var strLength = obj.value.length;
-    var charRemain = (maxLength - strLength);
-
-    if(charRemain == 0){
-        document.getElementById("contadorActividadUno").innerHTML = '<span id="contadorActividadUno" style="font-size: 12px; float: right;" class="text-danger mt-3 font-weight-bold">Haz llegado al límite de escritura</span>';
-    }else{
-        document.getElementById("contadorActividadUno").innerHTML = '<span id="contadorActividadUno" style="font-size: 12px; float: right;" class="text-success mt-3 font-weight-bold">'+charRemain+' caracteres restantes</span>';
-    }
-};
-
-function contadorCuatro(obj){
-    var maxLength = 1000;
-    var strLength = obj.value.length;
-    var charRemain = (maxLength - strLength);
-
-    if(charRemain == 0){
-        document.getElementById("contadorActividadDos").innerHTML = '<span id="contadorActividadDos" style="font-size: 12px; float: right;" class="text-danger mt-3 font-weight-bold">Haz llegado al límite de escritura</span>';
-    }else{
-        document.getElementById("contadorActividadDos").innerHTML = '<span id="contadorActividadDos" style="font-size: 12px; float: right;" class="text-success mt-3 font-weight-bold">'+charRemain+' caracteres restantes</span>';
+        document.getElementById("contadorGrupo").innerHTML = '<span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-success mt-3 font-weight-bold">'+charRemain+' caracteres restantes</span>';
     }
 };

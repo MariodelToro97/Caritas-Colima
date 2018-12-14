@@ -11,13 +11,19 @@
         <form id="formGrupo">
           <div class="modal-body">
           <div class="form-group">
-            <label for="nomGrupo">Nombre del Grupo</label>
-            <input type="text" id="nomGrupo" name="nombreGrupo" class="form-control" placeholder="Nombre del Grupo" required="" autocomplete="off">
+            <label  id="labelNomGrupohidden" type="hidden" for="nomGrupoHidden">Nombre actual del grupo</label>
+            <input type="text" id="nomGrupohidden" type="hidden" name="nombreGrupoHidden" class="form-control" disabled>
+
+            <div>
+              <span id="labelNomGrupo" for="nomGrupo" style="float: left;">Nombre del Grupo:</span>
+              <span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-success mt-1 font-weight-bold">100 caracteres restantes</span>
+            </div>
+            <input type="text" id="nomGrupo" name="nombreGrupo" class="form-control" onkeyup="contadorGrupo(this)" maxlength="100" placeholder="Nombre del Grupo" required="" autocomplete="off">
           </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-            <input type="submit" value="Guardar" class="btn btn-success">
+            <input id="btnSaveGroup" type="submit" value="Guardar" class="btn btn-success">
           </div>
         </form>
     </div>

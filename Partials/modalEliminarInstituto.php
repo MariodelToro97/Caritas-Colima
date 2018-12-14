@@ -1,6 +1,6 @@
 <!--Inicio del modal de Eliminar Instituto-->
 <div class="modal fade" id="deleteInstituto" tabindex="-1" role="dialog" aria-labelledby="eliminarInstitucionGrupo" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
   <div class="modal-content">
     <div class="modal-header">
       <h5 class="modal-title" id="eliminarInstitucionGrupo">Eliminar Instituto</h5>
@@ -17,7 +17,7 @@
         <input type="submit" class="btn btn-danger" id="btnEliminarInstituto" value = "">
       </div>
     </form>
-  </div>  
+  </div>
 </div>
 </div>
 <!--Fin del modal de Eliminar Instituto-->
