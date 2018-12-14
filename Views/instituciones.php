@@ -17,6 +17,7 @@
       require '../Partials/modalGrupo.php';
       require '../Partials/modalActividades.php';
       require '../Partials/modalCerrar.php';
+      require '../Partials/modalEliminarInstituto.php';
        ?>
   	</div>
 

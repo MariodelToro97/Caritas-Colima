@@ -20,6 +20,34 @@ $('#formGrupo').submit(function(){
   return false;
 });
 
+$('#formDeleteIns').submit(function(){
+  var idGrupo = $('#btnEliminarInstituto').val();
+  $.ajax({
+    type: 'POST',
+    url: '../Peticiones/eliminarInstituto.php',
+    data: {
+      idGrupo: idGrupo,
+    },
+    success: function(data){
+      alertify.error(data);
+      if (data == 'La institución se borro de forma correcta') {
+        $('#deleteInstituto').modal('hide');
+        $('#tablaInstituciones').load(" #tablaInstituciones");
+      }
+    }
+  });
+   return false;
+});
+
+function editarModalEliminar(boton){
+  var idGrupo = boton.value;
+  var nombre = boton.name;
+
+  document.getElementById("btnEliminarInstituto").outerHTML = '<button type="submit" value = "'+idGrupo+'" class="btn btn-danger" id="btnEliminarInstituto">Si</button>';
+  document.getElementById("eliminarInstitucionGrupo").innerHTML = '<h5 class="modal-title" id="eliminarInstitucionGrupo">Eliminar Instituto '+nombre+'</h5>';
+  document.getElementById("cuerpoModalEliminar").innerHTML = '<h6 id="cuerpoModalEliminar">¿Está segur@ de eliminar el instituto <span style = "font-size: 20px;" class = "text-danger font-weight-bold">'+nombre+'</span>?</h6>';
+};
+
 $('#btnAgregarGrupo').click(function(){
   $('#nomGrupo').val('');
   setTimeout(function (){
