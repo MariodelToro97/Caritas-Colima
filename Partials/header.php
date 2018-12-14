@@ -15,7 +15,7 @@
             </a>
             <div class="dropdown-menu bg-danger" aria-labelledby="navbarDropdown">
               <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="instituciones.php" id="verGrupo">Visualizar Grupos</a>
-              <a style="color: rgb(0, 0, 0)" class="dropdown-item" data-toggle="modal" data-target="#agregarGrupo" href="">Agregar Grupo</a>
+              <a style="color: rgb(0, 0, 0)" class="dropdown-item" data-toggle="modal" data-target="#agregarGrupo" id="addGrupos" href="">Agregar Grupo</a>
             </div>
           </li>
 

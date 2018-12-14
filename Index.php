@@ -1,3 +1,16 @@
+<?php
+
+	session_start();
+
+	if (isset($_SESSION['user_id'])) {
+		header('Location: Views/Menu.php');
+		exit;
+	}
+
+	$conexion = mysqli_connect('localhost', 'root', '', 'caritascolima', 3306);
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

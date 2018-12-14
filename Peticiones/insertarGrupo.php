@@ -1,6 +1,6 @@
 <?php
   session_start();
-  require 'database.php';
+  require '../Models/database.php';
 
   if (!empty($_POST['nombreGrupo'])) {
     $records = $conn->prepare('SELECT idInstituciones, nombreInstitucion FROM instituciones WHERE nombreInstitucion = :name');
@@ -14,14 +14,14 @@
       $stmt->bindParam(':name', $_POST['nombreGrupo']);
 
       if ($stmt->execute()) {
-        header('Location: ../Views/Menu.php');
+        echo "Grupo guardado exitosamente";
       } else {
-               header('Location: ../Views/Menu.php');
+        echo "Ocurrió un error en la inserción del dato";
       }
     } else {
-             header('Location: ../Views/Menu.php');
+      echo "Ya existe una institución idéntica en la base de datos";
     }
   } else {
-           header('Location: ../Views/Menu.php');
+    echo "No deje espacios vacios";
   }
  ?>

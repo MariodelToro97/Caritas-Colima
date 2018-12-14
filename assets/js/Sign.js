@@ -10,7 +10,7 @@ $('#formIndex').submit(function(){
           location.href = 'Views/Menu.php';
       }
     }
-  })
+  });
   return false;
 });
 

@@ -8,16 +8,16 @@
         <span aria-hidden="true">&times;</span>
         </button>
       </div>
-        <form action="../Models/insertarGrupo.php" method="post" id="formGrupo">
+        <form id="formGrupo">
           <div class="modal-body">
           <div class="form-group">
             <label for="nomGrupo">Nombre del Grupo</label>
-            <input type="text" id="nomGrupo" name="nombreGrupo" class="form-control" placeholder="Nombre del Grupo" required="" autofocus>
+            <input type="text" id="nomGrupo" name="nombreGrupo" class="form-control" placeholder="Nombre del Grupo" required="" autocomplete="off">
           </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-            <button id="guardarGrupo" type="submit" class="btn btn-success">Guardar</button>
+            <input type="submit" value="Guardar" class="btn btn-success">
           </div>
         </form>
     </div>
