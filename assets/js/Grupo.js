@@ -1,26 +1,38 @@
-//NO SIRVE Y NO SE PORQUE
-function ingreso(){
-  var datos = $('#formGrupo').serialize();
-  alert(datos);
+$('#formGrupo').submit(function(){
   $.ajax({
-    type: "POST",
-    url: "insertarGrupo.php",
-    data: datos,
-    //ERROR
-      error: function(error){
-        Console.log(error);
-        return false;
-      },
-    success:function(r){
-      if (r == 1) {
-        alert('Agregado con éxito');
+    type: 'POST',
+    url: '../Peticiones/insertarGrupo.php',
+    data: $(this).serialize(),
+    // Mostramos un mensaje con la respuesta de PHP
+    success: function(data) {
+      alertify.success(data);
+      if (data == 'Grupo guardado exitosamente') {
+        $('#agregarGrupo').modal('hide');
+        $('#tablaInstituciones').load(" #tablaInstituciones");
       } else {
-        alert('Fallo en la inserción');
+        if (data == 'Ya existe una institución idéntica en la base de datos') {
+          $('#nomGrupo').focus();
+          $('#nomGrupo').val('');
+        }
       }
     }
   });
   return false;
-};
+});
+
+$('#btnAgregarGrupo').click(function(){
+  $('#nomGrupo').val('');
+  setTimeout(function (){
+    $('#nomGrupo').focus();
+  }, 500);
+});
+
+$('#addGrupos').click(function(){
+  $('#nomGrupo').val('');
+  setTimeout(function (){
+    $('#nomGrupo').focus();
+  }, 600);
+});
 
 function saveActivity(){
   //var datos = $('#formActividad').serialize();

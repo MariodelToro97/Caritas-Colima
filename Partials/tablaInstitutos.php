@@ -3,7 +3,7 @@
   <table class="table table-dark">
     <thead>
       <tr>
-        <th scope="col">ID</th>
+        <!--<th scope="col">ID</th>-->
         <th scope="col">Grupo</th>
         <th scope="col">Acciones</th>
 
@@ -17,10 +17,10 @@
 
       ?>
       <tr>
-        <td><?php echo $mostrar['idInstituciones'] ?></td>
+        <!--<td><?php //echo $mostrar['idInstituciones'] ?></td>-->
         <td><?php echo $mostrar['nombreInstitucion'] ?></td>
         <td>
-          <button class="btn btn-info" type="button" name="EditarInstituto">Editar Campo</button>
+          <button value ="<?php echo $mostrar['idInstituciones'] ?>" class="btn btn-info" type="button">Editar Campo</button>
           <button class="btn btn-danger" type="button" name="eliminarInstituto">Eliminar Instituto</button>
         </td>
 

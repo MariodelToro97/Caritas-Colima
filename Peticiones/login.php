@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['user_id'])) {
-  header('Location: Views/Menu.php');
+  header('Location: ../Views/Menu.php');
 }
 
 require '../Models/database.php';

@@ -16,7 +16,7 @@
 <body>
 
 	<?php require '../Partials/header.php'; ?>
-	//require '../Partials/tablaInstitutos.php';
+
 	<div style="padding-top: 42px;">
 		<?php
 			require '../Partials/modalGrupo.php';
