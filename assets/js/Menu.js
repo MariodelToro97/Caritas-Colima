@@ -31,15 +31,8 @@ function saveActivity(){
   var despensa = $('#numeroDespensas').val();
   var actividad = $('#actividadUno').val();
 
-  //alertify.success(fecha);
-
   if (grupo == '' || institucion == '' || fecha == '' || asistentes == '' || despensa == '' || actividad == '') {
     alertify.error('Dejó campos requeridos en blanco');
-    //document.getElementById("validarGrupo").value = grupo;
-    //document.getElementById("validarInstitucion").value = institucion;
-
-    //alert(datos);
-
   }
 };
 

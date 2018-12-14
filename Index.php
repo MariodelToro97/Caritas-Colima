@@ -1,32 +1,3 @@
-<?php
-
-session_start();
-
-if (isset($_SESSION['user_id'])) {
-  header('Location: Views/Menu.php');
-}
-
-require 'Models/database.php';
-
-$message = '';
-
-if (!empty($_POST['user']) && !empty($_POST['password'])) {
-  $records = $conn->prepare('SELECT idUsuarios, Contrasena FROM usuarios WHERE idUsuarios = :user');
-  $records-> bindParam(':user', $_POST['user']);
-  $records->execute();
-  $results = $records->fetch(PDO::FETCH_ASSOC);
-
-  if ($results && password_verify($_POST['password'], $results['Contrasena'])) {
-    $_SESSION['user_id'] = $results['idUsuarios'];
-    header('Location: Views/Menu.php');
-  } else {
-    $message = 'Usuario y/o Contraseña incorrectos';
-  }
-} else {
-  $message = 'No deje espacios en blanco';
-}
-
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -36,14 +7,21 @@ if (!empty($_POST['user']) && !empty($_POST['password'])) {
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Login Cáritas</title>
-  <script src="assets/js/Sign.js" charset="utf-8"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link href="assets/css/signin.css" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css"/>
+  <!-- Default theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/themes/default.min.css"/>
+  <!-- Semantic UI theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/themes/semantic.min.css"/>
+  <!-- Bootstrap theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/themes/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 <div class="login">
   <body class="text-center">
-    <form class="form-signin" action="Index.php" method="POST">
+    <form class="form-signin" id="formIndex">
       <img class="mb-4 mt-5" src="Pictures/LogoC.png" alt="" width="72" height="72">
       <h1 class="h3 mb-4 font-weight-normal">Bienvenido</h1>
       <input type="text" name="user" id="inputEmail" class="form-control" placeholder="Usuario" autofocus="" required="">
@@ -57,14 +35,19 @@ if (!empty($_POST['user']) && !empty($_POST['password'])) {
           </div>
         </label>
       </div>
-      <input class="btn" type="submit" value="Inciar Sesión"><a href="Views/Menu.php"></a>
+      <input class="btn" type="submit" value="Inciar Sesión">
 
-      <?php if(!empty($message)): ?>
-      <p class="text-danger font-weight-bold"> <?= $message ?></p>
+       <?php if(!empty($message)): ?>
+      <p id="mensajeHorror" class="text-danger font-weight-bold"><?= $message ?></p>
       <?php endif; ?>
 
     </form>
     <button class="btn" type="submit"><a href="Views/signup.php" style="text-decoration: none;">Registrarse</a></button>
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
+    <!--AJAX-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/js/Sign.js" charset="utf-8"></script>
   </body>
 </div>
 </html>
