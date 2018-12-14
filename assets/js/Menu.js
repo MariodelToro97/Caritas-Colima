@@ -22,10 +22,31 @@ function ingreso(){
   return false;
 };
 
+function saveActivity(){
+  //var datos = $('#formActividad').serialize();
+  var grupo = $('#selectinstitucion').val();
+  var institucion = $('#Institucion1').val();
+  var fecha = $('#fechaActividad').val();
+  var asistentes = $('#numeroAsistentes').val();
+  var despensa = $('#numeroDespensas').val();
+  var actividad = $('#actividadUno').val();
+
+  //alertify.success(fecha);
+
+  if (grupo == '' || institucion == '' || fecha == '' || asistentes == '' || despensa == '' || actividad == '') {
+    alertify.error('Dejó campos requeridos en blanco');
+    //document.getElementById("validarGrupo").value = grupo;
+    //document.getElementById("validarInstitucion").value = institucion;
+
+    //alert(datos);
+
+  }
+};
+
 function contador(obj){
-    var maxLength = 1000;
-    var strLength = obj.value.length;
-    var charRemain = (maxLength - strLength);
+  var maxLength = 1000;
+  var strLength = obj.value.length;
+  var charRemain = (maxLength - strLength);
 
     if(charRemain == 0){
         document.getElementById("contadorApoyo").innerHTML = '<span id="contadorApoyo" style="font-size: 12px; float: right;" class="text-danger mt-3 font-weight-bold">Haz llegado al límite de escritura</span>';
