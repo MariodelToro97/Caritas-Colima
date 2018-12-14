@@ -37,10 +37,6 @@
       </div>
       <input class="btn" type="submit" value="Inciar Sesión">
 
-       <?php if(!empty($message)): ?>
-      <p id="mensajeHorror" class="text-danger font-weight-bold"><?= $message ?></p>
-      <?php endif; ?>
-
     </form>
     <button class="btn" type="submit"><a href="Views/signup.php" style="text-decoration: none;">Registrarse</a></button>
     <!-- JavaScript -->
