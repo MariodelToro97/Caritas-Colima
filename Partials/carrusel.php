@@ -1,3 +1,14 @@
+<style type="text/css">
+
+  html,body {
+			overflow:hidden;
+    }
+    
+}
+
+    
+  
+	</style>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" >
 <ol class="carousel-indicators">
   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -9,38 +20,33 @@
 </ol>
 <div class="carousel-inner">
   <div class="carousel-item active" style="height: 100vh">
-  <img class="d-block w-100" src="../Pictures/Ca1.jpg" alt="First slide">
+  <img class="d-block w-100" src="../Pictures/Ca1-2.jpg" alt="First slide">
   <div class="carousel-caption d-none d-md-block">
-    <h5>Cáritas Colima</h5>
-    <p>Suministro de alimentos</p>
+    <p></p>
     </div>
     </div>
     <div class="carousel-item" style="height: 100vh">
   <img class="d-block w-100" src="../Pictures/Ca2.jpg" alt="Second slide">
   <div class="carousel-caption d-none d-md-block">
-  <h5>Cáritas Colima</h5>
-  <p>bla bla bla</p>
+  <p></p>
 </div>
 </div>
 <div class="carousel-item" style="height: 100vh">
   <img class="d-block w-100" src="../Pictures/Ca3.jpg" alt="Second slide">
   <div class="carousel-caption d-none d-md-block">
-    <h5>Cáritas Colima</h5>
-    <p>bla bla bla</p>
+    <p></p>
     </div>
     </div>
 <div class="carousel-item" style="height: 100vh">
   <img class="d-block w-100" src="../Pictures/Ca5.jpg" alt="Second slide">
   <div class="carousel-caption d-none d-md-block">
-    <h5>Cáritas Colima</h5>
-    <p>bla bla bla</p>
+    <p></p>
     </div>
      </div>
     <div class="carousel-item" style="height: 100vh">
   <img class="d-block w-100" src="../Pictures/Ca4.jpg" alt="Third slide">
   <div class="carousel-caption d-none d-md-block">
-  <h5>Cáritas Colima</h5>
-  <p>bla bla</p>
+  <p></p>
 </div>
     </div>
     </div>
@@ -53,3 +59,6 @@
        <span class="sr-only">Next</span>
       </a>
   </div>
+
+
+

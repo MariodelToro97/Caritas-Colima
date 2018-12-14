@@ -6,11 +6,7 @@
 	<meta charset="UTF-8">
 	<title>Menú Principal</title>
 	<?php require '../Partials/hojaEstilos.php'; ?>
-	<style type="text/css">
-		html,body {
-			overflow:hidden;
-		}
-	</style>
+
 </head>
 
 <body>
