@@ -11,14 +11,15 @@ if (!empty($_POST['usuario']) && !empty($_POST['password']) && !empty($_POST['co
     $results = $records->fetch(PDO::FETCH_ASSOC);
 
     if (!$results) {
-      $sql = "INSERT INTO usuarios (idUsuarios, Contrasena) VALUES (:user, :password)";
+      $sql = "INSERT INTO usuarios (idUsuarios, Contrasena, idRol) VALUES (:user, :password, :rol)";
       $stmt = $conn->prepare($sql);
       $stmt->bindParam(':user', $_POST['usuario']);
       $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
       $stmt->bindParam(':password', $password);
+      $stmt->bindParam(':rol', $_POST['rol']);
 
       if ($stmt->execute()) {
-        echo 'La inserción se completó satisfactoriamente';        
+        echo 'La inserción se completó satisfactoriamente';
       } else {
         echo 'Algo salió mal con la inserción';
       }

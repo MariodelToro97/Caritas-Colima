@@ -34,6 +34,7 @@ $('#formIngreso').submit(function(){
             $('#newUser').val('');
             $('#primerContra').val('');
             $('#confirmContra').val('');
+            $('#rolUsuario').val('');
           }
         }
       }
