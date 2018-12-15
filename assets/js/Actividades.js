@@ -59,3 +59,18 @@ function contadorCuatro(obj){
         document.getElementById("contadorActividadDos").innerHTML = '<span id="contadorActividadDos" style="font-size: 12px; float: right;" class="text-success mt-3 font-weight-bold">'+charRemain+' caracteres restantes</span>';
     }
 };
+
+$('#selectinstitucion').click(function(){
+  $.ajax({
+    type: 'POST',
+    url: '../Peticiones/selectGrupo.php',
+    data: {
+      prueba: 1
+    },
+    // Mostramos un mensaje con la respuesta de PHP
+    success: function(data) {
+      alert(json_decode(data));
+    }
+  });
+  return false;
+});

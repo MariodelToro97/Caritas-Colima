@@ -12,8 +12,7 @@ $('#formGrupo').submit(function(){
         alertify.success(data);
         $('#nomGrupo').val('');
         if (data == 'Grupo guardado exitosamente') {
-          $('#agregarGrupo').modal('hide');
-          $('#tablaInstituciones').load(" #tablaInstituciones");
+          reloadCombo();
         } else {
           if (data == 'Ya existe una institución idéntica en la base de datos') {
             $('#nomGrupo').focus();
@@ -35,8 +34,7 @@ $('#formGrupo').submit(function(){
         alertify.success(data);
         $('#nomGrupo').val('');
         if (data == 'Grupo actualizado exitosamente') {
-          $('#agregarGrupo').modal('hide');
-          $('#tablaInstituciones').load(" #tablaInstituciones");
+          reloadCombo();
           reset();
         } else {
           if (data == 'Ya existe una institución idéntica en la base de datos') {
@@ -48,6 +46,14 @@ $('#formGrupo').submit(function(){
     return false;
   }
 });
+
+function reloadCombo(){
+  $('#agregarGrupo').modal('hide');
+  $('#tablaInstituciones').load(" #tablaInstituciones");
+  $('div.Refill').load(" div.Refill");
+  $('div.efill').load(" div.efill");
+  $('div.fill').load(" div.fill");
+}
 
 function reset(){
   document.getElementById("contadorGrupo").innerHTML = '<span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-success mt-1 font-weight-bold">100 caracteres restantes</span>';
@@ -70,7 +76,7 @@ $('#formDeleteIns').submit(function(){
       alertify.error(data);
       if (data == 'La institución se borro de forma correcta') {
         $('#deleteInstituto').modal('hide');
-        $('#tablaInstituciones').load(" #tablaInstituciones");
+        reloadCombo();
       }
     }
   });

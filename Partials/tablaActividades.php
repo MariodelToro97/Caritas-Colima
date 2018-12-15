@@ -26,7 +26,7 @@
 
     ?>
     <tr>
-      <td><?php echo $mostrar['idActividades'] ?></td>
+      <!-- <td><?php //echo $mostrar['idActividades'] ?></td> -->
       <td><?php echo utf8_encode($mostrar['idInstitucion']) ?></td>
       <td><?php echo $mostrar['fechaActividad'] ?></td>
       <td><?php echo utf8_encode($mostrar['asistentesActividad']) ?></td>
@@ -39,8 +39,8 @@
       <td><?php echo utf8_encode($mostrar['actividadDos']) ?></td>
       <td><?php echo utf8_encode($mostrar['actividadDos']) ?></td>
       <td>
-        <button class="btn btn-info" type="button" name="EditarInstituto">Editar Campo</button>
-        <button class="btn btn-danger" type="button" name="eliminarInstituto">Eliminar Instituto</button>
+        <button class="btn btn-info" value="<?php echo $mostrar['idActividades'] ?>" type="button">Editar Campo</button>
+        <button class="btn btn-danger" value="<?php echo $mostrar['idActividades'] ?>" type="button" name="eliminarInstituto">Eliminar Instituto</button>
       </td>
 
     </tr>

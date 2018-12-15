@@ -1,4 +1,4 @@
-<header class="">
+<header id="headerProyecto" class="">
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background: rgba(236, 24, 12, 1)">
       <a href="">
         <img class="rounded" src="../Pictures/LogoC.png" style="height:50px; weight: 50px;">
@@ -25,7 +25,7 @@
             </a>
             <div class="dropdown-menu bg-danger" aria-labelledby="navbarDropdown">
               <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="actividades.php" id="verActividad">Visualizar Actividades</a>
-              <a style="color: rgb(0, 0, 0)" class="dropdown-item" data-toggle="modal" data-target="#agregarActividad" href="">Agregar Actividad</a>
+              <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="" data-toggle="modal" data-target="#agregarActividad" href="">Agregar Actividad</a>
             </div>
           </li>
            <div class="dropdown-divider"></div>

@@ -15,20 +15,22 @@
             <div class="row">
               <div class="col-md-6">
                 <label for="selectinstitucion">Institución o Grupo: <span class="text-danger font-weight-bold">*</span></label>
+                <div class="Refill">
                 <select class="custom-select" name="institucion" id="selectinstitucion" required="">
                   <option value="" selected>Seleccione una opción</option>
 
-                  <?php
-                  $sql = "SELECT * from instituciones";
-                  $result = mysqli_query($conexion, $sql);
+                    <?php
+                    $sql = "SELECT * from instituciones ORDER BY nombreInstitucion";
+                    $result = mysqli_query($conexion, $sql);
 
-                  while($mostrar=mysqli_fetch_array($result)){
-                  ?>
-                  <option value="<?php echo $mostrar['idInstituciones'] ?>"><?php echo $mostrar['nombreInstitucion'] ?></option>
-                  <?php
-                  }
-                  ?>
+                    while($mostrar=mysqli_fetch_array($result)){
+                    ?>
+                    <option value="<?php echo $mostrar['idInstituciones'] ?>"><?php echo $mostrar['nombreInstitucion'] ?></option>
+                    <?php
+                    }
+                    ?>
                 </select>
+                </div>
               </div>
               <div class="col-md-6">
                 <label for="fechaActividad">Fecha de realización: <span class="text-danger font-weight-bold">*</span></label>
@@ -49,11 +51,12 @@
                   </div>
                   <div class="col-md-6 mt-2">
                     <label for="Institucion1">Institución 1: <span class="text-danger font-weight-bold">*</span></label>
+                    <div class="efill">
                     <select class="custom-select" name="institucionUno" id="Institucion1" required = "">
                       <option value="" selected>Seleccione una opción</option>
 
                       <?php
-                      $sql = "SELECT * from instituciones";
+                      $sql = "SELECT * from instituciones ORDER BY nombreInstitucion";
                       $result = mysqli_query($conexion, $sql);
 
                       while($mostrar=mysqli_fetch_array($result)){
@@ -64,13 +67,15 @@
                       ?>
                     </select>
                   </div>
+                  </div>
                   <div class="col-md-6 mt-2">
                     <label for="Institucion2">Institución 2:</label>
+                    <div class="fill">
                     <select class="custom-select" name="institucionDos" id="Institucion2">
                       <option selected>Seleccione una opción</option>
 
                       <?php
-                      $sql = "SELECT * from instituciones";
+                      $sql = "SELECT * from instituciones ORDER BY nombreInstitucion";
                       $result = mysqli_query($conexion, $sql);
 
                       while($mostrar=mysqli_fetch_array($result)){
@@ -80,6 +85,7 @@
                       }
                       ?>
                     </select>
+                  </div>
                   </div>
                   <div class="col-md-12">
                     <div>
