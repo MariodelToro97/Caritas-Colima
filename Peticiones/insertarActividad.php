@@ -1,6 +1,6 @@
 <?php
-
 require '../Models/database.php';
+session_start();
 
 //Verifica que no hayan quedado inputs vacíos durante el ingreso de los datos
 $apoEx = $_POST['apoyoExtra'];
@@ -9,23 +9,23 @@ $volunt = $_POST['voluntariosPrac'];
 $actDos = $_POST['actividadDos'];
 
 if (empty($apoEx)) {
-  $apoEx = null;
+  $apoEx = '';
 }
 
 if (empty($instDos)) {
-  $instDos = null;
+  $instDos = '';
 }
 
 if (empty($volunt)) {
-  $volunt = null;
+  $volunt = '';
 }
 
 if (empty($actDos)) {
-  $actDos = null;
+  $actDos = '';
 }
 
 $sql = "INSERT INTO Actividades (idInstitucion, fechaActividad, asistentesActividad, despensasActividad, actividadExtra, institucionUno, institucionDos, voluntarioActividad, actividadUno, actividadDos, idRol) VALUES
-(:idins, :fechA, :asisAc, :despAc, :actE, :insU, :insD, :volunAc, :actU, :actD, :rol)";
+                                  (:idins,        :fechA,             :asisAc,            :desAc,              :actE,        :insU,        :insD,              :volunAc,           :actU,        :actD,  :rol)";
 $stmt = $conn->prepare($sql);
 //Inicializa cada una de las variables con su respectivo valor, por el método POST
 $stmt->bindParam(':idins', $_POST['institucion']);
@@ -38,7 +38,7 @@ $stmt->bindParam(':insD', $instDos);
 $stmt->bindParam(':volunAc', $volunt);
 $stmt->bindParam(':actU', $_POST['actividadUno']);
 $stmt->bindParam(':actD', $actDos);
-$stmt->bindParam(':rol', );
+$stmt->bindParam(':rol', $_SESSION['rol']);
 
 if ($stmt->execute()) {
   echo 'La inserción se completó satisfactoriamente';

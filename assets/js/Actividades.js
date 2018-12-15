@@ -47,7 +47,6 @@ function contadorCuatro(obj){
 };
 
 $('#formActividad').submit(function(){
-  saveActivity();
   $.ajax({
     type: 'POST',
     url: '../Peticiones/insertarActividad.php',
