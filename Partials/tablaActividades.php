@@ -38,7 +38,7 @@
       <td><?php echo utf8_encode($mostrar['actividadUno']) ?></td>
       <td><?php echo utf8_encode($mostrar['actividadDos']) ?></td>
       <td><?php echo utf8_encode($mostrar['actividadDos']) ?></td>
-      <td>
+      <td>        
         <button class="btn btn-info" value="<?php echo $mostrar['idActividades'] ?>" type="button">Editar Campo</button>
         <button class="btn btn-danger" value="<?php echo $mostrar['idActividades'] ?>" type="button" name="eliminarInstituto">Eliminar Instituto</button>
       </td>

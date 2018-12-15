@@ -20,6 +20,7 @@
         <!--<td><?php //echo $mostrar['idInstituciones'] ?></td>-->
         <td><?php echo $mostrar['nombreInstitucion'] ?></td>
         <td>
+          <button class="btn btn-info" value="<?php echo $mostrar['idInstituciones'] ?>" name="<?php echo $mostrar['nombreInstitucion'] ?>" type="button">Agregar Actividad</button>
           <button value ="<?php echo $mostrar['idInstituciones'] ?>" name="<?php echo $mostrar['nombreInstitucion'] ?>" class="btn btn-info" type="button" onclick="editarModalEditar(this);">Editar Grupo</button>
           <button value ="<?php echo $mostrar['idInstituciones'] ?>" name="<?php echo $mostrar['nombreInstitucion'] ?>" class="btn btn-danger" type="button" data-toggle="modal" data-target="#deleteInstituto" onclick="editarModalEliminar(this);">Eliminar Instituto</button>
         </td>

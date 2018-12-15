@@ -8,7 +8,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="../Views/actividades.php" method="post" id="formActividad">
+      <form id="formActividad">
         <div class="modal-body">
           <div class="form-group">
             <label><span class="text-danger font-weight-bold">*</span> Actividad Requerida</label>
@@ -113,7 +113,7 @@
           </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-          <button id="guardarActividad" type="submit" class="btn btn-success" onclick="saveActivity();">Guardar</button>
+          <button id="guardarActividad" type="submit" class="btn btn-success">Guardar</button>
         </div>
       </form>
     </div>

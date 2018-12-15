@@ -1,17 +1,3 @@
-function saveActivity(){
-  //var datos = $('#formActividad').serialize();
-  var grupo = $('#selectinstitucion').val();
-  var institucion = $('#Institucion1').val();
-  var fecha = $('#fechaActividad').val();
-  var asistentes = $('#numeroAsistentes').val();
-  var despensa = $('#numeroDespensas').val();
-  var actividad = $('#actividadUno').val();
-
-  if (grupo == '' || institucion == '' || fecha == '' || asistentes == '' || despensa == '' || actividad == '') {
-    alertify.error('Dejó campos requeridos en blanco');
-  }
-};
-
 function contador(obj){
   var maxLength = 1000;
   var strLength = obj.value.length;
@@ -60,17 +46,15 @@ function contadorCuatro(obj){
     }
 };
 
-$('#selectinstitucion').click(function(){
+$('#formActividad').submit(function(){
+  saveActivity();
   $.ajax({
     type: 'POST',
-    url: '../Peticiones/selectGrupo.php',
-    data: {
-      prueba: 1
-    },
-    // Mostramos un mensaje con la respuesta de PHP
-    success: function(data) {
-      alert(json_decode(data));
+    url: '../Peticiones/insertarActividad.php',
+    data: $('#formActividad').serialize(),
+    success: function(data){
+      alertify.error(data);
     }
   });
-  return false;
+   return false;
 });
