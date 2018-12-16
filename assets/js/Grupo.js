@@ -14,8 +14,9 @@ $('#formGrupo').submit(function(){
         if (data == 'Grupo guardado exitosamente') {
           reloadCombo();
         } else {
-          if (data == 'Ya existe una institución idéntica en la base de datos') {
+          if (data == 'Ya existe una institución con ese nombre en la base de datos') {
             $('#nomGrupo').focus();
+            reset();
           }
         }
       }
@@ -37,8 +38,9 @@ $('#formGrupo').submit(function(){
           reloadCombo();
           reset();
         } else {
-          if (data == 'Ya existe una institución idéntica en la base de datos') {
+          if (data == 'Ya existe una institución con ese nombre en la base de datos') {
             $('#nomGrupo').focus();
+            document.getElementById("contadorGrupo").innerHTML = '<span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-success mt-1 font-weight-bold">150 caracteres restantes</span>';
           }
         }
       }
@@ -56,7 +58,7 @@ function reloadCombo(){
 }
 
 function reset(){
-  document.getElementById("contadorGrupo").innerHTML = '<span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-success mt-1 font-weight-bold">100 caracteres restantes</span>';
+  document.getElementById("contadorGrupo").innerHTML = '<span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-success mt-1 font-weight-bold">150 caracteres restantes</span>';
   document.getElementById("labelNomGrupohidden").style.display = 'none';
   document.getElementById("nomGrupohidden").setAttribute ("type", "hidden");
   document.getElementById("agregarGrupoLabel").innerHTML = '<h5 class="modal-title" id="agregarGrupoLabel">Agregar Grupo</h5>';
@@ -66,28 +68,49 @@ function reset(){
 
 $('#formDeleteIns').submit(function(){
   var idGrupo = $('#btnEliminarInstituto').val();
-  $.ajax({
-    type: 'POST',
-    url: '../Peticiones/eliminarInstituto.php',
-    data: {
-      idGrupo: idGrupo,
-    },
-    success: function(data){
-      alertify.error(data);
-      if (data == 'La institución se borro de forma correcta') {
-        $('#deleteInstituto').modal('hide');
-        reloadCombo();
+  var name = $('#btnEliminarInstituto').name;
+
+  if (name == '') {
+    $.ajax({
+      type: 'POST',
+      url: '../Peticiones/eliminarInstituto.php',
+      data: {
+        idGrupo: idGrupo,
+      },
+      success: function(data){
+        alertify.success(data);
+        if (data == 'La institución se borro de forma correcta') {
+          $('#deleteInstituto').modal('hide');
+          reloadCombo();
+        }
       }
-    }
-  });
-   return false;
+    });
+     return false;
+
+  } else {
+    $.ajax({
+      type: 'POST',
+      url: '../Peticiones/eliminarActividad.php',
+      data: {
+        idGrupo: idGrupo,
+      },
+      success: function(data){
+        alertify.success(data);
+        if (data == 'La actividad se borro de forma correcta') {
+          $('#deleteInstituto').modal('hide');
+          resetDelete();
+        }
+      }
+    });
+     return false;
+  }
 });
 
 function editarModalEditar(boton){
   var idGrupo = boton.value;
   var nombre = boton.name;
 
-  document.getElementById("contadorGrupo").innerHTML = '<span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-success mt-1 font-weight-bold">100 caracteres restantes</span>';
+  document.getElementById("contadorGrupo").innerHTML = '<span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-success mt-1 font-weight-bold">150 caracteres restantes</span>';
   document.getElementById("labelNomGrupohidden").style.display = 'block';
   document.getElementById("nomGrupohidden").setAttribute ("type", "");
   document.getElementById("nomGrupohidden").value = nombre;
@@ -107,9 +130,9 @@ function editarModalEliminar(boton){
   var idGrupo = boton.value;
   var nombre = boton.name;
 
-  document.getElementById("btnEliminarInstituto").outerHTML = '<button type="submit" value = "'+idGrupo+'" class="btn btn-danger" id="btnEliminarInstituto">Si</button>';
-  document.getElementById("eliminarInstitucionGrupo").innerHTML = '<h5 class="modal-title" id="eliminarInstitucionGrupo">Eliminar Instituto '+nombre+'</h5>';
-  document.getElementById("cuerpoModalEliminar").innerHTML = '<h6 id="cuerpoModalEliminar">¿Está segur@ de eliminar el instituto <span style = "font-size: 20px;" class = "text-danger font-weight-bold">'+nombre+'</span>?</h6>';
+  document.getElementById("btnEliminarInstituto").outerHTML = '<button type="submit" value = "'+idGrupo+'" class="btn btn-danger" name = "" id="btnEliminarInstituto">Si</button>';
+  document.getElementById("eliminarInstitucionGrupo").innerHTML = '<h5 class="modal-title" id="eliminarInstitucionGrupo">Eliminar Instituto <span class = "font-italic font-weight-bold" style = "font-size: 21px;">'+nombre+'</span></h5>';
+  document.getElementById("cuerpoModalEliminar").innerHTML = '<h6 id="cuerpoModalEliminar">¿Está segur@ de eliminar el instituto <span style = "font-size: 20px;" class = "text-danger font-italic font-weight-bold">'+nombre+'</span> ?</h6>';
 };
 
 $('#btnAgregarGrupo').click(function(){
@@ -129,7 +152,7 @@ $('#addGrupos').click(function(){
 });
 
 function contadorGrupo(obj){
-    var maxLength = 100;
+    var maxLength = 150;
     var strLength = obj.value.length;
     var charRemain = (maxLength - strLength);
 

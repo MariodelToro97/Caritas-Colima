@@ -16,9 +16,9 @@
 
             <div>
               <span id="labelNomGrupo" for="nomGrupo" style="float: left;">Nombre del Grupo:</span>
-              <span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-success mt-1 font-weight-bold">100 caracteres restantes</span>
+              <span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-success mt-1 font-weight-bold">150 caracteres restantes</span>
             </div>
-            <input type="text" id="nomGrupo" name="nombreGrupo" class="form-control" onkeyup="contadorGrupo(this)" maxlength="100" placeholder="Nombre del Grupo" required="" autocomplete="off">
+            <input type="text" id="nomGrupo" name="nombreGrupo" class="form-control" onkeyup="contadorGrupo(this)" maxlength="150" placeholder="Nombre del Grupo" required="" autocomplete="off">
           </div>
           </div>
           <div class="modal-footer">

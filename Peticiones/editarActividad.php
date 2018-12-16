@@ -12,7 +12,7 @@ if (empty($apoEx)) {
   $apoEx = '---';
 }
 
-if (empty($instDos) || $instDos == 'Seleccione una opción') {
+if (empty($instDos)) {
   $instDos = '---';
 }
 
@@ -24,8 +24,11 @@ if (empty($actDos)) {
   $actDos = '---';
 }
 
-$sql = "INSERT INTO actividades (idInstitucion, fechaActividad, asistentesActividad, despensasActividad, actividadExtra, institucionUno, institucionDos, voluntarioActividad, actividadUno, actividadDos, idRol) VALUES
-                                  (:idins,        :fechA,             :asisAc,            :desAc,              :actE,        :insU,        :insD,              :volunAc,           :actU,        :actD,  :rol)";
+
+
+$sql = "UPDATE actividades SET idInstitucion = :idins, fechaActividad = :fechA, asistentesActividad = :asisAc, despensasActividad = :desAc, actividadExtra = :actE, institucionUno = :insU, institucionDos = :insD, voluntarioActividad = :volunAc, actividadUno = :actU, actividadDos = :actD, idRol = :rol
+        WHERE idActividades = :id";
+
 $stmt = $conn->prepare($sql);
 //Inicializa cada una de las variables con su respectivo valor, por el método POST
 $stmt->bindParam(':idins', $_POST['institucion']);
@@ -39,12 +42,12 @@ $stmt->bindParam(':volunAc', $volunt);
 $stmt->bindParam(':actU', $_POST['actividadUno']);
 $stmt->bindParam(':actD', $actDos);
 $stmt->bindParam(':rol', $_SESSION['rol']);
+$stmt->bindParam(':id', $_POST['idActividadInput']);
 
 if ($stmt->execute()) {
-  echo 'La inserción se completó satisfactoriamente';
+  echo 'Los datos se actualizaron satisfactoriamente';
 } else {
-  echo 'No se pudieron insertar los datos';
+  echo 'No se pudieron actualizar los datos';
   exit;
 }
-
 ?>

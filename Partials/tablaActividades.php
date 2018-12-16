@@ -1,17 +1,17 @@
-<div id="tablaActividades">
+<div id="tablaActividades" class="table-responsive">
 <!--Inicio de tabla de Actividades-->
-<table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
+<table class="table table-sm table-striped table-bordered">
+  <thead style="background: rgba(240, 47, 47, 0.84);" class="text-white">
+    <tr class="text-center" style="font-size: 13px;">
+      <!--<th scope="col">ID</th>-->
       <th scope="col">Grupo</th>
       <th scope="col">Fecha</th>
       <th scope="col">Asistentes</th>
-      <th scope="col">Despensas Entregadas</th>
+      <th scope="col">Despensas</th>
       <th scope="col">Apoyo Extra</th>
       <th scope="col">Institución 1</th>
       <th scope="col">Institución 2</th>
-      <th scope="col">Voluntarios Practicantes</th>
+      <th scope="col">Voluntarios</th>
       <th scope="col">Actividad 1</th>
       <th scope="col">Actividad 2</th>
       <th scope="col">Acciones</th>
@@ -19,13 +19,21 @@
   </thead>
 
   <?php
-  $sql = "SELECT * from actividades";
+  //$sql = "SELECT * FROM actividades";
+  $sql = "SELECT idActividades, ins.nombreInstitucion as idInstitucion, DATE_FORMAT(fechaActividad,'%d/%m/%Y') AS fechaActividad, asistentesActividad, despensasActividad, actividadExtra, institucionUno, institucionDos, voluntarioActividad, actividadUno, actividadDos
+          FROM instituciones as ins INNER JOIN actividades as ac
+                on ac.idInstitucion = ins.idInstituciones
+          ORDER BY fechaActividad";
   $result = mysqli_query($conexion, $sql);
 
   while($mostrar=mysqli_fetch_array($result)){
 
+    if ($mostrar['institucionDos'] == 0) {
+      $mostrar['institucionDos'] == '';
+    }
+
     ?>
-    <tr>
+    <tr class="text-center" style="font-size: 13px; background: rgba(255, 0, 0, 0.44);">
       <!-- <td><?php //echo $mostrar['idActividades'] ?></td> -->
       <td><?php echo $mostrar['idInstitucion'] ?></td>
       <td><?php echo $mostrar['fechaActividad'] ?></td>
@@ -38,8 +46,8 @@
       <td><?php echo utf8_encode($mostrar['actividadUno']) ?></td>
       <td><?php echo utf8_encode($mostrar['actividadDos']) ?></td>
       <td>
-        <button class="btn btn-info" value="<?php echo $mostrar['idActividades'] ?>" type="button">Editar Campo</button>
-        <button class="btn btn-danger" value="<?php echo $mostrar['idActividades'] ?>" type="button" name="eliminarInstituto">Eliminar Actividad</button>
+        <button class="btn btn-info btn-sm" value="<?php echo $mostrar['idActividades'] ?>" type="button" onclick="acomodarEditarActividades(this)" data-toggle="modal" data-target="#agregarActividad">Editar Campo</button>
+        <button class="btn btn-danger btn-sm" value="<?php echo $mostrar['idActividades'] ?>" type="button" name="<?php echo utf8_encode($mostrar['actividadUno']) ?>" data-toggle="modal" data-target="#deleteInstituto" onclick="editarDelete(this)">Eliminar Actividad</button>
       </td>
 
     </tr>

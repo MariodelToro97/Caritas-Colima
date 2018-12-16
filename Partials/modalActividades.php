@@ -12,6 +12,7 @@
         <div class="modal-body">
           <div class="form-group">
             <label><span class="text-danger font-weight-bold">*</span> Actividad Requerida</label>
+            <input id="idActividadInput" value="" type="hidden" name="idActividadInput">
             <div class="row">
               <div class="col-md-6">
                 <label for="selectinstitucion">Institución o Grupo: <span class="text-danger font-weight-bold">*</span></label>
@@ -41,7 +42,7 @@
                   <span class="my-2" style="float: left;">Apoyo Extra:</span>
                   <span id="contadorApoyo" style="font-size: 12px; float: right;" class="text-success mt-2 font-weight-bold">1000 caracteres restantes</span>
                 </div>
-                <textarea onkeyup="contador(this);" class="form-control mt-0" maxlength="1000" name="apoyoExtra" rows="8" cols="80" placeholder="¿Cuál fue el apoyo extra que se les dió?"></textarea>
+                <textarea id="apoyoExtraCa" onkeyup="contador(this);" class="form-control mt-0" maxlength="1000" name="apoyoExtra" rows="8" cols="80" placeholder="¿Cuál fue el apoyo extra que se les dió?"></textarea>
               </div>
               <div class="form-group col-md-2">
                 <label class="mt-4" for="numeroAsistentes">Número de Asistentes: <span class="text-danger font-weight-bold">*</span></label>
@@ -90,9 +91,9 @@
               <div class="col-md-12">
                 <div>
                   <span class="my-2" style="float: left;">Voluntarios Practicantes:</span>
-                  <span id="contadorvoluntarios" style="font-size: 12px; float: right;" class="text-success mt-2 font-weight-bold">100 caracteres restantes</span>
+                  <span id="contadorvoluntarios" style="font-size: 12px; float: right;" class="text-success mt-2 font-weight-bold">250 caracteres restantes</span>
                 </div>
-                <textarea onkeyup="contadorDos(this);" class="form-control mt-0" maxlength="100" name="voluntariosPrac" rows="2" cols="80" placeholder="¿Quiénes apoyaron como voluntarios?"></textarea>
+                <textarea id="voluntariosCaritas" onkeyup="contadorDos(this);" class="form-control mt-0" maxlength="250" name="voluntariosPrac" rows="2" cols="80" placeholder="¿Quiénes apoyaron como voluntarios?"></textarea>
               </div>
               <div class="col-md-6">
                 <div>
@@ -106,13 +107,13 @@
                   <span class="my-2" style="float: left;">Actividad 2:</span>
                   <span id="contadorActividadDos" style="font-size: 12px; float: right;" class="text-success mt-2 font-weight-bold">1000 caracteres restantes</span>
                 </div>
-                <textarea onkeyup="contadorCuatro(this);" class="form-control mt-0" maxlength="1000" name="actividadDos" rows="8" cols="80" placeholder="¿Cuál fue la actividad secundaria que se realizó?"></textarea>
+                <textarea id="actividadDos" onkeyup="contadorCuatro(this);" class="form-control mt-0" maxlength="1000" name="actividadDos" rows="8" cols="80" placeholder="¿Cuál fue la actividad secundaria que se realizó?"></textarea>
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button id="deleteApoyame" type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
           <input id="guardarActividad" type="submit" class="btn btn-success" value="Guardar">
         </div>
       </form>

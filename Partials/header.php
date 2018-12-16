@@ -25,7 +25,7 @@
             </a>
             <div class="dropdown-menu bg-danger" aria-labelledby="navbarDropdown">
               <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="actividades.php" id="verActividad">Visualizar Actividades</a>
-              <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="" data-toggle="modal" data-target="#agregarActividad" href="">Agregar Actividad</a>
+              <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="" data-toggle="modal" data-target="#agregarActividad" href="" id="addActivity">Agregar Actividad</a>
             </div>
           </li>
            <div class="dropdown-divider"></div>
