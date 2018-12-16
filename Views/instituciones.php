@@ -9,7 +9,13 @@
   </head>
   <body>
 
-    <?php require '../Partials/header.php'; ?>
+    <?php
+    if ($_SESSION['rol'] == 1) {
+      require '../Partials/headerAdmin.php';
+    } else {
+      require '../Partials/header.php';
+    }
+    ?>
 
   	<div style="padding-top: 80px;">
       <?php

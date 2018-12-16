@@ -15,7 +15,7 @@ if (!empty($_POST['user']) && !empty($_POST['password'])) {
 
   if ($results && password_verify($_POST['password'], $results['Contrasena'])) {
     $_SESSION['user_id'] = $results['idUsuarios'];
-    $_SESSION['rol'] = $results['idRol'];
+    $_SESSION['rol'] = $results['idRol'];    
     echo "Acceso Correcto";
   } else {
     echo 'Usuario y/o Contraseña incorrectos';

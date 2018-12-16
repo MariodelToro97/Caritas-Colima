@@ -20,10 +20,21 @@
 
   <?php
   //$sql = "SELECT * FROM actividades";
-  $sql = "SELECT idActividades, idInstitucion,  ins.nombreInstitucion as nombreInstitucion, DATE_FORMAT(fechaActividad,'%d/%m/%Y') AS fecha, fechaActividad, asistentesActividad, despensasActividad, actividadExtra, institucionUno, institucionDos, voluntarioActividad, actividadUno, actividadDos
-          FROM instituciones as ins INNER JOIN actividades as ac
-                on ac.idInstitucion = ins.idInstituciones
-          ORDER BY fechaActividad";
+  if ($_SESSION['rol'] == 1) {
+    $sql = "SELECT idActividades, idInstitucion,  ins.nombreInstitucion as nombreInstitucion, DATE_FORMAT(fechaActividad,'%d/%m/%Y') AS fecha, fechaActividad, asistentesActividad, despensasActividad, actividadExtra, institucionUno, institucionDos, voluntarioActividad, actividadUno, actividadDos
+            FROM instituciones as ins INNER JOIN actividades as ac
+                  on ac.idInstitucion = ins.idInstituciones
+            ORDER BY fechaActividad";
+  } else {
+    $numero = $_SESSION['rol'];
+
+    $sql = "SELECT idActividades, idInstitucion,  ins.nombreInstitucion as nombreInstitucion, DATE_FORMAT(fechaActividad,'%d/%m/%Y') AS fecha, fechaActividad, asistentesActividad, despensasActividad, actividadExtra, institucionUno, institucionDos, voluntarioActividad, actividadUno, actividadDos
+            FROM instituciones as ins INNER JOIN actividades as ac
+                  on ac.idInstitucion = ins.idInstituciones
+            WHERE idRol = $numero
+            ORDER BY fechaActividad";
+  }
+
   $result = mysqli_query($conexion, $sql);
 
   $contador = 0;

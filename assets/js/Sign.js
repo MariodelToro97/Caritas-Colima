@@ -22,7 +22,7 @@ $('#formIngreso').submit(function(){
     success: function(data){
       alertify.success(data);
       if (data == 'La inserción se completó satisfactoriamente') {
-        location.href = '../Index.php';
+        location.href = '../Views/usuarios.php';
       } else {
         if (data == 'Las contraseñas no coinciden') {
           $('#primerContra').focus();

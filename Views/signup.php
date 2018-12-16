@@ -45,7 +45,7 @@
       <input class="btn mt-3" type="submit" value="Registrar">
     </form>
 
-    <button class="btn" type="submit"><a href="../Index.php" style="text-decoration: none;">Cancelar</a></button>
+    <button class="btn" type="submit" style="border: none; outline: none; height: 40px; color: #fff; font-size: 16px; background: rgb(163, 16, 16); cursor: pointer; border-radius: 20px; font-weight: bold;"><a href="../Views/Menu.php" style="text-decoration: none;  color: #fff;">Cancelar</a></button>
 
     <!-- JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>

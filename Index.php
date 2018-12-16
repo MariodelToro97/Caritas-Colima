@@ -51,7 +51,7 @@
       <input class="btn" type="submit" value="Inciar Sesión">
 
     </form>
-    <button class="btn" type="submit"><a href="Views/signup.php" style="text-decoration: none;">Registrarse</a></button>
+    <!--<button class="btn" type="submit"><a href="Views/signup.php" style="text-decoration: none;">Registrarse</a></button>-->
     <!-- JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
     <!--AJAX-->

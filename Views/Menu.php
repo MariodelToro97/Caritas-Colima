@@ -11,14 +11,20 @@
 
 <body>
 
-	<?php require '../Partials/header.php'; ?>
+	<?php
+	if ($_SESSION['rol'] == 1) {
+		require '../Partials/headerAdmin.php';
+	} else {
+		require '../Partials/header.php';
+	}
+	?>
 
 	<div style="padding-top: 42px;">
 		<?php
-			require '../Partials/modalGrupo.php';
-			require '../Partials/modalCerrar.php';
-			require '../Partials/modalActividades.php';
-			require '../Partials/carrusel.php';
+		require '../Partials/modalGrupo.php';
+		require '../Partials/modalCerrar.php';
+		require '../Partials/modalActividades.php';
+		require '../Partials/carrusel.php';
 		?>
 	</div>
 	<?php require '../Partials/hojaScript.php'; ?>
