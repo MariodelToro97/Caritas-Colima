@@ -35,7 +35,7 @@
             </a>
             <div class="dropdown-menu bg-danger" aria-labelledby="navbarDropdown">
               <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="usuarios.php" id="verUsers">Visualizar Usuarios</a>
-              <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="../Views/signup.php" href="" id="addUser">Agregar Usuarios</a>
+              <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="../Views/signup.php" name="<?php $_SESSION['Editar'] = 0; ?>" id="addUser">Agregar Usuarios</a>
             </div>
           </li>
            <div class="dropdown-divider"></div>

@@ -31,8 +31,14 @@ if (!isset($_SESSION['user_id'])) {
        require '../Partials/modalCerrar.php';
        require '../Partials/modalActividades.php';
        require '../Partials/tablaUsuarios.php';
+       require '../Partials/modalEliminarInstituto.php';
+       require '../Partials/modalEditarUsuario.php';
        ?>
      </div>
+
+     <!--Creación de botón flotante-->
+    <a id="btnAgregarUsuario" title="Agregar nuevo Usuario al sistema" name="<?php $_SESSION['Editar'] = 0; ?>" class="border border-white cambio btn btn-danger rounded-circle" style="display:scroll; position:fixed;; bottom:5%; right: 5%;" href="signup.php"><i class="fas fa-plus-circle fa-2x"></i></a>
+    <!--Fin del botón flotante-->
 
      <?php require '../Partials/hojaScript.php'; ?>
    </body>

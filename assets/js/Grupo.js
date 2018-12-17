@@ -68,7 +68,7 @@ function reset(){
 
 $('#formDeleteIns').submit(function(){
   var idGrupo = $('#btnEliminarInstituto').val();
-  var name = $('#btnEliminarInstituto').name;
+  var name = $('#btnEliminarInstituto').attr('name');
 
   if (name == '') {
     $.ajax({
@@ -87,22 +87,40 @@ $('#formDeleteIns').submit(function(){
     });
      return false;
 
-  } else {
-    $.ajax({
-      type: 'POST',
-      url: '../Peticiones/eliminarActividad.php',
-      data: {
-        idGrupo: idGrupo,
-      },
-      success: function(data){
-        alertify.success(data);
-        if (data == 'La actividad se borro de forma correcta') {
-          $('#deleteInstituto').modal('hide');
-          resetDelete();
+  } else {    
+    if (name == 'USUARIO') {
+      $.ajax({
+        type: 'POST',
+        url: '../Peticiones/eliminarUsuario.php',
+        data: {
+          idGrupo: idGrupo,
+        },
+        success: function(data){
+          alertify.success(data);
+          if (data == 'El usuario se borro de forma correcta') {
+            $('#deleteInstituto').modal('hide');
+            resetAdministradorModal();
+          }
         }
-      }
-    });
-     return false;
+      });
+       return false;
+    } else {
+      $.ajax({
+        type: 'POST',
+        url: '../Peticiones/eliminarActividad.php',
+        data: {
+          idGrupo: idGrupo,
+        },
+        success: function(data){
+          alertify.success(data);
+          if (data == 'La actividad se borro de forma correcta') {
+            $('#deleteInstituto').modal('hide');
+            resetDelete();
+          }
+        }
+      });
+       return false;
+    }
   }
 });
 

@@ -10,19 +10,24 @@
       </tr>
     </thead>
     <?php
-    $sql = "SELECT idUsuarios FROM usuarios ORDER BY idUsuarios";
+    $sql = "SELECT idUsuarios, idRol FROM usuarios ORDER BY idUsuarios";
     $result = mysqli_query($conexion, $sql);
 
     while($mostrar=mysqli_fetch_array($result)){
 
       ?>
       <tr class="text-center font-weight-bold font-italic" style="background: rgba(255, 0, 0, 0.44);">
-        <!--<td><?php //echo $mostrar['idInstituciones'] ?></td>-->
-        <td><?php echo $mostrar['idUsuarios'] ?></td>
-        <td>
-          <button value ="<?php echo $mostrar['idUsuarios'] ?>" class="btn btn-info" type="button" onclick="">Editar Usuario</button>
-          <button value ="<?php echo $mostrar['idUsuarios'] ?>" class="btn btn-danger" type="button" data-toggle="modal" data-target="#deleteInstituto" onclick="">Eliminar Usuario</button>
-        </td>
+        <?php if ($mostrar['idUsuarios'] != $_SESSION['user_id']) { ?>
+
+          <td><?php echo $mostrar['idUsuarios'] ?></td>
+          <td>
+              <button value ="<?php echo $mostrar['idUsuarios'] ?>" name="<?php echo $mostrar['idRol'] ?>" data-toggle="modal" data-target="#updateUser" class="btn btn-info" type="button" onclick="editarUpdateUser(this);">Editar Usuario</button>
+              <button value ="<?php echo $mostrar['idUsuarios'] ?>" class="btn btn-danger" type="button" data-toggle="modal" data-target="#deleteInstituto" onclick="editarEliminarUsuario(this);">Eliminar Usuario</button>
+          </td>
+
+          <?php
+        } ?>
+
 
       </tr>
       <?php

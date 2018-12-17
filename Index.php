@@ -34,21 +34,13 @@
 </head>
 <div class="login">
   <body class="text-center">
-    <form class="form-signin" id="formIndex">
+    <form class="form-signin mt-3" id="formIndex">
       <img class="mb-4 mt-5" src="Pictures/LogoC.png" alt="" width="72" height="72">
-      <h1 class="h3 mb-4 font-weight-normal">Bienvenido</h1>
-      <input type="text" name="user" id="inputEmail" class="form-control" placeholder="Usuario" autofocus="" required="">
+      <h1 class="h3 mb-4 mt-3 font-weight-normal">Bienvenido</h1>
+      <input type="text" name="user" id="inputEmail" class="form-control mt-3" placeholder="Usuario" autofocus="" required="">
       <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="">
 
-      <div class="checkbox mb-3 mt-4">
-        <label>
-          <div class="form-check-inline">
-            <input type="checkbox" value="remember-me" id="remember">
-            <label for="remember" class="ml-2">Recuérdame</label>
-          </div>
-        </label>
-      </div>
-      <input class="btn" type="submit" value="Inciar Sesión">
+      <input class="btn mt-3" type="submit" value="Inciar Sesión">
 
     </form>
     <!--<button class="btn" type="submit"><a href="Views/signup.php" style="text-decoration: none;">Registrarse</a></button>-->

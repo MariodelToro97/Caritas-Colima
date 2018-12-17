@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$conexion = mysqli_connect('localhost', 'root', '', 'caritascolima', 3306);
  ?>
 
@@ -6,7 +7,7 @@
 <html lang="es" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>Ingresar usuario</title>
+		<title>Ingresar usuario</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link href="../assets/css/signin.css" rel="stylesheet">
   <!-- CSS -->
@@ -24,7 +25,8 @@
   <body class="text-center">
     <form class="form-signin" id="formIngreso">
       <img class="mb-4 mt-3" src="../Pictures/LogoC.png" alt="" width="72" height="72">
-      <h1 class="h3 mb-4 font-weight-normal">Ingresar nuevo Usuario</h1>
+
+      <h1 id="titleIngresoUsuario" class="h3 mb-4 font-weight-normal">Ingresar nuevo Usuario</h1>
       <input id="newUser" type="text" name="usuario" placeholder="Usuario" autofocus="" class="form-control rounded" required = "" autocomplete="off">
       <input id="primerContra" type="password" name="password" class="form-control mt-2 mb-2 rounded" placeholder="Contraseña" required = "" autocomplete="off">
       <input id="confirmContra" type="password" name="confirmPassword" class="form-control rounded" placeholder="Confirmar Contraseña" required = "" autocomplete="off">
@@ -45,7 +47,7 @@
       <input class="btn mt-3" type="submit" value="Registrar">
     </form>
 
-    <button class="btn" type="submit" style="border: none; outline: none; height: 40px; color: #fff; font-size: 16px; background: rgb(163, 16, 16); cursor: pointer; border-radius: 20px; font-weight: bold;"><a href="../Views/Menu.php" style="text-decoration: none;  color: #fff;">Cancelar</a></button>
+    <button class="btn" type="submit" style="border: none; outline: none; height: 40px; color: #fff; font-size: 16px; background: rgb(163, 16, 16); cursor: pointer; border-radius: 20px; font-weight: bold;"><a href="../Views/usuarios.php" style="text-decoration: none;  color: #fff;">Cancelar</a></button>
 
     <!-- JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>

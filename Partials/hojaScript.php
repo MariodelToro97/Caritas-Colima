@@ -2,6 +2,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="../assets/js/Grupo.js" charset="utf-8"></script>
 <script src="../assets/js/Actividades.js" charset="utf-8"></script>
+<script src="../assets/js/Administrador.js" charset="utf-8"></script>
 <!-- JavaScript -->
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
 <!--Bootstrap-->
