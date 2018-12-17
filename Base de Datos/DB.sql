@@ -132,3 +132,5 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 INSERT INTO Roles VALUES (null, 'Administrador');
 INSERT INTO Roles VALUES (null, 'Niños');
 INSERT INTO Roles VALUES (null, 'Adultos');
+
+INSERT INTO Usuarios VALUES('admin', '$2y$10$NdkN5WPf5iGNiDncCZw3w.994FQFZII3vjCrgWFuVhrsNEdqbA4Uq', 1);

@@ -13,25 +13,32 @@
           <div class="form-group">
             <label><span class="text-danger font-weight-bold">*</span> Actividad Requerida</label>
             <input id="idActividadInput" value="" type="hidden" name="idActividadInput">
-
-            <select class="cutom-select" name="rolActividad" id="rolActividad" hidden required = "">
-              <option value="" selected>Seleccione el enfoque de la actividad</option>
-              <?php
-              $sql = "SELECT * from roles ORDER BY nombreRol";
-              $result = mysqli_query($conexion, $sql);
-
-              while($mostrar=mysqli_fetch_array($result)){
-                ?>
-                <?php if ($mostrar['nombreRol'] != 'Administrador'): ?>
-                  <option value="<?php echo $mostrar['idRol'] ?>"><?php echo utf8_encode($mostrar['nombreRol']) ?></option>
-                <?php endif; ?>
-                <?php
-              }
-              ?>
-            </select>
-
             <div class="row">
               <div class="col-md-6">
+
+                <?php
+                  if ($_SESSION['rol'] == 1) { ?>
+                    <label for="rolActividad">Rol de la Actividad <span class="text-danger font-weight-bold">*</span></label>
+                    <select class="custom-select mb-2" name="rol" id="rolActividad" required = "">
+                      <option value="" selected>Seleccione el enfoque de la actividad</option>
+                      <?php
+                      $sql = "SELECT * from roles ORDER BY nombreRol";
+                      $result = mysqli_query($conexion, $sql);
+
+                      while($mostrar=mysqli_fetch_array($result)){
+                        ?>
+                        <?php if ($mostrar['nombreRol'] != 'Administrador'): ?>
+                          <option value="<?php echo $mostrar['idRoles'] ?>"><?php echo utf8_encode($mostrar['nombreRol']) ?></option>
+                        <?php endif; ?>
+                        <?php
+                      }
+                      ?>
+                    </select>
+
+                  <?php
+                  }
+                 ?>
+
                 <label for="selectinstitucion">Institución o Grupo: <span class="text-danger font-weight-bold">*</span></label>
                 <div class="Refill">
                   <select class="custom-select" name="institucion" id="selectinstitucion" required="">

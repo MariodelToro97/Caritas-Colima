@@ -37,6 +37,7 @@
     <form class="form-signin mt-3" id="formIndex">
       <img class="mb-4 mt-5" src="Pictures/LogoC.png" alt="" width="72" height="72">
       <h1 class="h3 mb-4 mt-3 font-weight-normal">Bienvenido</h1>
+			<h6 class="font-italic">Inserte sus credenciales a continuación</h6>
       <input type="text" name="user" id="inputEmail" class="form-control mt-3" placeholder="Usuario" autofocus="" required="">
       <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="">
 

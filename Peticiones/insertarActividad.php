@@ -38,7 +38,13 @@ $stmt->bindParam(':insD', $instDos);
 $stmt->bindParam(':volunAc', $volunt);
 $stmt->bindParam(':actU', $_POST['actividadUno']);
 $stmt->bindParam(':actD', $actDos);
-$stmt->bindParam(':rol', $_SESSION['rol']);
+
+if ($_SESSION['rol'] == 1) {
+  $stmt->bindParam(':rol', $_POST['rol']);
+} else {
+    $stmt->bindParam(':rol', $_SESSION['rol']);
+}
+
 
 if ($stmt->execute()) {
   echo 'La inserción se completó satisfactoriamente';

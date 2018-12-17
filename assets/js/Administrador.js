@@ -44,6 +44,8 @@ $('#updateUser').submit(function() {
 		// Mostramos un mensaje con la respuesta de PHP
 		success: function(data) {
 			alertify.success(data);
+			$('#primerContraUser').val('');
+			$('#confirmContraUser').val('');
 			if (data == 'Usuario actualizado correctamente') {
 				$('#tablaUsuarios').load(' #tablaUsuarios');
 				$('#updateUser').modal('hide');

@@ -18,5 +18,4 @@ if ($_POST['password'] == $_POST['passwordConf']) {
 } else {
   echo "Las contraseñas no coinciden";
 }
-
 ?>

@@ -29,6 +29,16 @@
             </div>
           </li>
            <div class="dropdown-divider"></div>
+
+           <?php
+           if ($_SESSION['rol'] == 2) {
+             $nombre = 'Niños';
+           } else {
+             $nombre = 'Adultos';
+           }
+            ?>
+
+           <a style="color: rgb(255, 255, 255);" class="nav-item nav-link active ml-5 font-italic font-weight-bold">Sesión Iniciada con el rol: <a style="color: rgb(255, 255, 255); font-size: 18px;" class="nav-item nav-link active ml-2 font-italic font-weight-bold"><?php echo $nombre; ?></a></a>
             <a style="color: rgb(255, 255, 255);" class="nav-item nav-link active ml-5" data-toggle="modal" data-target="#cerrarSesion" href="">Cerrar Sesión</a>
         </div>
       </div>
