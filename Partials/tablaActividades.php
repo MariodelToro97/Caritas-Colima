@@ -54,7 +54,18 @@
       <td><?php echo $mostrar['despensasActividad'] ?></td>
       <td><?php echo utf8_encode($mostrar['actividadExtra']) ?></td>
       <td><?php echo $mostrar['institucionUno'] ?></td>
-      <td><?php echo $mostrar['institucionDos'] ?></td>
+
+      <?php
+      if ($mostrar['institucionDos'] == 0) { ?>
+        <td> <?php  echo $mostrar['institucionDos'] ?></td>
+        <?php
+      } else { ?>
+        <td>---</td>
+      <?php
+      }
+       ?>
+
+      <!--<td><?php// echo $mostrar['institucionDos'] ?></td> -->
       <td><?php echo utf8_encode($mostrar['voluntarioActividad']) ?></td>
       <td><?php echo utf8_encode($mostrar['actividadUno']) ?></td>
       <td><?php echo utf8_encode($mostrar['actividadDos']) ?></td>

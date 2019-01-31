@@ -71,8 +71,8 @@
               <div class="form-group col-md-2">
                 <label class="mt-4" for="numeroAsistentes">Número de Asistentes: <span class="text-danger font-weight-bold">*</span></label>
                 <input type="number" min="0" name="numeroAsistentes" class="form-control" id= "numeroAsistentes" placeholder="0" required = "">
-                <label class="mt-2" for="numeroDespensas">Número de Despensas: <span class="text-danger font-weight-bold">*</span></label>
-                <input type="number" min="0" name="numeroDespensas" class="form-control" id= "numeroDespensas" placeholder="0" required = "">
+                <label class="mt-2" for="numeroDespensas">Número de Despensas:</label>
+                <input type="number" min="0" name="numeroDespensas" class="form-control" id= "numeroDespensas" placeholder="0">
               </div>
               <div class="col-md-6 mt-2">
                 <label for="Institucion1">Institución 1: <span class="text-danger font-weight-bold">*</span></label>
@@ -121,10 +121,10 @@
               </div>
               <div class="col-md-6">
                 <div>
-                  <span class="my-2" style="float: left;">Actividad 1: <span class="text-danger font-weight-bold">*</span></span>
+                  <span class="my-2" style="float: left;">Actividad 1:</span>
                   <span id="contadorActividadUno" style="font-size: 12px; float: right;" class="text-success mt-2 font-weight-bold">1000 caracteres restantes</span>
                 </div>
-                <textarea id="actividadUno" onkeyup="contadorTres(this);" class="form-control mt-0" maxlength="1000" name="actividadUno" rows="8" cols="80" placeholder="¿Cuál fue la principal actividad realizada?" required = ""></textarea>
+                <textarea id="actividadUno" onkeyup="contadorTres(this);" class="form-control mt-0" maxlength="1000" name="actividadUno" rows="8" cols="80" placeholder="¿Cuál fue la principal actividad realizada?"></textarea>
               </div>
               <div class="col-md-6">
                 <div>

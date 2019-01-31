@@ -9,6 +9,10 @@
   </head>
   <body>
 
+    <div style="padding-top: 80px;" class="container">
+      <button id="btnGenerarInstitucion" type="button" name="button" class="btn btn-success float-right">Generar Reporte</button>
+    </div>
+
     <?php
     if ($_SESSION['rol'] == 1) {
       require '../Partials/headerAdmin.php';
@@ -17,7 +21,7 @@
     }
     ?>
 
-  	<div style="padding-top: 80px;">
+  	<div style="padding-top: 50px;">
       <?php
       require '../Partials/tablaInstitutos.php';
       require '../Partials/modalGrupo.php';

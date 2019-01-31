@@ -7,6 +7,7 @@ $apoEx = $_POST['apoyoExtra'];
 $instDos = $_POST['institucionDos'];
 $volunt = $_POST['voluntariosPrac'];
 $actDos = $_POST['actividadDos'];
+$actUno = $_POST['actividadUno'];
 
 if (empty($apoEx)) {
   $apoEx = '---';
@@ -14,6 +15,10 @@ if (empty($apoEx)) {
 
 if (empty($instDos) || $instDos == 'Seleccione una opción') {
   $instDos = '---';
+}
+
+if (empty($actUno)) {
+  $actUno = '---';
 }
 
 if (empty($volunt)) {
@@ -36,7 +41,8 @@ $stmt->bindParam(':actE', $apoEx);
 $stmt->bindParam(':insU', $_POST['institucionUno']);
 $stmt->bindParam(':insD', $instDos);
 $stmt->bindParam(':volunAc', $volunt);
-$stmt->bindParam(':actU', $_POST['actividadUno']);
+//$stmt->bindParam(':actU', $_POST['actividadUno']);
+$stmt->bindParam(':actU', $actUno);
 $stmt->bindParam(':actD', $actDos);
 
 if ($_SESSION['rol'] == 1) {
