@@ -49,6 +49,23 @@ $('#formGrupo').submit(function(){
   }
 });
 
+$('#formReporteInsticucion').submit(function(){
+  $.ajax({
+    type: 'POST',
+    //url: '../Peticiones/Reporte_Instituciones.php',
+    success: function(data){
+      alertify.success(data);
+      window.open('../Peticiones/Reporte_Instituciones.php');
+    /*  if (data == 'Reporte generado satisfactoriamente') {
+        alertify.success(data)
+      } else {
+        alertify.error(data)
+      }*/
+    }
+  });
+  return false;
+});
+
 function reloadCombo(){
   $('#agregarGrupo').modal('hide');
   $('#tablaInstituciones').load(" #tablaInstituciones");
@@ -87,7 +104,7 @@ $('#formDeleteIns').submit(function(){
     });
      return false;
 
-  } else {    
+  } else {
     if (name == 'USUARIO') {
       $.ajax({
         type: 'POST',
