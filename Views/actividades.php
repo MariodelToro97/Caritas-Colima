@@ -10,7 +10,7 @@
 <body>
 
   <div style="padding-top: 80px;" class="container">
-    <form method="post" class="form" action="Reporte_Actividades.php">
+    <form method="post" class="form" action="../Peticiones/Reporte_Actividades.php">
         <button id="btnGenerarActividad" type="submit" name="GenerarReporte" class="btn btn-success float-right">Generar Reporte</button>
       </form>
   </div>
