@@ -38,6 +38,16 @@
               <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="../Views/signup.php" id="addUser">Agregar Usuarios</a>
             </div>
           </li>
+
+          <li class="nav-item dropdown">
+            <a style="color: rgb(255, 255, 255)" class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Personas
+            </a>
+            <div class="dropdown-menu bg-danger" aria-labelledby="navbarDropdown">
+              <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="pers.php" id="verperson">Visualizar Personas</a>
+              <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="" id="addPerson">Agregar Personas</a>
+            </div>
+          </li>
            <div class="dropdown-divider"></div>
 
            <a style="color: rgb(255, 255, 255);" class="nav-item nav-link active ml-5 font-italic font-weight-bold">Sesión Iniciada con el rol: <a style="color: rgb(255, 255, 255); font-size: 18px;" class="nav-item nav-link active ml-2 font-italic font-weight-bold">Administrador</a></a>

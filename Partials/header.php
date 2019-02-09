@@ -28,6 +28,16 @@
               <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="" data-toggle="modal" data-target="#agregarActividad" href="" id="addActivity">Agregar Actividad</a>
             </div>
           </li>
+
+          <li class="nav-item dropdown">
+            <a style="color: rgb(255, 255, 255)" class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Personas
+            </a>
+            <div class="dropdown-menu bg-danger" aria-labelledby="navbarDropdown">
+              <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="pers.php" id="verperson">Visualizar Personas</a>
+              <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="" id="addPerson">Agregar Personas</a>
+            </div>
+          </li>
            <div class="dropdown-divider"></div>
 
            <?php

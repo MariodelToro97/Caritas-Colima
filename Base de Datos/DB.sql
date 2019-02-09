@@ -129,8 +129,29 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
+CREATE TABLE IF NOT EXISTS `personas` (
+  `idcaso` INT NOT NULL AUTO_INCREMENT,
+  `fecha` DATE NOT NULL,
+  `apellidop` VARCHAR(20) NOT NULL,
+  `apellidom` VARCHAR(20) NOT NULL,
+  `Nombre` VARCHAR(30) NOT NULL,
+  `Calle` VARCHAR(50) NULL,
+  `numero` INT NULL,
+  `colonia` VARCHAR (50) NULL,
+  `municipio` VARCHAR(30) NULL,
+  `CP` INT NULL,
+  `Telefono` INT NOT NULL,
+  `Edad` INT NOT NULL,
+  `sexo` VARCHAR(1) NOT NULL,
+  `FechaNac` DATE NOT NULL,
+  `LugarNac` VARCHAR(20) NOT NULL,
+  `CURP` VARCHAR(20) NOT NULL,
+  `Escolaridad` varchar(20) NOT NULL,
+  PRIMARY KEY (`idcaso`))
+
 INSERT INTO Roles VALUES (null, 'Administrador');
 INSERT INTO Roles VALUES (null, 'Niños');
 INSERT INTO Roles VALUES (null, 'Adultos');
 
 INSERT INTO Usuarios VALUES('admin', '$2y$10$NdkN5WPf5iGNiDncCZw3w.994FQFZII3vjCrgWFuVhrsNEdqbA4Uq', 1);
+insert into personas VALUES(null,'20/09/1997','Galván', 'Pérez', 'José Miguel', null, null, null, nul, 20978, 3101082374, 50, M, '20/09/1997', Tecomán, JHGSSGHGKD, superior);
