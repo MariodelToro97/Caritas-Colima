@@ -26,6 +26,7 @@
   <div style="padding-top: 50px;">
     <?php
     require '../Partials/tablapersonas.php';
+    require '../Partials/modalPersonas.php'
     ?>
   </div>
 

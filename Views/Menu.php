@@ -24,6 +24,7 @@
 		require '../Partials/modalGrupo.php';
 		require '../Partials/modalCerrar.php';
 		require '../Partials/modalActividades.php';
+		require '../Partials/modalPersonas.php';
 		require '../Partials/carrusel.php';
 		?>
 	</div>

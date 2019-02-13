@@ -35,7 +35,7 @@
             </a>
             <div class="dropdown-menu bg-danger" aria-labelledby="navbarDropdown">
               <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="pers.php" id="verperson">Visualizar Personas</a>
-              <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="" id="addPerson">Agregar Personas</a>
+              <a style="color: rgb(0, 0, 0)" class="dropdown-item" href="" data toggle="modal" data-target="#agregarpersona"id="addPerson">Agregar Personas</a>
             </div>
           </li>
            <div class="dropdown-divider"></div>
