@@ -1,26 +1,22 @@
 $('#formpersona').submit(function() {
         $.ajax({
 			type: 'POST',
-			url: '../Peticiones/insertarPersonas.php',
-			data: $('#formpersona').serialize(),
-			success: function(data) {
-                alertify.success(data);
-                /*
-                console.log("aquÍ");
-				if (data == 'Se ha registrado satisfactoriamente') {
-					$('#tablapersonas').load(" #tablapersonas");
-					$('#agregarpersona').modal('hide');
-					vaciarModal();
-                }
-                */
-			},
-			error: function(r) {
-                //alertify.error(r);
-                alert("erro",r);
-			}
-        });	
-        return false;
-});
+      url: '../Peticiones/insertarPersonas.php',
+      data: $('#formpersona').serialize(),
+      success: function(data) {
+        alertify.success(data);
+        if (data == 'Se ha registrado satisfactoriamente') {
+          $('#tablapersonas').load(" #tablapersonas");
+          $('#agregarpersona').modal('hide');
+          vaciarModal();
+        }
+      },
+      error: function(r) {
+        alertify.error(r);
+      }
+    });
+    return false;
+  });
 
 function vaciarModal() {
     document.getElementById('xose').getElementsByTagName('option')[0].selected = 'selected';
@@ -39,5 +35,4 @@ function vaciarModal() {
     $('#CP').val('');
     $('#TEL').val('');
 
-} 
-
+}
