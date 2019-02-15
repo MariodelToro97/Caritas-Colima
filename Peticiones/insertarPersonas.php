@@ -2,27 +2,31 @@
 require '../Models/database.php';
 session_start();
 
+
 //Traer los datos que se han mandado por metodo post desde la vista de personas
-$Nombre = $_POST['Nombreper'];
-$apellidop = $_POST['apellidopa'];
-$apellidom = $_POST['apellidoma'];
-$Calle = $_POST['callep'];
+$Nombre = $_POST['nombrepersona'];
+$apellidop = $_POST['apellidopaterno'];
+$apellidom = $_POST['apellidomaterno'];
+$Calle = $_POST['calle'];
 $numerocall = $_POST['numerocalle'];
-$colonia = $_POST['coloniaper'];
-$municipio = $_POST['municip']:
+$colonia = $_POST['colonia'];
+$municipio = $_POST['municip'];
 $codigoP = $_POST['CP'];
 $telefono = $_POST['Tel'];
-$edad = $_POST['dade'];
-$sexo = $_POST['xose'];
-$fechanac = $_POST['mientonaci'];
-$lugarNac = $_POST['Garlunaci'];
+$edad = $_POST['EDAD'];
+$sexo = $_POST['SEXO'];
+$fechanac = $_POST['fechnacimiento'];
+$lugarNac = $_POST['lugarnacimiento'];
 $estadoCivil = $_POST['EC'];
-$CURP = $_POST['PRUC'];
-$escolaridad = $_POST['laridadesco'];
+$CURP = $_POST['CURP'];
+$escolaridad = $_POST['escolaridad'];
 $Fecharegistro = $_POST['FechR'];
 
+
+
+
 $sql = "INSERT INTO personas (fecha, apellidop, apellidom, Nombre, calle, numero, colonia, municipio, CP, Telefono, 
-                                Edad, sexo, FechaNac, LugarNac, EstadoCiv,
+                                Edad, sexo, FechaNac, LugarNac, LugarNac, EstadoCiv,
                                  CURP, Escolaridad) VALUES
                                   (:fech, :Apep, :Apem, :nom, :cal, :num, :colo, :muni,
                                   :codpos, :tele,  :sex, :fechan, :lugarn, :estaciv, :cup, :esco)";
@@ -51,3 +55,5 @@ if ($stmt->execute()) {
   echo 'No se pudieron insertar los datos';
   exit;
 }
+*/
+?>

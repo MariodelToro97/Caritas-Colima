@@ -19,10 +19,10 @@
       <th scope="col">Sexo</th>
       <th scope="col">Fecha de nacimiento</th>
       <th scope="col">Lugar de nacimiento</th>
-      <th scope="col">Edad</th>
       <th scope="col">Estado Civil</th>
       <th scope="col">CURP</th>
       <th scope="col">Escolaridad</th>
+      <th scope="col">Acciones</th>
     </tr>
   </thead>
 
@@ -56,22 +56,22 @@
     <tr class="text-center" style="font-size: 13px; background: rgba(255, 0, 0, 0.44);">
     <td><?php echo utf8_encode ($mostrar['idcaso']) ?></td>
     <td><?php echo ($mostrar['fecha']) ?></td>
-      <td><?php echo utf8_encode ($mostrar['nombre']) ?></td>
       <td><?php echo utf8_encode ($mostrar['apellidop']) ?></td>
       <td><?php echo utf8_encode ($mostrar['apellidom']) ?></td>
-      <td><?php echo utf8_encode($mostrar['calle'] )?></td>
+      <td><?php echo utf8_encode ($mostrar['Nombre']) ?></td>
+      <td><?php echo utf8_encode($mostrar['Calle'] )?></td>
       <td><?php echo ($mostrar['numero']) ?></td>
       <td><?php echo utf8_encode ($mostrar['colonia']) ?></td>
       <td><?php echo utf8_encode($mostrar['municipio']) ?></td>
       <td><?php echo ($mostrar['CP']) ?></td>
-      <td><?php echo ($mostrar['telefono']) ?></td>
-      <td><?php echo ($mostrar['edad']) ?></td>
+      <td><?php echo ($mostrar['Telefono']) ?></td>
+      <td><?php echo ($mostrar['Edad']) ?></td>
       <td><?php echo ($mostrar['sexo']) ?></td>
-      <td><?php echo ($mostrar['fechaNac']) ?></td>
-      <td><?php echo ($mostrar['lugarNac']) ?></td>
-      <td><?php echo ($mostrar['EstadoCivil']) ?></td>
+      <td><?php echo ($mostrar['FechaNac']) ?></td>
+      <td><?php echo utf8_encode($mostrar['LugarNac']) ?></td>
+      <td><?php echo utf8_encode($mostrar['EstadoCiv']) ?></td>
       <td><?php echo ($mostrar['CURP']) ?></td>
-      <td><?php echo ($mostrar['Escolaridad']) ?></td>
+      <td><?php echo utf8_encode($mostrar['Escolaridad']) ?></td>
       <?php
       /*
       if ($mostrar['institucionDos'] == 0) { ?>

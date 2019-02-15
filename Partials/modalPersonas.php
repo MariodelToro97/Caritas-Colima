@@ -8,7 +8,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form id="formActividad">
+      <form id="formpersona">
         <div class="modal-body">
           <div class="form-group">
             <label ><span class="text-danger font-weight-bold"></span> Datos del beneficiario</label>
@@ -22,57 +22,53 @@
             <label for="FechR">Fecha de realización de reporte: <span class="text-danger font-weight-bold">*</span></label>
               <input type="date" name="FechR" class="form-control" id="FechR" required = "">
               </div>
-                  <label for="apellidopa">Apellido paterno <span class="text-danger font-weight-bold">*</span></label>
-                <input id="apellidopa" class="form-control" name="apellidopa" value="" type="text" require>
-                  <label for="apellidoma">Apellido materno <span class="text-danger font-weight-bold">*</span></label>
-                <input id="apellidoma" class="form-control" name="apellidoma" value="" type="text" require>
-                    <label for="Nombreper" >Nombre (s) <span class="text-danger font-weight-bold">*</span></label>
-                <input id="Nombreper" require class="form-control" name="Nombreper" value="" type="text" require>
+                  <label for="apellidopaterno">Apellido paterno <span class="text-danger font-weight-bold">*</span></label>
+                <input id="apellidopaterno" class="form-control" name="apellidopaterno" value="" type="text" required="">
+                  <label for="apellidomaterno">Apellido materno <span class="text-danger font-weight-bold">*</span></label>
+                <input id="apellidomaterno" class="form-control" name="apellidomaterno" value="" type="text" required="">
+                    <label for="nombrepersona" >Nombre (s) <span class="text-danger font-weight-bold">*</span></label>
+                <input id="nombrepersona" require class="form-control" name="nombrepersona" value="" type="text" required="">
                     <label for="EC" >Estado Civil <span class="text-danger font-weight-bold">*</span></label>
-                <input id="EC" require class="form-control" name="EC" value="" type="text" require>
-                    <label for="PRUC" >CURP<span class="text-danger font-weight-bold">*</span></label>
-                <input id="PRUC" require class="form-control" name="PRUC" value="" type="text" require>
+                <input id="EC" require class="form-control" name="EC" value="" type="text" required="">
+                    <label for="CURP" >CURP<span class="text-danger font-weight-bold">*</span></label>
+                <input id="CURP" require class="form-control" name="CURP" value="" type="text" required="">
               </div>
 
               <div class="col-md-6">
-              <div class="col-md-7">
-              <label for="numreg">Número de registro <span class="text-danger font-weight-bold">*</span></label>
-                <input id="numreg" class="form-control" name="numreg" value="" type="number" require >
-            </div>
-              <label for="xose">Sexo <span class="text-danger font-weight-bold">*</span></label>
-              <select class="custom-select" name="xose" id="xose" require>
-              <option value="" selected >Elija una opción</option>
+              <label for="SEXO">Sexo <span class="text-danger font-weight-bold">*</span></label>
+              <select class="custom-select" name="SEXO" id="SEXO" required="">
+              <option value="0" selected >Elija una opción</option>
               <option value="1">Femenino</option>
               <option value="2">Maculino</option>
               </select>
-                <label for="mientonaci">Fecha de nacimiento: <span class="text-danger font-weight-bold">*</span></label>
-                  <input type="date" name="mientonaci" class="form-control" id="mientonaci" required = "">
-                <label for="dade">edad <span class="text-danger font-weight-bold">*</span></label>
-                  <input type="number" name="dade" id="dade" class="form-control">
-                <label for="Garlunaci">Lugar de nacimiento: <span class="text-danger font-weight-bold">*</span></label>
-                  <input type="text" name="Garlunaci" class="form-control" id="Garlunaci" required = "">
-                <label for="laridadesco" >Escolaridad <span class="text-danger font-weight-bold">*</span></label>
-                  <input id="laridadesco" require class="form-control" name="laridadesco" value="" type="text" require>
+                <label for="fechnacimiento">Fecha de nacimiento: <span class="text-danger font-weight-bold">*</span></label>
+                  <input type="date" name="fechnacimiento" class="form-control" id="fechnacimiento" required = "">
+                <label for="EDAD">edad <span class="text-danger font-weight-bold">*</span></label>
+                  <input type="number" name="EDAD" id="EDAD" class="form-control">
+                <label for="lugarnacimiento">Lugar de nacimiento: <span class="text-danger font-weight-bold">*</span></label>
+                  <input type="text" name="lugarnacimiento" class="form-control" id="lugarnacimiento" required = "">
+                <label for="escolaridad" >Escolaridad <span class="text-danger font-weight-bold">*</span></label>
+                  <input id="escolaridad" require class="form-control" name="escolaridad" value="" type="text" required="">
               </div>
               <div class="col-md-10">
-              <label for="callep" >Calle <span class="text-danger font-weight-bold">*</span></label>
-                  <input id="callep" class="form-control" name="callep" value="" type="text" require>
+              <label for="calle" >Calle <span class="text-danger font-weight-bold">*</span></label>
+                  <input id="calle" class="form-control" name="calle" value="" type="text" required="">
               </div>
               <div class="col-md-7">
-              <label for="coloniaper" >Colonia<span class="text-danger font-weight-bold">*</span></label>
-                  <input id="coloniaper" require class="form-control" name="coloniaper" value="" type="text">
-                  <label for="municip" >Municipio<span class="text-danger font-weight-bold">*</span></label>
-                  <input id="municip" require class="form-control" name="municip" value="" type="text">
+              <label for="colonia" >Colonia<span class="text-danger font-weight-bold">*</span></label>
+                  <input id="colonia" required="" class="form-control" name="colonia" value="" type="text">
+              <label for="municip" >Municipio<span class="text-danger font-weight-bold">*</span></label>
+                  <input id="municip" required="" class="form-control" name="municip" value="" type="text">
               </div>
               <div class="form-group col-md-3">
                 <label class="mt-4" for="numerocalle">Número de la calle<span class="text-danger font-weight-bold">*</span></label>
                 <input type="number" min="0" name="numerocalle" class="form-control" id= "numerocalle" placeholder="0" required = "">
                 <label class="mt-2" for="CP">Código postal <span class="text-danger font-weight-bold">*</span></label>
-                <input type="text" name="CP" class="form-control" id= "CP" placeholder="0" require>
+                <input type="text" name="CP" class="form-control" id= "CP" placeholder="0" required="">
               </div>
               <div class="form-group col-md-3">
               <label for="Tel">Número telefonico<span class="text-danger font-weight-bold">*</span></label>
-                <input type="tel" name="Tel" id="Tel" class="form-control"  require>
+                <input type="tel" name="Tel" id="Tel" class="form-control"  required="">
               </div>
               
             </div>
@@ -80,7 +76,7 @@
         </div>
         <div class="modal-footer">
           <button id="deleteApoyame" type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-          <input id="guardarActividad" type="submit" class="btn btn-success" value="Guardar">
+          <input id="guardarpersona" type="submit" class="btn btn-success" value="Guardar">
         </div>
       </form>
     </div>
