@@ -25,11 +25,8 @@ $Fecharegistro = $_POST['FechR'];
 
 
 
-$sql = "INSERT INTO personas (fecha, apellidop, apellidom, Nombre, calle, numero, colonia, municipio, CP, Telefono, 
-                                Edad, sexo, FechaNac, LugarNac, LugarNac, EstadoCiv,
-                                 CURP, Escolaridad) VALUES
-                                  (:fech, :Apep, :Apem, :nom, :cal, :num, :colo, :muni,
-                                  :codpos, :tele,  :sex, :fechan, :lugarn, :estaciv, :cup, :esco)";
+$sql = "INSERT INTO personas (fecha, apellidop, apellidom, Nombre, Calle, numero, colonia, municipio, CP, Telefono, Edad, sexo, FechaNac, LugarNac, EstadoCiv, CURP, Escolaridad) VALUES
+                            (:fech,    :Apep,   :Apem,      :nom, :cal,   :num,   :colo,    :muni,  :codpos, :tele, :edad,:sex, :fechan, :lugarn,     :estaciv, :cup, :esco)";
 $stmt = $conn->prepare($sql);
 //Inicializa cada una de las variables con su respectivo valor, por el método POST
 $stmt->bindParam(':fech', $Fecharegistro);
@@ -43,6 +40,7 @@ $stmt->bindParam(':muni', $municipio);
 $stmt->bindParam(':codpos', $codigoP);
 $stmt->bindParam(':tele', $telefono);
 $stmt->bindParam(':sex', $sexo);
+$stmt->bindParam(':edad', $edad);
 $stmt->bindParam(':fechan', $fechanac);
 $stmt->bindParam(':lugarn', $lugarNac);
 $stmt->bindParam(':estaciv', $estadoCivil);
@@ -55,5 +53,4 @@ if ($stmt->execute()) {
   echo 'No se pudieron insertar los datos';
   exit;
 }
-*/
 ?>

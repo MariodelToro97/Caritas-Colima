@@ -145,13 +145,13 @@ CREATE TABLE IF NOT EXISTS `personas` (
   `sexo` VARCHAR(1) NOT NULL,
   `FechaNac` DATE NOT NULL,
   `LugarNac` VARCHAR(20) NOT NULL,
+  `EstadoCiv` VARCHAR(20) NOT NULL,
   `CURP` VARCHAR(20) NOT NULL,
   `Escolaridad` varchar(20) NOT NULL,
-  PRIMARY KEY (`idcaso`))
+  PRIMARY KEY (`idcaso`));
 
 INSERT INTO Roles VALUES (null, 'Administrador');
 INSERT INTO Roles VALUES (null, 'Niños');
 INSERT INTO Roles VALUES (null, 'Adultos');
 
 INSERT INTO Usuarios VALUES('admin', '$2y$10$NdkN5WPf5iGNiDncCZw3w.994FQFZII3vjCrgWFuVhrsNEdqbA4Uq', 1);
-insert into personas VALUES(null,'20/09/1997','Galván', 'Pérez', 'José Miguel', null, null, null, nul, 20978, 3101082374, 50, M, '20/09/1997', Tecomán, JHGSSGHGKD, superior);
