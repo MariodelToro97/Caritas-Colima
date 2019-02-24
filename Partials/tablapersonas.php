@@ -6,11 +6,12 @@
         <!--<th scope="col">ID</th>-->
         <!--<th scope="col">Número de caso</th>-->
         <th scope="col">Fecha</th>
-        <th scope="col">Apellido Paterno</th>
-        <th scope="col">Apellido Materno</th>
+<!--        <th scope="col">Apellido Paterno</th>
+            <th scope="col">Apellido Materno</th> -->
         <th scope="col">Nombre</th>
-        <th scope="col">Calle</th>
-        <th scope="col">Número</th>
+<!--        <th scope="col">Calle</th>
+            <th scope="col">Número</th> -->
+        <th scope="col">Domicilio</th>
         <th scope="col">Colonia</th>
         <th scope="col">Municipio</th>
         <th scope="col">CP</th>
@@ -46,25 +47,37 @@
         ?>
 
         <td><?php echo ($mostrar['fecha']) ?></td>
-        <td><?php echo ($mostrar['apellidop']) ?></td>
-        <td><?php echo ($mostrar['apellidom']) ?></td>
-        <td><?php echo ($mostrar['Nombre']) ?></td>
+        <td hidden><?php echo ($mostrar['apellidop']) ?></td>
+        <td hidden><?php echo ($mostrar['apellidom']) ?></td>
+        <td hidden><?php echo ($mostrar['Nombre']) ?></td>
 
         <?php
-        if ($mostrar['Calle'] == '') {
-          $mostrar['Calle'] = '----';
-        }
-        ?>
-
-        <td><?php echo ($mostrar['Calle'] )?></td>
-
-        <?php
-        if ($mostrar['numero'] == 0) {
-          $mostrar['numero'] = '----';
-        }
+        $Nombre = $mostrar['Nombre'] . " " . $mostrar['apellidop'] . " " . $mostrar['apellidom'];
          ?>
 
-        <td><?php echo ($mostrar['numero']) ?></td>
+        <td ><?php echo ($Nombre) ?></td>
+
+        <?php
+        /*if ($mostrar['Calle'] == '') {
+          $mostrar['Calle'] = '----';
+        }*/
+        ?>
+
+        <td hidden><?php echo ($mostrar['Calle'] )?></td>
+
+        <?php
+        /*if ($mostrar['numero'] == 0) {
+          $mostrar['numero'] = '----';
+        } */
+         ?>
+
+        <td hidden><?php echo ($mostrar['numero']) ?></td>
+
+        <?php
+        $domicilio = $mostrar['Calle'] . " #" . $mostrar['numero'];
+         ?>
+
+        <td ><?php echo ($domicilio) ?></td>
 
         <?php
         if ($mostrar['colonia'] == '') {

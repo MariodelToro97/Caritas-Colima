@@ -22,7 +22,7 @@
                 <select class="custom-select" name="SEXO" id="SEXO" required>
                   <option value="" selected >Elija una opción</option>
                   <option value="1">Femenino</option>
-                  <option value="2">Maculino</option>
+                  <option value="2">Masculino</option>
                 </select>
               </div>
               <div class="col-md-4">
@@ -123,3 +123,9 @@
 </div>
 </div>
 <!--Fin del modal de actividades-->
+
+<!-- Inicio del div de sugerencias en tiempo real -->
+<div id="sugerencias">
+
+</div>
+<!-- Fin del div de sugerencias en tiempo real-->
