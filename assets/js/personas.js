@@ -34,5 +34,4 @@ function vaciarModal() {
     $('#numerocalle').val('');
     $('#CP').val('');
     $('#TEL').val('');
-
 }
