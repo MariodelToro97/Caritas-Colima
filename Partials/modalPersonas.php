@@ -78,7 +78,7 @@
                 <label for="escolaridad" class="mt-1">Escolaridad <span class="text-danger font-weight-bold">*</span></label>
                 <select class="custom-select" name="escolaridad" id="escolaridad" required>
                   <option value="" selected >Elija una opción</option>
-                  <option value="1">Ninguno</option>
+                  <option value="1">Ninguna</option>
                   <option value="2">Preescolar</option>
                   <option value="3">Primaria</option>
                   <option value="4">Secundaria</option>
