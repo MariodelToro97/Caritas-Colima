@@ -37,7 +37,7 @@
       $contador++;
       ?>
       <tr class="text-center" style="font-size: 13px; background: rgba(255, 0, 0, 0.44);">
-        <td hidden><?php echo utf8_encode ($mostrar['idcaso']) ?></td>
+        <td hidden><?php echo ($mostrar['idcaso']) ?></td>
 
         <?php
         if ($mostrar['fecha'] == '0000-00-00') {
@@ -46,9 +46,9 @@
         ?>
 
         <td><?php echo ($mostrar['fecha']) ?></td>
-        <td><?php echo utf8_encode ($mostrar['apellidop']) ?></td>
-        <td><?php echo utf8_encode ($mostrar['apellidom']) ?></td>
-        <td><?php echo utf8_encode ($mostrar['Nombre']) ?></td>
+        <td><?php echo ($mostrar['apellidop']) ?></td>
+        <td><?php echo ($mostrar['apellidom']) ?></td>
+        <td><?php echo ($mostrar['Nombre']) ?></td>
 
         <?php
         if ($mostrar['Calle'] == '') {
@@ -56,7 +56,7 @@
         }
         ?>
 
-        <td><?php echo utf8_encode($mostrar['Calle'] )?></td>
+        <td><?php echo ($mostrar['Calle'] )?></td>
 
         <?php
         if ($mostrar['numero'] == 0) {
@@ -72,7 +72,7 @@
         }
         ?>
 
-        <td><?php echo utf8_encode ($mostrar['colonia']) ?></td>
+        <td><?php echo ($mostrar['colonia']) ?></td>
 
         <?php
         if ($mostrar['municipio'] == '') {
@@ -80,7 +80,7 @@
         }
         ?>
 
-        <td><?php echo utf8_encode($mostrar['municipio']) ?></td>
+        <td><?php echo ($mostrar['municipio']) ?></td>
 
         <?php
         if ($mostrar['CP'] == 0) {
@@ -134,7 +134,7 @@
         }
         ?>
 
-        <td><?php echo utf8_encode($mostrar['LugarNac']) ?></td>
+        <td><?php echo ($mostrar['LugarNac']) ?></td>
 
         <?php
         switch ($mostrar['EstadoCiv']) {
@@ -168,7 +168,7 @@
         }
         ?>
 
-        <td><?php echo utf8_encode($mostrar['EstadoCiv']) ?></td>
+        <td><?php echo ($mostrar['EstadoCiv']) ?></td>
         <td><?php echo ($mostrar['CURP']) ?></td>
 
         <?php
@@ -211,7 +211,7 @@
         }
         ?>
 
-        <td><?php echo utf8_encode($mostrar['Escolaridad']) ?></td>
+        <td><?php echo ($mostrar['Escolaridad']) ?></td>
 
         <td>
           <button class="btn btn-info btn-sm" value="<?php echo $mostrar['idActividades'] ?>" name="<?php echo $contador ?>" type="button" onclick="acomodarEditarActividades(this)" data-toggle="modal" data-target="#agregarActividad">Editar Campo</button>

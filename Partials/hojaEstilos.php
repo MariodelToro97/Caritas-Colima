@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="../assets/css/index_style.css"/>
+<link rel="stylesheet" href="../assets/css/estilos.css">
 <!-- CSS -->
 <link rel="stylesheet" href="../assets/css/alertify.min.css"/>
 <!-- Default theme -->

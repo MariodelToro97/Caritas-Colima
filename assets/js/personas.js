@@ -5,7 +5,7 @@ $('#formpersona').submit(function() {
     data: $('#formpersona').serialize(),
     success: function(data) {
       alertify.success(data);
-      if (data == 'Se ha registrado satisfactoriamente') {
+      if (data == 'La inserción se completó satisfactoriamente') {
         $('#tablapersonas').load(" #tablapersonas");
         $('#agregarpersona').modal('hide');
         vaciarModal();

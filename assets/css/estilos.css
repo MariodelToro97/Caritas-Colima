@@ -1,0 +1,7 @@
+.boton {
+  opacity: 0.1;
+}
+
+.boton:hover{
+  opacity: 1;
+}
