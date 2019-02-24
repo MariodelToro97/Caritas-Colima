@@ -30,26 +30,41 @@
                 <input type="date" name="fechnacimiento" class="form-control" id="fechnacimiento">
               </div>
 
-              <div class=" col-md-6">
-                <label for="apellidopaterno" class="mt-1">Apellido paterno <span class="text-danger font-weight-bold">*</span></label>
+              <div class="mt-1 col-md-6">
+                <div>
+                  <span>Apellido paterno <span class="text-danger font-weight-bold">*</span></span>
+                  <span id="contadorApellidoPat" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">30 caracteres restantes</span>
+                </div>
                 <input id="apellidopaterno" class="form-control" name="apellidopaterno" value="" type="text" required>
               </div>
-              <div class=" col-md-6">
-                <label for="apellidomaterno" class="mt-1">Apellido materno <span class="text-danger font-weight-bold">*</span></label>
+              <div class="mt-1 col-md-6">
+                <div>
+                  <span>Apellido materno <span class="text-danger font-weight-bold">*</span></span>
+                  <span id="contadorApellidoMat" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">30 caracteres restantes</span>
+                </div>
                 <input id="apellidomaterno" class="form-control" name="apellidomaterno" value="" type="text" required>
               </div>
 
-              <div class="col-md-6">
-                <label for="nombrepersona" class="mt-1">Nombre (s) <span class="text-danger font-weight-bold">*</span></label>
+              <div class="mt-1 col-md-6">
+                <div>
+                  <span>Nombre (s) <span class="text-danger font-weight-bold">*</span></span>
+                  <span id="contadorNombre" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">30 caracteres restantes</span>
+                </div>
                 <input id="nombrepersona" class="form-control" name="nombrepersona" value="" type="text" required>
               </div>
-              <div class="col-md-6">
-                <label for="lugarnacimiento" class="mt-1">Lugar de nacimiento</label>
+              <div class="mt-1 col-md-6">
+                <div>
+                  <span>Lugar de nacimiento <span class="text-danger font-weight-bold">*</span></span>
+                  <span id="contadorLugarNacimiento" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">30 caracteres restantes</span>
+                </div>
                 <input type="text" name="lugarnacimiento" class="form-control" id="lugarnacimiento" autocomplete="on">
               </div>
 
-              <div class="col-md-4">
-                <label for="CURP" class="mt-1">CURP <span class="text-danger font-weight-bold">*</span></label>
+              <div class="mt-1 col-md-4">
+                <div>
+                  <span>CURP <span class="text-danger font-weight-bold">*</span></span>
+                  <span id="contadorCURP" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">18 caracteres restantes</span>
+                </div>
                 <input id="CURP" class="form-control" name="CURP" value="" type="text" required autocomplete="off" pattern="[A-Z]{4}[0-9]{6}[H-M]{1}[A-Z]{5}[A-Z,0-9]{2}" placeholder="AAAA123456HAAAAA1S">
               </div>
               <div class="col-md-3">
@@ -65,8 +80,11 @@
                   <option value="7">Viudo/a</option>
                 </select>
               </div>
-              <div class="col-md-3">
-                <label for="Tel" class="mt-1">Teléfono</label>
+              <div class="mt-1 col-md-3">
+                <div>
+                  <span>Teléfono</span>
+                  <span id="contadorTelefono" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">25 restantes</span>
+                </div>
                 <input type="number" name="Tel" id="Tel" class="form-control" min="0" placeholder="1234567890">
               </div>
               <div class="col-md-2">
@@ -89,8 +107,11 @@
                   <option value="9">Doctorado</option>
                 </select>
               </div>
-              <div class="col-md-6 col-xs-12 col-sm-12 col-lg-6 mt-1">
-                <label for="calle" >Calle</label>
+              <div class="mt-1 col-md-6 col-xs-12 col-sm-12 col-lg-6 mt-1">
+                <div>
+                  <span>Calle</span>
+                  <span id="contadorCalle" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">50 caracteres restantes</span>
+                </div>
                 <input id="calle" class="form-control" name="calle" value="" type="text">
               </div>
               <div class="col-md-2">
@@ -98,16 +119,25 @@
                 <input type="number" min="0" name="numerocalle" class="form-control" id= "numerocalle" placeholder="0">
               </div>
 
-              <div class="col-md-5">
-                <label for="colonia" class="mt-1">Colonia</label>
+              <div class="mt-1 col-md-5">
+                <div>
+                  <span>Colonia</span>
+                  <span id="contadorColonia" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">50 caracteres restantes</span>
+                </div>
                 <input id="colonia" class="form-control" name="colonia" value="" type="text">
               </div>
-              <div class="col-md-2">
-                <label class="mt-1" for="CP">CP</label>
+              <div class="mt-1 col-md-2">
+                <div>
+                  <span>CP</span>
+                  <span id="contadorCP" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">10 restantes</span>
+                </div>
                 <input type="number" name="CP" class="form-control" id= "CP" placeholder="0" min="0">
               </div>
-              <div class="col-md-5">
-                <label for="municip" class="mt-1">Municipio</label>
+              <div class="mt-1 col-md-5">
+                <div>
+                  <span>Municipio</span>
+                  <span id="contadorMunicipio" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">30 caracteres restantes</span>
+                </div>
                 <input id="municip" class="form-control" name="municip" value="" type="text">
               </div>
             </div>
