@@ -34,7 +34,7 @@
   </div>
 
   <!--Creación de botón flotante-->
-  <button id="btnAgregarGrupo" title="Agregar una nueva actividad a la base de datos" class="cambio btn btn-danger rounded-circle border border-white" data-toggle="modal" data-target="#agregarActividad" style="display:scroll; position:fixed;; bottom:5%; right: 5%;"><i class="fas fa-plus-circle fa-2x"></i></button>
+  <button id="btnAgregarGrupo" title="Agregar una nueva actividad a la base de datos" class=" boton cambio btn btn-danger rounded-circle border border-white" data-toggle="modal" data-target="#agregarActividad" style="display:scroll; position:fixed;; bottom:5%; right: 5%;"><i class="fas fa-plus-circle fa-2x"></i></button>
   <!--Fin del botón flotante-->
 
   <?php require '../Partials/hojaScript.php'; ?>
