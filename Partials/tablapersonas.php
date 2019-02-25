@@ -1,6 +1,6 @@
 <div id="tablaActividades" class="table-responsive">
 <!--Inicio de tabla de Actividades-->
-<table id ="EditarTablaModalActividad" class="table table-sm table-striped table-bordered">
+<table id ="EditarTablaModalpersonas" class="table table-sm table-striped table-bordered">
   <thead style="background: rgba(240, 47, 47, 0.84);" class="text-white">
     <tr class="text-center" style="font-size: 13px;">
       <!--<th scope="col">ID</th>-->
@@ -72,22 +72,10 @@
       <td><?php echo utf8_encode($mostrar['EstadoCiv']) ?></td>
       <td><?php echo ($mostrar['CURP']) ?></td>
       <td><?php echo utf8_encode($mostrar['Escolaridad']) ?></td>
-      <?php
-      /*
-      if ($mostrar['institucionDos'] == 0) { ?>
-        <td> <?php  echo $mostrar['institucionDos'] ?></td>
-        <?php
-      } else { ?>
-        <td>---</td>
-      <?php
-      }
-      */
-       ?>
-
-    
+        
       <td>
-        <button class="btn btn-info btn-sm" value="<?php echo $mostrar['idActividades'] ?>" name="<?php echo $contador ?>" type="button" onclick="acomodarEditarActividades(this)" data-toggle="modal" data-target="#agregarActividad">Editar Campo</button>
-        <button class="btn btn-danger btn-sm" value="<?php echo $mostrar['idActividades'] ?>" type="button" name="<?php echo utf8_encode($mostrar['actividadUno']) ?>" data-toggle="modal" data-target="#deleteInstituto" onclick="editarDelete(this)">Eliminar Actividad</button>
+        <button id="" class="btn btn-info btn-sm" value="<?php echo $mostrar['idcaso'] ?>" name="<?php echo $contador ?>" type="button" onclick="acomodarEditarpersonas(this)" data-toggle="modal" data-target="#agregarpersona">Editar Campo</button>
+        <button class="btn btn-danger btn-sm" value="<?php echo $mostrar['idActividades'] ?>" type="button" name="<?php echo utf8_encode($mostrar['actividadUno']) ?>" data-toggle="modal" data-target="#deletePersona" onclick="editarDelete(this)">Eliminar Persona</button>
       </td>
 
     </tr>

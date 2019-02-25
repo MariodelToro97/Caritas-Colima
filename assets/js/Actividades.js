@@ -199,13 +199,14 @@ function acomodarEditarActividades(boton) {
 		$('#rolActividad').val(datos[12]);
 	}, 500);
 
-	document.getElementById('deleteApoyame').outerHTML = '<button id="deleteApoyame" type="button" class="btn btn-danger" data-dismiss="modal" value = "' + idActividad + '">Cancelar</button>';
+	document.getElementById('deleteApoyame').outerHTML = '<button id="deleteApoyame" type="button" class="btn btn-danger" onClick="resetIngresoActividad(this)" data-dismiss="modal" value = "' + idActividad + '">Cancelar</button>';
 	document.getElementById('idActividadInput').innerHTML = '<input id="idActividadInput" value="" type="hidden" name="' + idActividad + '">';
 	document.getElementById("agregarActividadLabel").innerHTML = '<h5 class="modal-title" id="agregarActividadLabel">Editar Actividad</h5>';
 	document.getElementById("guardarActividad").outerHTML = '<button id="guardarActividad" type="submit" class="btn btn-success" value="Actualizar" name = "Actualizar">Actualizar</button>';
 }
 
 function resetIngresoActividad() {
+	
 	document.getElementById("agregarActividadLabel").innerHTML = '<h5 class="modal-title" id="agregarActividadLabel">Agregar Actividad</h5>';
 	document.getElementById("guardarActividad").outerHTML = '<input id="guardarActividad" type="submit" class="btn btn-success" value="Guardar" name = "OTRO">';
 }

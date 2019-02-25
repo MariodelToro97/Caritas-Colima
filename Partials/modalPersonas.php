@@ -3,7 +3,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="agregarActividadLabel">Agregar Persona</h5>
+        <h5 class="modal-title" id="agregarpersonaLabel">Agregar Persona</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -11,7 +11,7 @@
       <form id="formpersona">
         <div class="modal-body">
           <div class="form-group">
-            <label ><span class="text-danger font-weight-bold"></span> Datos del beneficiario</label>
+            <label  ><span class="text-danger font-weight-bold"></span> Datos del beneficiario</label>
             <div class="row">
               <div class="col-md-6">
               <!--<
@@ -75,7 +75,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button id="deleteApoyame" type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button id="btncancelarpersona" type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
           <input id="guardarpersona" type="submit" class="btn btn-success" value="Guardar">
         </div>
       </form>

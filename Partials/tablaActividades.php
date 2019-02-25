@@ -1,6 +1,7 @@
 <div id="tablaActividades" class="table-responsive">
 <!--Inicio de tabla de Actividades-->
 <table id ="EditarTablaModalActividad" class="table table-sm table-striped table-bordered">
+
   <thead style="background: rgba(240, 47, 47, 0.84);" class="text-white">
     <tr class="text-center" style="font-size: 13px;">
       <!--<th scope="col">ID</th>-->
