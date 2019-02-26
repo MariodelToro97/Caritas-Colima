@@ -1,10 +1,10 @@
 <!--Inicio del modal de actividades-->
-<div class="modal fade" id="agregarpersona" tabindex="-1" role="dialog" aria-labelledby="agregarActividadLabel" aria-hidden="true">
+<div class="modal fade" id="agregarpersona" tabindex="-1" role="dialog" aria-labelledby="agregarpersonaLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="agregarpersonaLabel">Agregar Persona</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btnx">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
