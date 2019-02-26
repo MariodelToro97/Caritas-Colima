@@ -33,39 +33,39 @@
               <div class="mt-1 col-md-6">
                 <div>
                   <span>Apellido paterno <span class="text-danger font-weight-bold">*</span></span>
-                  <span id="contadorApellidoPat" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">30 caracteres restantes</span>
+                  <span id="contadorApellidoPat" style="font-size: 12px; float: right;" class="text-success font-weight-bold">30 caracteres restantes</span>
                 </div>
-                <input id="apellidopaterno" class="form-control" name="apellidopaterno" value="" type="text" required>
+                <input id="apellidopaterno" onkeyup="contadorApellidoPat(this)" maxlength="30" class="form-control" name="apellidopaterno" value="" type="text" required>
               </div>
               <div class="mt-1 col-md-6">
                 <div>
                   <span>Apellido materno <span class="text-danger font-weight-bold">*</span></span>
-                  <span id="contadorApellidoMat" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">30 caracteres restantes</span>
+                  <span id="contadorApellidoMat" style="font-size: 12px; float: right;" class="text-success font-weight-bold">30 caracteres restantes</span>
                 </div>
-                <input id="apellidomaterno" class="form-control" name="apellidomaterno" value="" type="text" required>
+                <input id="apellidomaterno" onkeyup="contadorApellidoMat(this)" maxlength="30" class="form-control" name="apellidomaterno" value="" type="text" required>
               </div>
 
               <div class="mt-1 col-md-6">
                 <div>
                   <span>Nombre (s) <span class="text-danger font-weight-bold">*</span></span>
-                  <span id="contadorNombre" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">30 caracteres restantes</span>
+                  <span id="contadorNombre" style="font-size: 12px; float: right;" class="text-success font-weight-bold">30 caracteres restantes</span>
                 </div>
-                <input id="nombrepersona" class="form-control" name="nombrepersona" value="" type="text" required>
+                <input id="nombrepersona" onkeyup="contadorNombre(this)" maxlength="30" class="form-control" name="nombrepersona" value="" type="text" required>
               </div>
               <div class="mt-1 col-md-6">
                 <div>
                   <span>Lugar de nacimiento <span class="text-danger font-weight-bold">*</span></span>
-                  <span id="contadorLugarNacimiento" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">30 caracteres restantes</span>
+                  <span id="contadorLugarNacimiento" style="font-size: 12px; float: right;" class="text-success font-weight-bold">30 caracteres restantes</span>
                 </div>
-                <input type="text" name="lugarnacimiento" class="form-control" id="lugarnacimiento" autocomplete="on">
+                <input type="text" name="lugarnacimiento" onkeyup="contadorLugarNacimiento(this)" maxlength="30" class="form-control" id="lugarnacimiento" autocomplete="on">
               </div>
 
               <div class="mt-1 col-md-4">
                 <div>
                   <span>CURP <span class="text-danger font-weight-bold">*</span></span>
-                  <span id="contadorCURP" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">18 caracteres restantes</span>
+                  <span id="contadorCURP" style="font-size: 12px; float: right;" class="text-success font-weight-bold">18 caracteres restantes</span>
                 </div>
-                <input id="CURP" class="form-control" name="CURP" value="" type="text" required autocomplete="off" pattern="[A-Z]{4}[0-9]{6}[H-M]{1}[A-Z]{5}[A-Z,0-9]{2}" placeholder="AAAA123456HAAAAA1S">
+                <input id="CURP" class="form-control" onkeyup="contadorCURP(this)" maxlength="18" name="CURP" value="" type="text" required autocomplete="off" pattern="[A-Z]{4}[0-9]{6}[H-M]{1}[A-Z]{5}[A-Z,0-9]{2}" placeholder="AAAA123456HAAAAA1S">
               </div>
               <div class="col-md-3">
                 <label for="EC" class="mt-1">Estado Civil <span class="text-danger font-weight-bold">*</span></label>
@@ -85,7 +85,7 @@
                   <span>Teléfono</span>
                   <span id="contadorTelefono" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">25 restantes</span>
                 </div>
-                <input type="number" name="Tel" id="Tel" class="form-control" min="0" placeholder="1234567890">
+                <input type="number" name="Tel" onkeyup="contadorTelefono(this)" max="9999999999999999999999999" id="Tel" class="form-control" min="0" placeholder="1234567890">
               </div>
               <div class="col-md-2">
                 <label for="EDAD" class="mt-1">Edad</label>
@@ -112,7 +112,7 @@
                   <span>Calle</span>
                   <span id="contadorCalle" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">50 caracteres restantes</span>
                 </div>
-                <input id="calle" class="form-control" name="calle" value="" type="text">
+                <input id="calle" onkeyup="contadorCalle(this)" maxlength="50" class="form-control" name="calle" value="" type="text">
               </div>
               <div class="col-md-2">
                 <label class="mt-1" for="numerocalle">Número</label>
@@ -124,7 +124,7 @@
                   <span>Colonia</span>
                   <span id="contadorColonia" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">50 caracteres restantes</span>
                 </div>
-                <input id="colonia" class="form-control" name="colonia" value="" type="text">
+                <input id="colonia" onkeyup="contadorColonia(this)" maxlength="50" class="form-control" name="colonia" value="" type="text">
               </div>
               <div class="mt-1 col-md-2">
                 <div>
@@ -138,7 +138,7 @@
                   <span>Municipio</span>
                   <span id="contadorMunicipio" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">30 caracteres restantes</span>
                 </div>
-                <input id="municip" class="form-control" name="municip" value="" type="text">
+                <input id="municip" onkeyup="contadorMunicipio(this)" maxlength="30" class="form-control" name="municip" value="" type="text">
               </div>
             </div>
           </div>

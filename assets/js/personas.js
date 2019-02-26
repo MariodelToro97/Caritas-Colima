@@ -60,7 +60,7 @@ function cargarDatosModal(boton) {
     console.log("Si entro al for");
   }
 
-  
+
   setTimeout(function() {
   $('#selectinstitucion').focus();
   $('#selectinstitucion').val(datos[10]);
@@ -118,3 +118,116 @@ $('#colonia').on('keyup', function () {
     }
   });
 });
+
+function contadorApellidoPat(obj) {
+  var maxLength = 30;
+  var strLength = obj.value.length;
+	var charRemain = (maxLength - strLength);
+
+  if (charRemain == 0) {
+		document.getElementById("contadorApellidoPat").innerHTML = '<span id="contadorApellidoPat" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
+	} else {
+		document.getElementById("contadorApellidoPat").innerHTML = '<span id="contadorApellidoPat" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+	}
+};
+
+function contadorApellidoMat(obj) {
+  var maxLength = 30;
+  var strLength = obj.value.length;
+	var charRemain = (maxLength - strLength);
+
+  if (charRemain == 0) {
+		document.getElementById("contadorApellidoMat").innerHTML = '<span id="contadorApellidoMat" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
+	} else {
+		document.getElementById("contadorApellidoMat").innerHTML = '<span id="contadorApellidoMat" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+	}
+};
+
+function contadorNombre(obj) {
+  var maxLength = 30;
+  var strLength = obj.value.length;
+	var charRemain = (maxLength - strLength);
+
+  if (charRemain == 0) {
+		document.getElementById("contadorNombre").innerHTML = '<span id="contadorNombre" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
+	} else {
+		document.getElementById("contadorNombre").innerHTML = '<span id="contadorNombre" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+	}
+};
+
+function contadorLugarNacimiento(obj) {
+  var maxLength = 30;
+  var strLength = obj.value.length;
+	var charRemain = (maxLength - strLength);
+
+  if (charRemain == 0) {
+		document.getElementById("contadorLugarNacimiento").innerHTML = '<span id="contadorLugarNacimiento" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
+	} else {
+		document.getElementById("contadorLugarNacimiento").innerHTML = '<span id="contadorLugarNacimiento" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+	}
+};
+
+function convertirMayusculas(may) {
+  may.value = may.value.toUpperCase();
+};
+
+function contadorCURP(obj) {
+  convertirMayusculas(obj);
+  var maxLength = 18;
+  var strLength = obj.value.length;
+	var charRemain = (maxLength - strLength);
+
+  if (charRemain == 0) {
+		document.getElementById("contadorCURP").innerHTML = '<span id="contadorCURP" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Límite alcanzado</span>';
+	} else {
+		document.getElementById("contadorCURP").innerHTML = '<span id="contadorCURP" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+	}
+};
+
+function contadorTelefono(obj) {
+  var maxLength = 25;
+  var strLength = obj.value.length;
+	var charRemain = (maxLength - strLength);
+
+  if (charRemain == 0) {
+		document.getElementById("contadorTelefono").innerHTML = '<span id="contadorTelefono" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Límite alcanzado</span>';
+	} else {
+		document.getElementById("contadorTelefono").innerHTML = '<span id="contadorTelefono" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' restantes</span>';
+	}
+};
+
+function contadorCalle(obj) {
+  var maxLength = 50;
+  var strLength = obj.value.length;
+	var charRemain = (maxLength - strLength);
+
+  if (charRemain == 0) {
+		document.getElementById("contadorCalle").innerHTML = '<span id="contadorCalle" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
+	} else {
+		document.getElementById("contadorCalle").innerHTML = '<span id="contadorCalle" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+	}
+};
+
+function contadorColonia(obj) {
+  var maxLength = 50;
+  var strLength = obj.value.length;
+	var charRemain = (maxLength - strLength);
+
+  if (charRemain == 0) {
+		document.getElementById("contadorColonia").innerHTML = '<span id="contadorColonia" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
+	} else {
+		document.getElementById("contadorColonia").innerHTML = '<span id="contadorColonia" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+	}
+};
+
+function contadorMunicipio(obj) {
+  var maxLength = 30;
+  var strLength = obj.value.length;
+	var charRemain = (maxLength - strLength);
+
+  if (charRemain == 0) {
+		document.getElementById("contadorMunicipio").innerHTML = '<span id="contadorMunicipio" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
+	} else {
+		document.getElementById("contadorMunicipio").innerHTML = '<span id="contadorMunicipio" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+	}
+};
