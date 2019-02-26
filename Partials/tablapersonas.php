@@ -55,7 +55,7 @@
         $Nombre = $mostrar['Nombre'] . " " . $mostrar['apellidop'] . " " . $mostrar['apellidom'];
          ?>
 
-        <td ><?php echo utf8_encode ($Nombre) ?></td>
+        <td ><?php echo ($Nombre) ?></td>
 
         <?php
         /*if ($mostrar['Calle'] == '') {
@@ -77,7 +77,7 @@
         $domicilio = $mostrar['Calle'] . " #" . $mostrar['numero'];
          ?>
 
-        <td ><?php echo utf8_encode ($domicilio) ?></td>
+        <td ><?php echo ($domicilio) ?></td>
 
         <?php
         if ($mostrar['colonia'] == '') {
@@ -85,7 +85,7 @@
         }
         ?>
 
-        <td><?php echo utf8_decode ($mostrar['colonia']) ?></td>
+        <td><?php echo ($mostrar['colonia']) ?></td>
 
         <?php
         if ($mostrar['municipio'] == '') {
@@ -93,7 +93,7 @@
         }
         ?>
 
-        <td><?php echo utf8_encode ($mostrar['municipio']) ?></td>
+        <td><?php echo ($mostrar['municipio']) ?></td>
 
         <?php
         if ($mostrar['CP'] == 0) {
@@ -101,7 +101,7 @@
         }
          ?>
 
-        <td><?php echo utf8_encode ($mostrar['CP']) ?></td>
+        <td><?php echo ($mostrar['CP']) ?></td>
 
         <?php
         if ($mostrar['Telefono'] == 0) {
@@ -109,7 +109,7 @@
         }
          ?>
 
-        <td><?php echo utf8_encode ($mostrar['Telefono']) ?></td>
+        <td><?php echo ($mostrar['Telefono']) ?></td>
 
         <?php
         if ($mostrar['Edad'] == 0) {
@@ -117,7 +117,7 @@
         }
          ?>
 
-        <td><?php echo utf8_encode($mostrar['Edad']) ?></td>
+        <td><?php echo ($mostrar['Edad']) ?></td>
 
         <?php
         switch ($mostrar['sexo']) {
@@ -147,7 +147,7 @@
         }
         ?>
 
-        <td><?php echo utf8_encode ($mostrar['LugarNac']) ?></td>
+        <td><?php echo ($mostrar['LugarNac']) ?></td>
 
         <?php
         switch ($mostrar['EstadoCiv']) {
@@ -181,7 +181,7 @@
         }
         ?>
 
-        <td><?php echo utf8_encode ($mostrar['EstadoCiv']) ?></td>
+        <td><?php echo ($mostrar['EstadoCiv']) ?></td>
         <td><?php echo ($mostrar['CURP']) ?></td>
 
         <?php
@@ -224,7 +224,7 @@
         }
         ?>
 
-        <td><?php echo utf8_encode($mostrar['Escolaridad']) ?></td>
+        <td><?php echo ($mostrar['Escolaridad']) ?></td>
 
         <td>
           <button class="btn btn-info btn-sm" value="<?php echo $mostrar['idcaso'] ?>" name="<?php echo $contador ?>" type="button" onclick="cargarDatosModal(this)" data-toggle="modal" data-target="#agregarpersona" >Editar Campo</button>
