@@ -91,7 +91,6 @@ function resetIngresoPersona() {
   // console.log("regreso");
   document.getElementById("agregarpersonaLabel").innerHTML = '<h5 class="modal-title" id="agregarpersonaLabel">Agregar Persona</h5>';
   document.getElementById("guardarP").innerHTML = '<input id="guardarpersona" type="submit" class="btn btn-success" value="Guardar" name = "OTRO">';
-  document.getElementById("btnx").outerHTML = '<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btnx"><span aria-hidden="true">&times;</span></button>'
 }
 
 $('#colonia').on('keyup', function () {

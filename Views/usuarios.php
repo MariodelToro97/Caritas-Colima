@@ -33,6 +33,7 @@ if (!isset($_SESSION['user_id'])) {
        require '../Partials/tablaUsuarios.php';
        require '../Partials/modalEliminarInstituto.php';
        require '../Partials/modalEditarUsuario.php';
+       require '../Partials/modalPersonas.php';
        ?>
      </div>
 

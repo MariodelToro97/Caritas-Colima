@@ -30,6 +30,8 @@
     require '../Partials/modalActividades.php';
     require '../Partials/modalCerrar.php';
     require '../Partials/modalEliminarInstituto.php';
+    require '../Partials/modalPersonas.php';
+
     ?>
   </div>
 
