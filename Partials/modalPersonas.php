@@ -83,9 +83,9 @@
               <div class="mt-1 col-md-3">
                 <div>
                   <span>Teléfono</span>
-                  <span id="contadorTelefono" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">25 restantes</span>
+                  <span id="contadorTelefono" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">15 restantes</span>
                 </div>
-                <input type="number" name="Tel" onkeyup="contadorTelefono(this)" max="9999999999999999999999999" id="Tel" class="form-control" min="0" placeholder="1234567890">
+                <input type="number" name="Tel" onkeyup="contadorTelefono(this)" max="999999999999999" id="Tel" class="form-control" min="0" placeholder="1234567890">
               </div>
               <div class="col-md-2">
                 <label for="EDAD" class="mt-1">Edad</label>
@@ -131,7 +131,7 @@
                   <span>CP</span>
                   <span id="contadorCP" style="font-size: 12px; float: right;" class="text-success my-2 font-weight-bold">10 restantes</span>
                 </div>
-                <input type="number" name="CP" class="form-control" id= "CP" placeholder="0" min="0">
+                <input type="number" onkeyup="contadorCP(this)" maxlength="10" max="9999999999" name="CP" class="form-control" id= "CP" placeholder="0" min="0">
               </div>
               <div class="mt-1 col-md-5">
                 <div>
