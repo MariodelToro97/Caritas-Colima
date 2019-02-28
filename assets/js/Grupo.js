@@ -187,6 +187,7 @@ $('#addGrupos').click(function(){
 });
 
 function contadorGrupo(obj){
+  convertirMayusculas(obj);
     var maxLength = 150;
     var strLength = obj.value.length;
     var charRemain = (maxLength - strLength);

@@ -120,6 +120,7 @@ $('#colonia').on('keyup', function () {
 });
 
 function contadorApellidoPat(obj) {
+  convertirMayusculas(obj);
   var maxLength = 30;
   var strLength = obj.value.length;
 	var charRemain = (maxLength - strLength);
@@ -132,6 +133,7 @@ function contadorApellidoPat(obj) {
 };
 
 function contadorApellidoMat(obj) {
+  convertirMayusculas(obj);
   var maxLength = 30;
   var strLength = obj.value.length;
 	var charRemain = (maxLength - strLength);
@@ -144,6 +146,7 @@ function contadorApellidoMat(obj) {
 };
 
 function contadorNombre(obj) {
+  convertirMayusculas(obj);
   var maxLength = 30;
   var strLength = obj.value.length;
 	var charRemain = (maxLength - strLength);
@@ -156,6 +159,7 @@ function contadorNombre(obj) {
 };
 
 function contadorLugarNacimiento(obj) {
+  convertirMayusculas(obj);
   var maxLength = 30;
   var strLength = obj.value.length;
 	var charRemain = (maxLength - strLength);
@@ -167,9 +171,44 @@ function contadorLugarNacimiento(obj) {
 	}
 };
 
+//Función que es llamada en todos los modales implementados para convertir todo lo escrito a mayúsculas.
 function convertirMayusculas(may) {
   may.value = may.value.toUpperCase();
+  var cadena = may.value;
+  alert(cadena.chartAt(may.length - 1));
+  if (may.value == 'Á') {
+    may.value = 'A';
+  }
+  /*if (may.value =='Á' || may.value == 'É' || may.value == 'Í' || may.value == 'Ó' || may.value == 'Ú') {
+    quitarSimbolos(may); 
+  } */ 
 };
+
+//Función para quitar acentos en cualquier cadena ingresada
+function quitarSimbolos(may){
+  switch (may.value) {
+    case 'Á':
+      may.value = 'A';
+      break;
+
+    case 'É':
+      may.value = 'E';
+      break;
+
+    case 'Í':
+      may.value = 'I';
+      break;
+
+    case 'Ó':
+      may.value = 'O';
+      break;
+
+    case 'Ú':
+      may.value = 'U';
+      break;
+  
+  }
+}
 
 function contadorCURP(obj) {
   convertirMayusculas(obj);
@@ -185,11 +224,11 @@ function contadorCURP(obj) {
 };
 
 function contadorTelefono(obj) {
-  var maxLength = 25;
+  var maxLength = 15;
   var strLength = obj.value.length;
 	var charRemain = (maxLength - strLength);
 
-  if (charRemain == 0) {
+  if (charRemain <= 0) {    
 		document.getElementById("contadorTelefono").innerHTML = '<span id="contadorTelefono" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Límite alcanzado</span>';
 	} else {
 		document.getElementById("contadorTelefono").innerHTML = '<span id="contadorTelefono" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' restantes</span>';
@@ -197,6 +236,7 @@ function contadorTelefono(obj) {
 };
 
 function contadorCalle(obj) {
+  convertirMayusculas(obj);
   var maxLength = 50;
   var strLength = obj.value.length;
 	var charRemain = (maxLength - strLength);
@@ -209,6 +249,7 @@ function contadorCalle(obj) {
 };
 
 function contadorColonia(obj) {
+  convertirMayusculas(obj);
   var maxLength = 50;
   var strLength = obj.value.length;
 	var charRemain = (maxLength - strLength);
@@ -221,6 +262,7 @@ function contadorColonia(obj) {
 };
 
 function contadorMunicipio(obj) {
+  convertirMayusculas(obj);
   var maxLength = 30;
   var strLength = obj.value.length;
 	var charRemain = (maxLength - strLength);
@@ -231,3 +273,15 @@ function contadorMunicipio(obj) {
 		document.getElementById("contadorMunicipio").innerHTML = '<span id="contadorMunicipio" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
 	}
 };
+
+function contadorCP(obj){
+  var maxLength = 10;
+  var strLength = obj.value.length;
+  var charRemain = (maxLength - strLength);
+
+  if (charRemain <= 0) {
+    document.getElementById("contadorCP").innerHTML = '<span id="contadorCP" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Límite alcanzado</span>';
+  } else {
+    document.getElementById("contadorCP").innerHTML = '<span id="contadorCP" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' restantes</span>';
+  }
+}

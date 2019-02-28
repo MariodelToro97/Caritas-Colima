@@ -1,4 +1,5 @@
 function contador(obj) {
+	convertirMayusculas(obj);
 	var maxLength = 1000;
 	var strLength = obj.value.length;
 	var charRemain = (maxLength - strLength);
@@ -11,6 +12,7 @@ function contador(obj) {
 };
 
 function contadorDos(obj) {
+	convertirMayusculas(obj);
 	var maxLength = 250;
 	var strLength = obj.value.length;
 	var charRemain = (maxLength - strLength);
@@ -23,6 +25,7 @@ function contadorDos(obj) {
 };
 
 function contadorTres(obj) {
+	convertirMayusculas(obj);
 	var maxLength = 1000;
 	var strLength = obj.value.length;
 	var charRemain = (maxLength - strLength);
@@ -35,6 +38,7 @@ function contadorTres(obj) {
 };
 
 function contadorCuatro(obj) {
+	convertirMayusculas(obj);
 	var maxLength = 1000;
 	var strLength = obj.value.length;
 	var charRemain = (maxLength - strLength);
@@ -205,8 +209,7 @@ function acomodarEditarActividades(boton) {
 	document.getElementById("guardarActividad").outerHTML = '<button id="guardarActividad" type="submit" class="btn btn-success" value="Actualizar" name = "Actualizar">Actualizar</button>';
 }
 
-function resetIngresoActividad() {
-	
+function resetIngresoActividad() {	
 	document.getElementById("agregarActividadLabel").innerHTML = '<h5 class="modal-title" id="agregarActividadLabel">Agregar Actividad</h5>';
 	document.getElementById("guardarActividad").outerHTML = '<input id="guardarActividad" type="submit" class="btn btn-success" value="Guardar" name = "OTRO">';
 }
