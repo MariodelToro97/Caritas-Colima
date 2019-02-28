@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `personas` (
   `colonia` VARCHAR (50) NULL,
   `municipio` VARCHAR(30) NULL,
   `CP` VARCHAR(10) NULL,
-  `Telefono` VARCHAR(25) NULL,
+  `Telefono` VARCHAR(15) NULL,
   `Edad` TINYINT NULL,
   `sexo` CHAR(1) NOT NULL,
   `FechaNac` DATE NULL,
