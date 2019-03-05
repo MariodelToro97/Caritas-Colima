@@ -228,7 +228,7 @@
 
         <td>
           <button class="btn btn-info btn-sm" value="<?php echo $mostrar['idcaso'] ?>" name="<?php echo $contador ?>" type="button" onclick="cargarDatosModal(this)" data-toggle="modal" data-target="#agregarpersona" >Editar Campo</button>
-          <button class="btn btn-danger btn-sm" value="<?php echo $mostrar['idActividades'] ?>" type="button" name="<?php echo utf8_encode($mostrar['actividadUno']) ?>" data-toggle="modal" data-target="#deleteInstituto" onclick="borrarPersona(this)">Eliminar Actividad</button>
+          <button class="btn btn-danger btn-sm" value="<?php echo $mostrar['idcaso'] ?>" type="button" name="<?php echo utf8_encode ($Nombre) ?>" data-toggle="modal" data-target="#borraPersonaM" onclick="borrarPersona(this)">Eliminar Actividad</button>
         </td>
 
       </tr>

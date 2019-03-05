@@ -1,22 +1,84 @@
 $('#formpersona').submit(function () {
-  $.ajax({
-    type: 'POST',
-    url: '../Peticiones/insertarPersonas.php',
-    data: $('#formpersona').serialize(),
-    success: function (data) {
-      alertify.success(data);
-      if (data == 'La inserción se completó satisfactoriamente') {
-        $('#tablapersonas').load(" #tablapersonas");
-        $('#agregarpersona').modal('hide');
-        vaciarModal();
+  var boton = $('#guardarpersona').val();
+
+  if (boton == 'Actualizar') {
+    var idCaso = $('#btncancelarpersona').val();
+    var fecha = $('#FechR').val();
+    var apellidoPaterno = $('#apellidopaterno').val();
+    var apellidoMaterno = $('#apellidomaterno').val();
+    var nombre = $('#nombrepersona').val();
+    var Calle = $('#calle').val();
+    var numero = $('#numerocalle').val();
+    var colonia = $('#colonia').val();
+    var municipio = $('#municip').val();
+    var codigoPostal = $('#CP').val();
+    var telefono = $('#Tel').val();
+    var edad = $('#EDAD').val();
+    var sexo = $('#SEXO').val();
+    var fechaNacimiento = $('#fechnacimiento').val();
+    var lugarNacimiento = $('#lugarnacimiento').val();
+    var estadoCivil = $('#EC').val();
+    var curp = $('#CURP').val();
+    var escolaridad = $('#escolaridad').val();
+
+    $.ajax({
+      type: 'POST',
+      url: '../Peticiones/editarPersona.php',
+      data: {
+        idC: idCaso,
+        fecha: fecha,
+        apellidoP: apellidoPaterno,
+        apellidoM: apellidoMaterno,
+        nombreP: nombre,
+        calleP: Calle,
+        numeroC: numero,
+        coloniaP: colonia,
+        municipioP: municipio,
+        CP: codigoPostal,
+        telPersona: telefono,
+        edadP: edad,
+        sexoP: sexo,
+        fechaNac: fechaNacimiento,
+        lugarNac: lugarNacimiento,
+        estadoCivP: estadoCivil,
+        PURC: curp,
+        escolaridadP: escolaridad
+      },
+      success: function (data) {
+        alertify.success(data);
+        if (data == 'Los datos se actualizaron satisfactoriamente') {
+          $('#tablapersonas').load(" #tablapersonas");
+          $('#agregarpersona').modal('hide');
+          vaciarModal();
+          resetIngresoPersona();
+        }
+      },
+      error: function (r) {
+        alertify.error(r);
       }
-    },
-    error: function (r) {
-      alertify.error(r);
-    }
-  });
-  return false;
+    });
+    return false;
+  } else {
+    $.ajax({
+      type: 'POST',
+      url: '../Peticiones/insertarPersonas.php',
+      data: $('#formpersona').serialize(),
+      success: function (data) {
+        alertify.success(data);
+        if (data == 'La inserción se completó satisfactoriamente') {
+          $('#tablapersonas').load(" #tablapersonas");
+          $('#agregarpersona').modal('hide');
+          vaciarModal();
+        }
+      },
+      error: function (r) {
+        alertify.error(r);
+      }
+    });
+    return false;
+  }
 });
+
 
 function vaciarModal() {
   document.getElementById('SEXO').getElementsByTagName('option')[0].selected = 'selected';
@@ -39,50 +101,60 @@ function vaciarModal() {
 };
 
 function borrarPersona(boton) {
-  var actividad = boton.name;
+  var persona = boton.name;
   var id = boton.value;
 
-  document.getElementById("btnEliminarInstituto").outerHTML = '<button type="submit" value = "' + id + '" name = "Actividad" class="btn btn-danger" id="btnEliminarInstituto">Si</button>';
-  document.getElementById("eliminarInstitucionGrupo").innerHTML = '<h5 class="modal-title" id="eliminarInstitucionGrupo">Eliminar Actividad <span <h6 class = "font-italic font-weight-bold" style = "font-size: 21px;">' + actividad + '</span></h5>';
-  document.getElementById("cuerpoModalEliminar").innerHTML = '<h6 id="cuerpoModalEliminar">¿Está segur@ de eliminar la siguiente actividad? <h6 class = "font-italic font-weight-bold text-danger" style = "font-size: 21px;">' + actividad + '</h6></h6>';
+  document.getElementById("btnEliminarPersona").outerHTML = '<button type="submit" value = "' + id + '" name = "Actividad" class="btn btn-danger" id="btnEliminarInstituto">Si</button>';
+  document.getElementById("cuerpoModalEliminar").innerHTML = '<h6 id="cuerpoModalEliminar">¿Está segur@ de eliminar la siguiente persona? <h6 class = "font-italic font-weight-bold text-danger" style = "font-size: 21px;">' + persona + '</h6></h6>';
 };
 
 function cargarDatosModal(boton) {
-  console.log("Estoy en cargar Datos Modal");
   var idPersona = boton.value;
   var fila = boton.name;
   var datos = [];
 
-
-  /*
-  for (var i = 0; i < 13; i++) {
-    datos[i] = $("#EditarTablaModalpersonas").children().children()[fila].children[i].innerHTML;
-    console.log("Si entro al for");
+  for (var i = 0; i < 19; i++) {
+    datos[i] = $("#EditarTablaModalPersonas").children().children()[fila].children[i].innerHTML;
   }
+  //0= id caso, 1=fecha, 2=apellidoPaterno 3= apellido materno 4=Nombre
+  //5=Nombre completo  (no tomar en cuenta), 6=Calle, 7=Número de calle 
+  //8=domicilio completo (No tomar en cuenta), 9= Colonia 10= Municipio
+  //11=Código postal, 12=Teléfono, 13=Edad, 14= Sexo, 15=Fecha de nacimiento
+  //16=Lugar de nacimiento, 17=Estado civil, 18=CURP, 19=Escolaridad
+  setTimeout(function () {
+    $('#FechR').val(datos[1]);
+    if (datos[14] == 'F') {
+      datos[14] = 'Femenino';
+    } else if (datos[14] = 'M') {
+      datos[14] = 'Masculino';
+    }
+    console.log("Sexo: " + datos[14]);
+    $('#SEXO').val(datos[14]);
+    $('#fechnacimiento').val(datos[15]);
+    $('#apellidopaterno').val(datos[2]);
+    $('#apellidomaterno').val(datos[3]);
+    $('#nombrepersona').val(datos[4]);
+    $('#lugarnacimiento').val(datos[16]);
+    $('#CURP').val(datos[18]);
+    $('#EC').val(datos[17]);
+    $('#Tel').val(datos[12]);
+    $('#EDAD').val(datos[13]);
+    $('#escolaridad').val(datos[19]);
+    $('#calle').val(datos[6]);
+    $('#numerocalle').val(datos[7]);
+    $('#colonia').val(datos[9]);
+    $('#CP').val(datos[11]);
+    $('#municip').val(datos[10]);
+  },
+    500);
 
-
-  setTimeout(function() {
-  $('#selectinstitucion').focus();
-  $('#selectinstitucion').val(datos[10]);
-  $('#numeroAsistentes').val(datos[2]);
-  $('#numeroDespensas').val(datos[3]);
-  $('#Institucion1').val(datos[5]);
-  $('#fechaActividad').val(datos[11]);
-  $('#actividadUno').val(datos[8]);
-  $('#apoyoExtraCa').val(datos[4]);
-  $('#Institucion2').val(datos[6]);
-  $('#voluntariosCaritas').val(datos[7]);
-  $('#actividadDos').val(datos[9]);
-  $('#rolActividad').val(datos[12]);
-  }, 500);
-  */
 
 
   document.getElementById('btncancelarpersona').outerHTML = '<button id="btncancelarpersona" data-dismiss="modal" type="button" class="btn btn-danger" onClick="resetIngresoPersona(this)"  value = "' + idPersona + '">Cancelar</button>';
 
   document.getElementById("agregarpersonaLabel").innerHTML = '<h5 class="modal-title" id="editarpersonaLabel">Editar Persona</h5>';
 
-  document.getElementById("guardarpersona").outerHTML = '<button id="guardarP" type="submit" class="btn btn-success" value="Actualizar" name = "Actualizar">Actualizar</button>';
+  document.getElementById("guardarpersona").outerHTML = '<button id="guardarpersona" type="submit" class="btn btn-success" value="Actualizar" name = "Actualizar">Actualizar</button>';
 
   document.getElementById("btnx").outerHTML = '<button type="button" Onclick="resetIngresoPersona(this)" class="close" data-dismiss="modal" aria-label="Close" id="btnx"><span aria-hidden="true">&times;</span></button>'
 }
@@ -90,7 +162,8 @@ function cargarDatosModal(boton) {
 function resetIngresoPersona() {
   // console.log("regreso");
   document.getElementById("agregarpersonaLabel").innerHTML = '<h5 class="modal-title" id="agregarpersonaLabel">Agregar Persona</h5>';
-  document.getElementById("guardarP").innerHTML = '<input id="guardarpersona" type="submit" class="btn btn-success" value="Guardar" name = "OTRO">';
+  document.getElementById("guardarpersona").innerHTML = '<input id="guardarpersona" type="submit" class="btn btn-success" value="Guardar" name = "OTRO">';
+  vaciarModal();
 }
 
 $('#colonia').on('keyup', function () {
@@ -123,52 +196,52 @@ function contadorApellidoPat(obj) {
   convertirMayusculas(obj);
   var maxLength = 30;
   var strLength = obj.value.length;
-	var charRemain = (maxLength - strLength);
+  var charRemain = (maxLength - strLength);
 
   if (charRemain == 0) {
-		document.getElementById("contadorApellidoPat").innerHTML = '<span id="contadorApellidoPat" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
-	} else {
-		document.getElementById("contadorApellidoPat").innerHTML = '<span id="contadorApellidoPat" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
-	}
+    document.getElementById("contadorApellidoPat").innerHTML = '<span id="contadorApellidoPat" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
+  } else {
+    document.getElementById("contadorApellidoPat").innerHTML = '<span id="contadorApellidoPat" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+  }
 };
 
 function contadorApellidoMat(obj) {
   convertirMayusculas(obj);
   var maxLength = 30;
   var strLength = obj.value.length;
-	var charRemain = (maxLength - strLength);
+  var charRemain = (maxLength - strLength);
 
   if (charRemain == 0) {
-		document.getElementById("contadorApellidoMat").innerHTML = '<span id="contadorApellidoMat" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
-	} else {
-		document.getElementById("contadorApellidoMat").innerHTML = '<span id="contadorApellidoMat" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
-	}
+    document.getElementById("contadorApellidoMat").innerHTML = '<span id="contadorApellidoMat" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
+  } else {
+    document.getElementById("contadorApellidoMat").innerHTML = '<span id="contadorApellidoMat" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+  }
 };
 
 function contadorNombre(obj) {
   convertirMayusculas(obj);
   var maxLength = 30;
   var strLength = obj.value.length;
-	var charRemain = (maxLength - strLength);
+  var charRemain = (maxLength - strLength);
 
   if (charRemain == 0) {
-		document.getElementById("contadorNombre").innerHTML = '<span id="contadorNombre" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
-	} else {
-		document.getElementById("contadorNombre").innerHTML = '<span id="contadorNombre" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
-	}
+    document.getElementById("contadorNombre").innerHTML = '<span id="contadorNombre" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
+  } else {
+    document.getElementById("contadorNombre").innerHTML = '<span id="contadorNombre" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+  }
 };
 
 function contadorLugarNacimiento(obj) {
   convertirMayusculas(obj);
   var maxLength = 30;
   var strLength = obj.value.length;
-	var charRemain = (maxLength - strLength);
+  var charRemain = (maxLength - strLength);
 
   if (charRemain == 0) {
-		document.getElementById("contadorLugarNacimiento").innerHTML = '<span id="contadorLugarNacimiento" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
-	} else {
-		document.getElementById("contadorLugarNacimiento").innerHTML = '<span id="contadorLugarNacimiento" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
-	}
+    document.getElementById("contadorLugarNacimiento").innerHTML = '<span id="contadorLugarNacimiento" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
+  } else {
+    document.getElementById("contadorLugarNacimiento").innerHTML = '<span id="contadorLugarNacimiento" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+  }
 };
 
 //Función que es llamada en todos los modales implementados para convertir todo lo escrito a mayúsculas.
@@ -181,11 +254,11 @@ function convertirMayusculas(may) {
   }
   /*if (may.value =='Á' || may.value == 'É' || may.value == 'Í' || may.value == 'Ó' || may.value == 'Ú') {
     quitarSimbolos(may); 
-  } */ 
+  } */
 };
 
 //Función para quitar acentos en cualquier cadena ingresada
-function quitarSimbolos(may){
+function quitarSimbolos(may) {
   switch (may.value) {
     case 'Á':
       may.value = 'A';
@@ -206,7 +279,7 @@ function quitarSimbolos(may){
     case 'Ú':
       may.value = 'U';
       break;
-  
+
   }
 }
 
@@ -214,67 +287,67 @@ function contadorCURP(obj) {
   convertirMayusculas(obj);
   var maxLength = 18;
   var strLength = obj.value.length;
-	var charRemain = (maxLength - strLength);
+  var charRemain = (maxLength - strLength);
 
   if (charRemain == 0) {
-		document.getElementById("contadorCURP").innerHTML = '<span id="contadorCURP" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Límite alcanzado</span>';
-	} else {
-		document.getElementById("contadorCURP").innerHTML = '<span id="contadorCURP" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
-	}
+    document.getElementById("contadorCURP").innerHTML = '<span id="contadorCURP" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Límite alcanzado</span>';
+  } else {
+    document.getElementById("contadorCURP").innerHTML = '<span id="contadorCURP" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+  }
 };
 
 function contadorTelefono(obj) {
   var maxLength = 15;
   var strLength = obj.value.length;
-	var charRemain = (maxLength - strLength);
+  var charRemain = (maxLength - strLength);
 
-  if (charRemain <= 0) {    
-		document.getElementById("contadorTelefono").innerHTML = '<span id="contadorTelefono" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Límite alcanzado</span>';
-	} else {
-		document.getElementById("contadorTelefono").innerHTML = '<span id="contadorTelefono" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' restantes</span>';
-	}
+  if (charRemain <= 0) {
+    document.getElementById("contadorTelefono").innerHTML = '<span id="contadorTelefono" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Límite alcanzado</span>';
+  } else {
+    document.getElementById("contadorTelefono").innerHTML = '<span id="contadorTelefono" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' restantes</span>';
+  }
 };
 
 function contadorCalle(obj) {
   convertirMayusculas(obj);
   var maxLength = 50;
   var strLength = obj.value.length;
-	var charRemain = (maxLength - strLength);
+  var charRemain = (maxLength - strLength);
 
   if (charRemain == 0) {
-		document.getElementById("contadorCalle").innerHTML = '<span id="contadorCalle" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
-	} else {
-		document.getElementById("contadorCalle").innerHTML = '<span id="contadorCalle" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
-	}
+    document.getElementById("contadorCalle").innerHTML = '<span id="contadorCalle" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
+  } else {
+    document.getElementById("contadorCalle").innerHTML = '<span id="contadorCalle" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+  }
 };
 
 function contadorColonia(obj) {
   convertirMayusculas(obj);
   var maxLength = 50;
   var strLength = obj.value.length;
-	var charRemain = (maxLength - strLength);
+  var charRemain = (maxLength - strLength);
 
   if (charRemain == 0) {
-		document.getElementById("contadorColonia").innerHTML = '<span id="contadorColonia" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
-	} else {
-		document.getElementById("contadorColonia").innerHTML = '<span id="contadorColonia" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
-	}
+    document.getElementById("contadorColonia").innerHTML = '<span id="contadorColonia" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
+  } else {
+    document.getElementById("contadorColonia").innerHTML = '<span id="contadorColonia" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+  }
 };
 
 function contadorMunicipio(obj) {
   convertirMayusculas(obj);
   var maxLength = 30;
   var strLength = obj.value.length;
-	var charRemain = (maxLength - strLength);
+  var charRemain = (maxLength - strLength);
 
   if (charRemain == 0) {
-		document.getElementById("contadorMunicipio").innerHTML = '<span id="contadorMunicipio" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
-	} else {
-		document.getElementById("contadorMunicipio").innerHTML = '<span id="contadorMunicipio" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
-	}
+    document.getElementById("contadorMunicipio").innerHTML = '<span id="contadorMunicipio" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
+  } else {
+    document.getElementById("contadorMunicipio").innerHTML = '<span id="contadorMunicipio" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+  }
 };
 
-function contadorCP(obj){
+function contadorCP(obj) {
   var maxLength = 10;
   var strLength = obj.value.length;
   var charRemain = (maxLength - strLength);
