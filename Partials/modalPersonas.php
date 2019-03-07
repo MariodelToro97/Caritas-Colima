@@ -75,7 +75,7 @@
                   <option value="2">Comprometido/a</option>
                   <option value="3">Casado/a</option>
                   <option value="4">Unión libre</option>
-                  <option value="5">Separado</option>
+                  <option value="5">Separado/a</option>
                   <option value="6">Divorciado/a</option>
                   <option value="7">Viudo/a</option>
                 </select>

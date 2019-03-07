@@ -113,7 +113,7 @@ function cargarDatosModal(boton) {
   var fila = boton.name;
   var datos = [];
 
-  for (var i = 0; i < 19; i++) {
+  for (var i = 0; i <= 19; i++) {
     datos[i] = $("#EditarTablaModalPersonas").children().children()[fila].children[i].innerHTML;
   }
   //0= id caso, 1=fecha, 2=apellidoPaterno 3= apellido materno 4=Nombre
@@ -121,14 +121,11 @@ function cargarDatosModal(boton) {
   //8=domicilio completo (No tomar en cuenta), 9= Colonia 10= Municipio
   //11=Código postal, 12=Teléfono, 13=Edad, 14= Sexo, 15=Fecha de nacimiento
   //16=Lugar de nacimiento, 17=Estado civil, 18=CURP, 19=Escolaridad
-  setTimeout(function () {
+  setTimeout(function () {  
+    datos[19] = verificarEscolaridad(datos[19]); 
+    datos[14] = verificarSexo(datos[14]);
+    datos[17] = verificarEstCivil(datos[17]);
     $('#FechR').val(datos[1]);
-    if (datos[14] == 'F') {
-      datos[14] = 'Femenino';
-    } else if (datos[14] = 'M') {
-      datos[14] = 'Masculino';
-    }
-    console.log("Sexo: " + datos[14]);
     $('#SEXO').val(datos[14]);
     $('#fechnacimiento').val(datos[15]);
     $('#apellidopaterno').val(datos[2]);
@@ -157,6 +154,62 @@ function cargarDatosModal(boton) {
   document.getElementById("guardarpersona").outerHTML = '<button id="guardarpersona" type="submit" class="btn btn-success" value="Actualizar" name = "Actualizar">Actualizar</button>';
 
   document.getElementById("btnx").outerHTML = '<button type="button" Onclick="resetIngresoPersona(this)" class="close" data-dismiss="modal" aria-label="Close" id="btnx"><span aria-hidden="true">&times;</span></button>'
+}
+
+function verificarEstCivil(EC2){
+  var EC='';
+  alert("estoy en función, esto vale EC2: "+ EC2);
+  if (EC2 == 'Soltero/a') {
+    EC = '1';
+  } else if (EC2 == 'Comprometido/a') {
+    EC = '2';
+  } else if (EC2 == 'Casado/a') {
+    EC = '3';
+  } else if (EC2 == 'Unión libre') {
+    EC = '4';
+  } else if (EC2 == 'Separado/a') {
+    EC = '5';
+  } else if (EC2 == 'Divorciado/a') {
+    EC = '6';
+  } else if (EC2 == 'Viudo/a') {
+    EC = '7';
+  } 
+
+  return EC;
+}
+
+function verificarSexo(SEXO){
+  if (SEXO == 'F') {
+    SEXO = '1';
+  } else if (SEXO = 'M') {
+    SEXO = '2';
+  } 
+
+  return SEXO;
+}
+
+function verificarEscolaridad(esco){
+  if (esco == 'Ninguna') {
+    esco = '1';
+  } else if (esco == 'Preescolar') {
+    esco = '2';
+  } else if (esco == 'Primaria') {
+    esco = '3';
+  } else if (esco == 'Secundaria') {
+    esco = '4';
+  } else if (esco == 'Preparatoria o Bachillerato') {
+    esco = '5';
+  } else if (esco == 'Carrera Técnica') {
+    esco = '6';
+  } else if (esco== 'Licenciatura (Profesional)') {
+    esco = '7';
+  } else if (esco == 'Maestría') {
+    esco = '8';
+  } else if (esco == 'Doctorado') {
+    esco = '9';
+  }
+
+  return esco;
 }
 
 function resetIngresoPersona() {

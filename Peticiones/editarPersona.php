@@ -25,7 +25,7 @@ $sql = "UPDATE personas SET fecha= :fechR, apellidop = :apellidoP, apellidom = :
 Calle = :calle, numero = :noCalle, colonia = :colonia, municipio = :municipio, CP = :CP, Telefono = :telefono, 
 Edad = :edad, sexo = :sexo, FechaNac = :fechaNac, LugarNac = :lugarNac, EstadoCiv = :estCivil, CURP = :CURP,
 Escolaridad = :escolaridad WHERE idcaso = :idCaso";
-cosole.log("Hola espacio 3");
+
 
 $stmt = $conn->prepare($sql);
 //Inicializa cada una de las variables con su respectivo valor, por el método POST
