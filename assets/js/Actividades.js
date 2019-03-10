@@ -1,5 +1,5 @@
 function contador(obj) {
-	convertirMayusculas(obj);
+	//convertirMayusculas(obj);
 	var maxLength = 1000;
 	var strLength = obj.value.length;
 	var charRemain = (maxLength - strLength);
@@ -12,7 +12,7 @@ function contador(obj) {
 };
 
 function contadorDos(obj) {
-	convertirMayusculas(obj);
+	//convertirMayusculas(obj);
 	var maxLength = 250;
 	var strLength = obj.value.length;
 	var charRemain = (maxLength - strLength);
@@ -25,7 +25,7 @@ function contadorDos(obj) {
 };
 
 function contadorTres(obj) {
-	convertirMayusculas(obj);
+	//convertirMayusculas(obj);
 	var maxLength = 1000;
 	var strLength = obj.value.length;
 	var charRemain = (maxLength - strLength);
@@ -38,7 +38,7 @@ function contadorTres(obj) {
 };
 
 function contadorCuatro(obj) {
-	convertirMayusculas(obj);
+	//convertirMayusculas(obj);
 	var maxLength = 1000;
 	var strLength = obj.value.length;
 	var charRemain = (maxLength - strLength);
@@ -84,13 +84,15 @@ $('#formActividad').submit(function() {
 				actividadDos: actividadDos,
 				rol: rol
 			},
-			success: function(data) {
-				alertify.success(data);
+			success: function(data) {				
 				if (data == 'Los datos se actualizaron satisfactoriamente') {
+					alertify.success(data);
 					$('#tablaActividades').load(" #tablaActividades");
 					$('#agregarActividad').modal('hide');
 					vaciarModal();
 					resetIngresoActividad();
+				} else {
+					alertify.error("No se pudieron actualizar los datos");
 				}
 			},
 			error: function(r) {
@@ -103,12 +105,14 @@ $('#formActividad').submit(function() {
 			type: 'POST',
 			url: '../Peticiones/insertarActividad.php',
 			data: $('#formActividad').serialize(),
-			success: function(data) {
-				alertify.success(data);
+			success: function(data) {				
 				if (data == 'La inserción se completó satisfactoriamente') {
+					alertify.success(data);
 					$('#tablaActividades').load(" #tablaActividades");
 					$('#agregarActividad').modal('hide');
 					vaciarModal();
+				} else {
+					alertify.error("No se pudieron insertar los datos");
 				}
 			},
 			error: function(r) {

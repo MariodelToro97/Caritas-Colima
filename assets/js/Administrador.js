@@ -42,13 +42,15 @@ $('#updateUser').submit(function() {
 			rol: rol
 		},
 		// Mostramos un mensaje con la respuesta de PHP
-		success: function(data) {
-			alertify.success(data);
+		success: function(data) {			
 			$('#primerContraUser').val('');
 			$('#confirmContraUser').val('');
 			if (data == 'Usuario actualizado correctamente') {
+				alertify.success(data);
 				$('#tablaUsuarios').load(' #tablaUsuarios');
 				$('#updateUser').modal('hide');
+			} else {
+				alertify.error("Ocurrió un error en la actualizción del usuario");
 			}
 		}
 	})

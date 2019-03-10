@@ -8,15 +8,18 @@ $('#formGrupo').submit(function(){
       url: '../Peticiones/insertarGrupo.php',
       data: $(this).serialize(),
       // Mostramos un mensaje con la respuesta de PHP
-      success: function(data) {
-        alertify.success(data);
+      success: function(data) {        
         $('#nomGrupo').val('');
         if (data == 'Grupo guardado exitosamente') {
+          alertify.success(data);
           reloadCombo();
         } else {
           if (data == 'Ya existe una institución con ese nombre en la base de datos') {
+            alertify.success(data);
             $('#nomGrupo').focus();
             reset();
+          } else {
+            alertify.error("Ocurrió un error en la inserción del dato");
           }
         }
       }
@@ -31,16 +34,19 @@ $('#formGrupo').submit(function(){
         nombre : nombre
       },
       // Mostramos un mensaje con la respuesta de PHP
-      success: function(data) {
-        alertify.success(data);
+      success: function(data) {        
         $('#nomGrupo').val('');
         if (data == 'Grupo actualizado exitosamente') {
+          alertify.success(data);
           reloadCombo();
           reset();
         } else {
           if (data == 'Ya existe una institución con ese nombre en la base de datos') {
+            alertify.success(data);
             $('#nomGrupo').focus();
             document.getElementById("contadorGrupo").innerHTML = '<span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-success mt-1 font-weight-bold">150 caracteres restantes</span>';
+          } else {
+            alertify.error("Ocurrió un error en la inserción del dato");
           }
         }
       }
@@ -94,11 +100,13 @@ $('#formDeleteIns').submit(function(){
       data: {
         idGrupo: idGrupo,
       },
-      success: function(data){
-        alertify.success(data);
+      success: function(data){        
         if (data == 'La institución se borro de forma correcta') {
+          alertify.success(data);
           $('#deleteInstituto').modal('hide');
           reloadCombo();
+        } else {
+          alertify.error("Está institución tiene actividades realizadas, por ende, no se puede eliminar de la base de datos");
         }
       }
     });
@@ -112,11 +120,13 @@ $('#formDeleteIns').submit(function(){
         data: {
           idGrupo: idGrupo,
         },
-        success: function(data){
-          alertify.success(data);
+        success: function(data){          
           if (data == 'El usuario se borro de forma correcta') {
+            alertify.success(data);
             $('#deleteInstituto').modal('hide');
             resetAdministradorModal();
+          } else {
+            alertify.error("Ha ocurrido un error en la eliminación del usuario");
           }
         }
       });
@@ -128,11 +138,13 @@ $('#formDeleteIns').submit(function(){
         data: {
           idGrupo: idGrupo,
         },
-        success: function(data){
-          alertify.success(data);
+        success: function(data){          
           if (data == 'La actividad se borro de forma correcta') {
+            alertify.success(data);
             $('#deleteInstituto').modal('hide');
             resetDelete();
+          } else {
+            alertify.error("Esta actividad no se puede eliminar de la base de datos");
           }
         }
       });
@@ -187,7 +199,7 @@ $('#addGrupos').click(function(){
 });
 
 function contadorGrupo(obj){
-  convertirMayusculas(obj);
+  //convertirMayusculas(obj);
     var maxLength = 150;
     var strLength = obj.value.length;
     var charRemain = (maxLength - strLength);

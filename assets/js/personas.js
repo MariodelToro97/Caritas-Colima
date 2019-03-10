@@ -44,13 +44,15 @@ $('#formpersona').submit(function () {
         PURC: curp,
         escolaridadP: escolaridad
       },
-      success: function (data) {
-        alertify.success(data);
+      success: function (data) {        
         if (data == 'Los datos se actualizaron satisfactoriamente') {
+          alertify.success(data);
           $('#tablapersonas').load(" #tablapersonas");
           $('#agregarpersona').modal('hide');
           vaciarModal();
           resetIngresoPersona();
+        } else {
+          alertify.error("No se pudieron actualizar los datos");
         }
       },
       error: function (r) {
@@ -63,12 +65,14 @@ $('#formpersona').submit(function () {
       type: 'POST',
       url: '../Peticiones/insertarPersonas.php',
       data: $('#formpersona').serialize(),
-      success: function (data) {
-        alertify.success(data);
+      success: function (data) {        
         if (data == 'La inserción se completó satisfactoriamente') {
+          alertify.success(data);
           $('#tablapersonas').load(" #tablapersonas");
           $('#agregarpersona').modal('hide');
           vaciarModal();
+        } else {
+          alertify.success("No se pudieron insertar los datos");
         }
       },
       error: function (r) {
@@ -142,17 +146,11 @@ function cargarDatosModal(boton) {
     $('#colonia').val(datos[9]);
     $('#CP').val(datos[11]);
     $('#municip').val(datos[10]);
-  },
-    500);
-
-
+  }, 500);
 
   document.getElementById('btncancelarpersona').outerHTML = '<button id="btncancelarpersona" data-dismiss="modal" type="button" class="btn btn-danger" onClick="resetIngresoPersona(this)"  value = "' + idPersona + '">Cancelar</button>';
-
   document.getElementById("agregarpersonaLabel").innerHTML = '<h5 class="modal-title" id="editarpersonaLabel">Editar Persona</h5>';
-
   document.getElementById("guardarpersona").outerHTML = '<button id="guardarpersona" type="submit" class="btn btn-success" value="Actualizar" name = "Actualizar">Actualizar</button>';
-
   document.getElementById("btnx").outerHTML = '<button type="button" Onclick="resetIngresoPersona(this)" class="close" data-dismiss="modal" aria-label="Close" id="btnx"><span aria-hidden="true">&times;</span></button>'
 }
 
@@ -246,7 +244,7 @@ $('#colonia').on('keyup', function () {
 });
 
 function contadorApellidoPat(obj) {
-  convertirMayusculas(obj);
+  //convertirMayusculas(obj);
   var maxLength = 30;
   var strLength = obj.value.length;
   var charRemain = (maxLength - strLength);
@@ -259,7 +257,7 @@ function contadorApellidoPat(obj) {
 };
 
 function contadorApellidoMat(obj) {
-  convertirMayusculas(obj);
+  //convertirMayusculas(obj);
   var maxLength = 30;
   var strLength = obj.value.length;
   var charRemain = (maxLength - strLength);
@@ -272,7 +270,7 @@ function contadorApellidoMat(obj) {
 };
 
 function contadorNombre(obj) {
-  convertirMayusculas(obj);
+  //convertirMayusculas(obj);
   var maxLength = 30;
   var strLength = obj.value.length;
   var charRemain = (maxLength - strLength);
@@ -285,7 +283,7 @@ function contadorNombre(obj) {
 };
 
 function contadorLugarNacimiento(obj) {
-  convertirMayusculas(obj);
+  //convertirMayusculas(obj);
   var maxLength = 30;
   var strLength = obj.value.length;
   var charRemain = (maxLength - strLength);
@@ -298,7 +296,7 @@ function contadorLugarNacimiento(obj) {
 };
 
 //Función que es llamada en todos los modales implementados para convertir todo lo escrito a mayúsculas.
-function convertirMayusculas(may) {
+/*function convertirMayusculas(may) {
   may.value = may.value.toUpperCase();
   var cadena = may.value;
   alert(cadena.chartAt(may.length - 1));
@@ -308,7 +306,7 @@ function convertirMayusculas(may) {
   /*if (may.value =='Á' || may.value == 'É' || may.value == 'Í' || may.value == 'Ó' || may.value == 'Ú') {
     quitarSimbolos(may); 
   } */
-};
+//};
 
 //Función para quitar acentos en cualquier cadena ingresada
 function quitarSimbolos(may) {
@@ -337,7 +335,7 @@ function quitarSimbolos(may) {
 }
 
 function contadorCURP(obj) {
-  convertirMayusculas(obj);
+  //convertirMayusculas(obj);
   var maxLength = 18;
   var strLength = obj.value.length;
   var charRemain = (maxLength - strLength);
@@ -362,7 +360,7 @@ function contadorTelefono(obj) {
 };
 
 function contadorCalle(obj) {
-  convertirMayusculas(obj);
+  //convertirMayusculas(obj);
   var maxLength = 50;
   var strLength = obj.value.length;
   var charRemain = (maxLength - strLength);
@@ -375,7 +373,7 @@ function contadorCalle(obj) {
 };
 
 function contadorColonia(obj) {
-  convertirMayusculas(obj);
+  //convertirMayusculas(obj);
   var maxLength = 50;
   var strLength = obj.value.length;
   var charRemain = (maxLength - strLength);
@@ -388,7 +386,7 @@ function contadorColonia(obj) {
 };
 
 function contadorMunicipio(obj) {
-  convertirMayusculas(obj);
+  //convertirMayusculas(obj);
   var maxLength = 30;
   var strLength = obj.value.length;
   var charRemain = (maxLength - strLength);
