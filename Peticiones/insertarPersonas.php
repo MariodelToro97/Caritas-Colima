@@ -27,7 +27,7 @@ $Fecharegistro = $_POST['FechR'];
 
 $sql = "INSERT INTO personas (fecha, apellidop, apellidom, Nombre, Calle, numero, colonia, municipio, CP, Telefono, Edad, sexo, FechaNac, LugarNac, EstadoCiv, CURP, Escolaridad) VALUES
                             (:fech,    :Apep,   :Apem,      :nom, :cal,   :num,   :colo,    :muni,  :codpos, :tele, :edad,:sex, :fechan, :lugarn,     :estaciv, :cup, :esco)";
-$stmt = $conn->prepare($sql);
+$stmt = $conexion->prepare($sql);
 //Inicializa cada una de las variables con su respectivo valor, por el método POST
 $stmt->bindParam(':fech', $Fecharegistro);
 $stmt->bindParam(':Apep', $apellidop);

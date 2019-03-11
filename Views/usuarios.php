@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
   }
 }
 
-	$conexion = mysqli_connect('localhost', 'root', 'root', 'caritascolima', 3307);
+  require '../Models/conexion.php';
  ?>
 
  <!DOCTYPE html>

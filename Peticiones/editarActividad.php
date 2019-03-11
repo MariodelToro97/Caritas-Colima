@@ -8,6 +8,12 @@ $instDos = $_POST['institucionDos'];
 $volunt = $_POST['voluntariosPrac'];
 $actDos = $_POST['actividadDos'];
 
+if ($_SESSION['rol'] == 1) {
+  $rol = $_POST['rol'];
+} else {
+  $rol = $_SESSION['rol'];
+}
+
 if (empty($apoEx)) {
   $apoEx = '---';
 }
@@ -24,9 +30,15 @@ if (empty($actDos)) {
   $actDos = '---';
 }
 
+$idInstitucion = $_POST['institucion'];
+$fecha = $_POST['fecha'];
+$Asistentes = $_POST['numeroAsistentes'];
+$despensas = $_POST['numeroDespensas'];
+$institucionUno = $_POST['institucionUno'];
+$idActividad = $_POST['idActividadInput'];
+$actUno = $_POST['actividadUno'];
 
-
-$sql = "UPDATE actividades SET idInstitucion = :idins, fechaActividad = :fechA, asistentesActividad = :asisAc, despensasActividad = :desAc, actividadExtra = :actE, institucionUno = :insU, institucionDos = :insD, voluntarioActividad = :volunAc, actividadUno = :actU, actividadDos = :actD, idRol = :rol
+/*$sql = "UPDATE actividades SET idInstitucion = :idins, fechaActividad = :fechA, asistentesActividad = :asisAc, despensasActividad = :desAc, actividadExtra = :actE, institucionUno = :insU, institucionDos = :insD, voluntarioActividad = :volunAc, actividadUno = :actU, actividadDos = :actD, idRol = :rol
         WHERE idActividades = :id";
 
 $stmt = $conn->prepare($sql);
@@ -50,7 +62,11 @@ if ($_SESSION['rol'] == 1) {
 
 $stmt->bindParam(':id', $_POST['idActividadInput']);
 
-if ($stmt->execute()) {
+if ($stmt->execute()) {*/
+
+$actualizar = $conexion -> query("UPDATE actividades SET idInstitucion = '$idInstitucion', fechaActividad = '$fecha', asistentesActividad = '$Asistentes', despensasActividad = '$despensas', actividadExtra = '$apoEx', institucionUno = '$institucionUno', institucionDos = '$instDos', voluntarioActividad = '$volunt', actividadUno = '$actUno', actividadDos = '$actDos', idRol = '$rol' WHERE idActividades = $idActividad");
+
+if ($actualizar) {
   echo 'Los datos se actualizaron satisfactoriamente';
 } else {
   echo 'No se pudieron actualizar los datos';

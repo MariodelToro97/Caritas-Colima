@@ -7,7 +7,7 @@
 		exit;
 	}
 
-	$conexion = mysqli_connect('localhost', 'root', '', 'caritascolima', 3306);
+	require 'Models/conexion.php';
 
 	//phpinfo();
  ?>

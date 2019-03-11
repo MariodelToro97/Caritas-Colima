@@ -2,8 +2,10 @@
 require ('../Models/database.php');
 session_start();
 
-$sql = "SELECT nombreInstitucion FROM instituciones";
-$stmt = $conn->prepare($sql);
+/*$sql = "SELECT nombreInstitucion FROM instituciones";
+$stmt = $conn->prepare($sql);*/
+
+$consultaR = $conexion -> query("SELECT nombreInstitucion FROM instituciones");
 
 if(isset($_POST['GenerarReporte']))
 {
@@ -12,10 +14,10 @@ if(isset($_POST['GenerarReporte']))
 	$archivo = fopen('php://output', 'w');
 	fputcsv($archivo, array('Nombre Institucion'));
 
-	if ($stmt->execute()) {
-  		while($filaR = $stmt->fetch(PDO::FETCH_ASSOC)){
-  			fputcsv($archivo, array($filaR['nombreInstitucion']));
+	//if ($stmt->execute()) {
+  		while($filaConsulta = $consultaR -> fetch_assoc()){
+  			fputcsv($archivo, array(utf8_decode($filaConsulta['nombreInstitucion'])));
   		}
-	}
+	//}
 }
 ?>

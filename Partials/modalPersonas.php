@@ -54,7 +54,7 @@
               </div>
               <div class="mt-1 col-md-6">
                 <div>
-                  <span>Lugar de nacimiento <span class="text-danger font-weight-bold">*</span></span>
+                  <span>Lugar de nacimiento</span>
                   <span id="contadorLugarNacimiento" style="font-size: 12px; float: right;" class="text-success font-weight-bold">30 caracteres restantes</span>
                 </div>
                 <input type="text" name="lugarnacimiento" onkeyup="contadorLugarNacimiento(this)" maxlength="30" class="form-control" id="lugarnacimiento" autocomplete="on">

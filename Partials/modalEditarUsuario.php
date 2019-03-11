@@ -25,10 +25,10 @@
           while($mostrar=mysqli_fetch_array($result)){
             if ($_SESSION['rol'] == $mostrar['idRoles']) {
           ?>
-          <option selected value="<?php echo $mostrar['idRoles'] ?>"><?php echo utf8_encode($mostrar['nombreRol']) ?></option>
+          <option selected value="<?php echo $mostrar['idRoles'] ?>"><?php echo $mostrar['nombreRol'] ?></option>
           <?php
         } else { ?>
-          <option value="<?php echo $mostrar['idRoles'] ?>"><?php echo utf8_encode($mostrar['nombreRol']) ?></option>
+          <option value="<?php echo $mostrar['idRoles'] ?>"><?php echo $mostrar['nombreRol'] ?></option>
         <?php }
           }
           ?>

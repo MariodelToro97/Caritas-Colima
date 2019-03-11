@@ -308,32 +308,6 @@ function contadorLugarNacimiento(obj) {
   } */
 //};
 
-//Función para quitar acentos en cualquier cadena ingresada
-function quitarSimbolos(may) {
-  switch (may.value) {
-    case 'Á':
-      may.value = 'A';
-      break;
-
-    case 'É':
-      may.value = 'E';
-      break;
-
-    case 'Í':
-      may.value = 'I';
-      break;
-
-    case 'Ó':
-      may.value = 'O';
-      break;
-
-    case 'Ú':
-      may.value = 'U';
-      break;
-
-  }
-}
-
 function contadorCURP(obj) {
   //convertirMayusculas(obj);
   var maxLength = 18;

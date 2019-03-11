@@ -28,7 +28,7 @@
                       while($mostrar=mysqli_fetch_array($result)){
                         ?>
                         <?php if ($mostrar['nombreRol'] != 'Administrador'): ?>
-                          <option value="<?php echo $mostrar['idRoles'] ?>"><?php echo utf8_encode($mostrar['nombreRol']) ?></option>
+                          <option value="<?php echo $mostrar['idRoles'] ?>"><?php echo $mostrar['nombreRol'] ?></option>
                         <?php endif; ?>
                         <?php
                       }
@@ -95,9 +95,9 @@
               </div>
               <div class="col-md-6 mt-2">
                 <label for="Institucion2">Institución 2:</label>
-                <div class="fill">
+                <div class="efill">
                   <select class="custom-select" name="institucionDos" id="Institucion2">
-                    <option selected>Seleccione una opción</option>
+                    <option value = "" selected>Seleccione una opción</option>
 
                     <?php
                     $sql = "SELECT * from instituciones ORDER BY nombreInstitucion";

@@ -27,7 +27,7 @@ Edad = :edad, sexo = :sexo, FechaNac = :fechaNac, LugarNac = :lugarNac, EstadoCi
 Escolaridad = :escolaridad WHERE idcaso = :idCaso";
 
 
-$stmt = $conn->prepare($sql);
+$stmt = $conexion->prepare($sql);
 //Inicializa cada una de las variables con su respectivo valor, por el método POST
 $stmt->bindParam(':idCaso', $idCaso);
 $stmt->bindParam(':fechR', $fechCaso);

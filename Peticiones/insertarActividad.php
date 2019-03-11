@@ -9,6 +9,12 @@ $volunt = $_POST['voluntariosPrac'];
 $actDos = $_POST['actividadDos'];
 $actUno = $_POST['actividadUno'];
 
+if ($_SESSION['rol'] == 1) {
+  $rol = $_POST['rol'];
+} else {
+  $rol = $_SESSION['rol'];
+}
+
 if (empty($apoEx)) {
   $apoEx = '---';
 }
@@ -29,7 +35,14 @@ if (empty($actDos)) {
   $actDos = '---';
 }
 
-$sql = "INSERT INTO actividades (idInstitucion, fechaActividad, asistentesActividad, despensasActividad, actividadExtra, institucionUno, institucionDos, voluntarioActividad, actividadUno, actividadDos, idRol) VALUES
+$idInstitucion = $_POST['institucion'];
+$fecha = $_POST['fecha'];
+$Asistentes = $_POST['numeroAsistentes'];
+$despensas = $_POST['numeroDespensas'];
+$institucionUno = $_POST['institucionUno'];
+
+
+/*$sql = "INSERT INTO actividades (idInstitucion, fechaActividad, asistentesActividad, despensasActividad, actividadExtra, institucionUno, institucionDos, voluntarioActividad, actividadUno, actividadDos, idRol) VALUES
                                   (:idins,        :fechA,             :asisAc,            :desAc,              :actE,        :insU,        :insD,              :volunAc,           :actU,        :actD,  :rol)";
 $stmt = $conn->prepare($sql);
 //Inicializa cada una de las variables con su respectivo valor, por el método POST
@@ -51,8 +64,12 @@ if ($_SESSION['rol'] == 1) {
     $stmt->bindParam(':rol', $_SESSION['rol']);
 }
 
+if ($stmt->execute()) {*/
 
-if ($stmt->execute()) {
+$insertar = $conexion -> query("INSERT INTO actividades (idActividades, idInstitucion, fechaActividad, asistentesActividad, despensasActividad, actividadExtra, institucionUno, institucionDos, voluntarioActividad, actividadUno, actividadDos, idRol) VALUES
+                                                          ('',      '$idInstitucion', '$fecha',         '$Asistentes',        '$despensas',       '$apoEx', '$institucionUno','$instDos',        '$volunt',       '$actUno',    '$actDos',   '$rol')");
+
+if ($insertar) {
   echo 'La inserción se completó satisfactoriamente';
 } else {
   echo 'No se pudieron insertar los datos';

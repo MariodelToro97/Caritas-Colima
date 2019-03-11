@@ -1,25 +1,23 @@
 <?php
 	session_start();
-	$conexion = mysqli_connect('localhost', 'root', 'root', 'caritascolima', 3307);
+  require '../Models/conexion.php';
  ?>
 
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
 <head>
   <meta charset="utf-8">
-		<title>Ingresar usuario</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<title>Ingresar usuario</title>  
   <link href="../assets/css/signin.css" rel="stylesheet">
   <!-- CSS -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css"/>
+  <link rel="stylesheet" href="../assets/css/alertify.min.css"/>
   <!-- Default theme -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/themes/default.min.css"/>
+  <link rel="stylesheet" href="../assets/css/default.min.css"/>
   <!-- Semantic UI theme -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/themes/semantic.min.css"/>
+  <link rel="stylesheet" href="../assets/css/semantic.min.css"/>
   <!-- Bootstrap theme -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/themes/bootstrap.min.css"/>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css"/>  
+  <link rel="stylesheet" href="../assets/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 <div class="login">
   <body class="text-center">
@@ -50,9 +48,9 @@
     <button class="btn" type="submit" style="border: none; outline: none; height: 40px; color: #fff; font-size: 16px; background: rgb(163, 16, 16); cursor: pointer; border-radius: 20px; font-weight: bold;"><a href="../Views/usuarios.php" style="text-decoration: none;  color: #fff;">Cancelar</a></button>
 
     <!-- JavaScript -->
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
+    <script src="../assets/js/alertify.min.js"></script>
     <!--AJAX-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/Sign.js" charset="utf-8"></script>
   </body>
 </div>

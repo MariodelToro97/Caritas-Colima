@@ -22,14 +22,22 @@
   <?php
   //$sql = "SELECT * FROM actividades";
   if ($_SESSION['rol'] == 1) {
-    $sql = "SELECT idActividades, idRol, idInstitucion,  ins.nombreInstitucion as nombreInstitucion, DATE_FORMAT(fechaActividad,'%d/%m/%Y') AS fecha, fechaActividad, asistentesActividad, despensasActividad, actividadExtra, institucionUno, institucionDos, voluntarioActividad, actividadUno, actividadDos
+    $sql = "SELECT idActividades, idRol, idInstitucion,  ins.nombreInstitucion as nombreInstitucion, DATE_FORMAT(fechaActividad,'%d/%m/%Y') AS fecha, fechaActividad, asistentesActividad, despensasActividad, actividadExtra, (SELECT nombreInstitucion
+                                                                                                                                                                                                                                FROM instituciones
+                                                                                                                                                                                                                                WHERE institucionUno = idInstituciones) AS instUno, institucionUno, (SELECT nombreInstitucion
+                                                                                                                                                                                                                                                                                                    FROM instituciones
+                                                                                                                                                                                                                                                                                                    WHERE institucionDos = idInstituciones) AS instDos, voluntarioActividad, actividadUno, actividadDos
             FROM instituciones as ins INNER JOIN actividades as ac
                   on ac.idInstitucion = ins.idInstituciones
             ORDER BY fechaActividad";
   } else {
     $numero = $_SESSION['rol'];
 
-    $sql = "SELECT idActividades, idRol, idInstitucion,  ins.nombreInstitucion as nombreInstitucion, DATE_FORMAT(fechaActividad,'%d/%m/%Y') AS fecha, fechaActividad, asistentesActividad, despensasActividad, actividadExtra, institucionUno, institucionDos, voluntarioActividad, actividadUno, actividadDos
+    $sql = "SELECT idActividades, idRol, idInstitucion,  ins.nombreInstitucion as nombreInstitucion, DATE_FORMAT(fechaActividad,'%d/%m/%Y') AS fecha, fechaActividad, asistentesActividad, despensasActividad, actividadExtra, (SELECT nombreInstitucion
+                                                                                                                                                                                                                                FROM instituciones
+                                                                                                                                                                                                                                WHERE institucionUno = idInstituciones) AS instUno, institucionUno, (SELECT nombreInstitucion
+                                                                                                                                                                                                                                                                                                    FROM instituciones
+                                                                                                                                                                                                                                                                                                    WHERE institucionDos = idInstituciones) AS instDos, institucionDos, voluntarioActividad, actividadUno, actividadDos
             FROM instituciones as ins INNER JOIN actividades as ac
                   on ac.idInstitucion = ins.idInstituciones
             WHERE idRol = $numero
@@ -43,8 +51,8 @@
   while($mostrar=mysqli_fetch_array($result)){
     $contador++;
 
-    if ($mostrar['institucionDos'] == 0) {
-      $mostrar['institucionDos'] == '';
+    if ($mostrar['instDos'] == '') {
+      $mostrar['instDos'] = '';
     }
 
     ?>
@@ -53,26 +61,27 @@
       <td><?php echo $mostrar['fecha'] ?></td>
       <td><?php echo $mostrar['asistentesActividad'] ?></td>
       <td><?php echo $mostrar['despensasActividad'] ?></td>
-      <td><?php echo utf8_encode($mostrar['actividadExtra']) ?></td>
-      <td><?php echo $mostrar['institucionUno'] ?></td>
+      <td><?php echo $mostrar['actividadExtra'] ?></td>
+      <td><?php echo $mostrar['instUno'] ?></td>
 
       <?php
-      if ($mostrar['institucionDos'] == 0) { ?>
-        <td> <?php  echo $mostrar['institucionDos'] ?></td>
+      if ($mostrar['instDos'] == '') { ?>
+        <td>---</td>
         <?php
       } else { ?>
-        <td>---</td>
+        <td> <?php  echo $mostrar['instDos'] ?></td>
       <?php
       }
        ?>
 
-      <!--<td><?php// echo $mostrar['institucionDos'] ?></td> -->
-      <td><?php echo utf8_encode($mostrar['voluntarioActividad']) ?></td>
-      <td><?php echo utf8_encode($mostrar['actividadUno']) ?></td>
-      <td><?php echo utf8_encode($mostrar['actividadDos']) ?></td>
+      <td><?php echo $mostrar['voluntarioActividad'] ?></td>
+      <td><?php echo $mostrar['actividadUno'] ?></td>
+      <td><?php echo $mostrar['actividadDos'] ?></td>
       <td hidden><?php echo $mostrar['idInstitucion'] ?></td>
       <td hidden><?php echo $mostrar['fechaActividad'] ?></td>
       <td hidden><?php echo $mostrar['idRol'] ?></td>
+      <td hidden><?php echo $mostrar['institucionUno'] ?> </td>
+      <td hidden><?php echo $mostrar['institucionDos'] ?> </td>
       <td>
         <button class="btn btn-info btn-sm" value="<?php echo $mostrar['idActividades'] ?>" name="<?php echo $contador ?>" type="button" onclick="acomodarEditarActividades(this)" data-toggle="modal" data-target="#agregarActividad">Editar Campo</button>
         <button class="btn btn-danger btn-sm" value="<?php echo $mostrar['idActividades'] ?>" type="button" name="<?php echo utf8_encode($mostrar['actividadUno']) ?>" data-toggle="modal" data-target="#deleteInstituto" onclick="editarDelete(this)">Eliminar Actividad</button>

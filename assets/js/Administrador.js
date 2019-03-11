@@ -44,7 +44,7 @@ $('#updateUser').submit(function() {
 		// Mostramos un mensaje con la respuesta de PHP
 		success: function(data) {			
 			$('#primerContraUser').val('');
-			$('#confirmContraUser').val('');
+			$('#confirmContraUser').val('');			
 			if (data == 'Usuario actualizado correctamente') {
 				alertify.success(data);
 				$('#tablaUsuarios').load(' #tablaUsuarios');

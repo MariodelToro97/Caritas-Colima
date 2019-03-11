@@ -9,13 +9,13 @@ $('#formGrupo').submit(function(){
       data: $(this).serialize(),
       // Mostramos un mensaje con la respuesta de PHP
       success: function(data) {        
-        $('#nomGrupo').val('');
+        $('#nomGrupo').val('');        
         if (data == 'Grupo guardado exitosamente') {
           alertify.success(data);
           reloadCombo();
         } else {
           if (data == 'Ya existe una institución con ese nombre en la base de datos') {
-            alertify.success(data);
+            alertify.warning(data);
             $('#nomGrupo').focus();
             reset();
           } else {
@@ -34,7 +34,7 @@ $('#formGrupo').submit(function(){
         nombre : nombre
       },
       // Mostramos un mensaje con la respuesta de PHP
-      success: function(data) {        
+      success: function(data) {          
         $('#nomGrupo').val('');
         if (data == 'Grupo actualizado exitosamente') {
           alertify.success(data);
@@ -46,7 +46,7 @@ $('#formGrupo').submit(function(){
             $('#nomGrupo').focus();
             document.getElementById("contadorGrupo").innerHTML = '<span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-success mt-1 font-weight-bold">150 caracteres restantes</span>';
           } else {
-            alertify.error("Ocurrió un error en la inserción del dato");
+            alertify.error("Ocurrió un error en la actualización del dato");
           }
         }
       }
@@ -101,7 +101,7 @@ $('#formDeleteIns').submit(function(){
         idGrupo: idGrupo,
       },
       success: function(data){        
-        if (data == 'La institución se borro de forma correcta') {
+        if (data == 'La institución se borró de forma correcta') {
           alertify.success(data);
           $('#deleteInstituto').modal('hide');
           reloadCombo();
@@ -120,8 +120,8 @@ $('#formDeleteIns').submit(function(){
         data: {
           idGrupo: idGrupo,
         },
-        success: function(data){          
-          if (data == 'El usuario se borro de forma correcta') {
+        success: function(data){           
+          if (data == 'El usuario se borró de forma correcta') {
             alertify.success(data);
             $('#deleteInstituto').modal('hide');
             resetAdministradorModal();
@@ -139,7 +139,7 @@ $('#formDeleteIns').submit(function(){
           idGrupo: idGrupo,
         },
         success: function(data){          
-          if (data == 'La actividad se borro de forma correcta') {
+          if (data == 'La actividad se borró de forma correcta') {
             alertify.success(data);
             $('#deleteInstituto').modal('hide');
             resetDelete();

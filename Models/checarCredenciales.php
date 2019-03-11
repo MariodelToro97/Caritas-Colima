@@ -7,6 +7,7 @@
 		exit;
 	}
 
-	$conexion = mysqli_connect('localhost', 'root', 'root', 'caritascolima', 3307);
+	//$conexion = mysqli_connect('localhost', 'root', '', 'caritascolima', 3306);
+	require 'conexion.php';
 
  ?>

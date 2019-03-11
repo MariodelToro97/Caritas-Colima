@@ -187,21 +187,21 @@ function acomodarEditarActividades(boton) {
 	var fila = boton.name;
 	var datos = [];
 
-	for (var i = 0; i < 13; i++) {
+	for (var i = 0; i < 15; i++) {
 		datos[i] = $("#EditarTablaModalActividad").children().children()[fila].children[i].innerHTML;
-	}
+	}		
 
 	setTimeout(function() {
 		$('#selectinstitucion').focus();
 
 		$('#selectinstitucion').val(datos[10]);
 		$('#numeroAsistentes').val(datos[2]);
-		$('#numeroDespensas').val(datos[3]);
-		$('#Institucion1').val(datos[5]);
+		$('#numeroDespensas').val(datos[3]);		
+		$('#Institucion1').val(datos[13]);
+		$('#Institucion2').val(datos[14]);
 		$('#fechaActividad').val(datos[11]);
 		$('#actividadUno').val(datos[8]);
-		$('#apoyoExtraCa').val(datos[4]);
-		$('#Institucion2').val(datos[6]);
+		$('#apoyoExtraCa').val(datos[4]);		
 		$('#voluntariosCaritas').val(datos[7]);
 		$('#actividadDos').val(datos[9]);
 		$('#rolActividad').val(datos[12]);
