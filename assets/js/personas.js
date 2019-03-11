@@ -44,7 +44,7 @@ $('#formpersona').submit(function () {
         PURC: curp,
         escolaridadP: escolaridad
       },
-      success: function (data) {        
+      success: function (data) {         
         if (data == 'Los datos se actualizaron satisfactoriamente') {
           alertify.success(data);
           $('#tablapersonas').load(" #tablapersonas");
@@ -108,9 +108,35 @@ function borrarPersona(boton) {
   var persona = boton.name;
   var id = boton.value;
 
-  document.getElementById("btnEliminarPersona").outerHTML = '<button type="submit" value = "' + id + '" name = "Actividad" class="btn btn-danger" id="btnEliminarInstituto">Si</button>';
+  document.getElementById("btnEliminarPersona").outerHTML = '<button type="submit" value = "' + id + '" name = "Actividad" class="btn btn-danger" id="btnEliminarPersona">Si</button>';
   document.getElementById("cuerpoModalEliminar").innerHTML = '<h6 id="cuerpoModalEliminar">¿Está segur@ de eliminar la siguiente persona? <h6 class = "font-italic font-weight-bold text-danger" style = "font-size: 21px;">' + persona + '</h6></h6>';
 };
+
+$('#formDeleteper').submit(function () {
+  var idGrupo = $('#btnEliminarPersona').val();  
+  $.ajax({
+    type: 'POST',
+    url: '../Peticiones/eliminarPersona.php',
+    data: {
+      idcaso: idGrupo,
+    },
+    success: function(data){
+      if (data == 'La persona ha sido borrada correctamente') {
+        alertify.success(data);
+        $('#tablapersonas').load(" #tablapersonas");
+        $('#borraPersonaM').modal('hide');
+        reloadCombo();
+      } else {
+        //alertify.error("La persona no se pudo eliminar");
+        alertify.error(data);
+      }
+    },
+    error: function(data){
+      alertify.error(data);
+    }
+  });
+  return false;
+});
 
 function cargarDatosModal(boton) {
   var idPersona = boton.value;
@@ -155,8 +181,7 @@ function cargarDatosModal(boton) {
 }
 
 function verificarEstCivil(EC2){
-  var EC='';
-  alert("estoy en función, esto vale EC2: "+ EC2);
+  var EC='';  
   if (EC2 == 'Soltero/a') {
     EC = '1';
   } else if (EC2 == 'Comprometido/a') {
@@ -195,11 +220,11 @@ function verificarEscolaridad(esco){
     esco = '3';
   } else if (esco == 'Secundaria') {
     esco = '4';
-  } else if (esco == 'Preparatoria o Bachillerato') {
+  } else if (esco == 'Preparatoria') {
     esco = '5';
   } else if (esco == 'Carrera Técnica') {
     esco = '6';
-  } else if (esco== 'Licenciatura (Profesional)') {
+  } else if (esco== 'Licenciatura') {
     esco = '7';
   } else if (esco == 'Maestría') {
     esco = '8';
@@ -296,7 +321,7 @@ function contadorLugarNacimiento(obj) {
 };
 
 //Función que es llamada en todos los modales implementados para convertir todo lo escrito a mayúsculas.
-/*function convertirMayusculas(may) {
+function convertirMayusculas(may) {
   may.value = may.value.toUpperCase();
   var cadena = may.value;
   alert(cadena.chartAt(may.length - 1));
@@ -306,10 +331,10 @@ function contadorLugarNacimiento(obj) {
   /*if (may.value =='Á' || may.value == 'É' || may.value == 'Í' || may.value == 'Ó' || may.value == 'Ú') {
     quitarSimbolos(may); 
   } */
-//};
+};
 
 function contadorCURP(obj) {
-  //convertirMayusculas(obj);
+  convertirMayusculas(obj);
   var maxLength = 18;
   var strLength = obj.value.length;
   var charRemain = (maxLength - strLength);

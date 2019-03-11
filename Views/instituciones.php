@@ -11,7 +11,14 @@
 
     <div style="padding-top: 80px;" class="container">
       <form method="post" class="form" action="../Peticiones/Reporte_Instituciones.php">
-        <button id="btnGenerarInstitucion" type="submit" name="GenerarReporte" class="btn btn-success float-right">Generar Reporte</button>
+        <div class="form-group">
+          <center>
+            <h1 class= "mx-5 my-0 float-center">Instituciones</h1>
+          </center>          
+        </div>
+        <div class= "form-group float-right">
+          <button id="btnGenerarInstitucion" type="submit" name="GenerarReporte" class="btn btn-success float-right">Generar Reporte</button>
+        </div>
       </form>
     </div>
 

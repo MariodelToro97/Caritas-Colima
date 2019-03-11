@@ -9,9 +9,16 @@
 </head>
 <body>
 
-  <div style="padding-top: 80px;" class="container">
+  <div style="padding-top: 80px;" class="container">    
     <form method="post" class="form" action="../Peticiones/Reporte_Actividades.php">
-        <button id="btnGenerarActividad" type="submit" name="GenerarReporte" class="btn btn-success float-right">Generar Reporte</button>
+        <div class="form-group">
+          <center>
+            <h1 class= "mx-5 my-0 float-center">Actividades</h1>
+          </center>          
+        </div>
+        <div class= "form-group float-right">
+          <button id="btnGenerarActividad" type="submit" name="GenerarReporte" class="btn btn-success float-right mx-5">Generar Reporte</button>
+        </div>        
       </form>
   </div>
 
@@ -23,7 +30,7 @@
   }
   ?>
 
-  <div style="padding-top: 50px;">
+  <div style="padding-top: 20px;">
     <?php
     require '../Partials/tablaActividades.php';
     require '../Partials/modalGrupo.php';
@@ -31,7 +38,6 @@
     require '../Partials/modalCerrar.php';
     require '../Partials/modalEliminarInstituto.php';
     require '../Partials/modalPersonas.php';
-
     ?>
   </div>
 

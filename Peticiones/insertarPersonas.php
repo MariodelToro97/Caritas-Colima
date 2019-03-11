@@ -25,7 +25,7 @@ $Fecharegistro = $_POST['FechR'];
 
 
 
-$sql = "INSERT INTO personas (fecha, apellidop, apellidom, Nombre, Calle, numero, colonia, municipio, CP, Telefono, Edad, sexo, FechaNac, LugarNac, EstadoCiv, CURP, Escolaridad) VALUES
+/*$sql = "INSERT INTO personas (fecha, apellidop, apellidom, Nombre, Calle, numero, colonia, municipio, CP, Telefono, Edad, sexo, FechaNac, LugarNac, EstadoCiv, CURP, Escolaridad) VALUES
                             (:fech,    :Apep,   :Apem,      :nom, :cal,   :num,   :colo,    :muni,  :codpos, :tele, :edad,:sex, :fechan, :lugarn,     :estaciv, :cup, :esco)";
 $stmt = $conexion->prepare($sql);
 //Inicializa cada una de las variables con su respectivo valor, por el método POST
@@ -47,7 +47,12 @@ $stmt->bindParam(':estaciv', $estadoCivil);
 $stmt->bindParam(':cup', $CURP);
 $stmt->bindParam(':esco', $escolaridad);
 
-if ($stmt->execute()) {
+if ($stmt->execute()) {*/
+
+  $insertar = $conexion -> query("INSERT INTO personas (idcaso, fecha, apellidop, apellidom, Nombre, Calle, numero, colonia, municipio, CP, Telefono, Edad, sexo, FechaNac, LugarNac, EstadoCiv, CURP, Escolaridad) VALUES
+                                                        ('', '$Fecharegistro', '$apellidop', '$apellidom', '$Nombre', '$Calle', '$numerocall', '$colonia', '$municipio', '$codigoP', '$telefono', '$edad', '$sexo', '$fechanac', '$lugarNac', '$estadoCivil', '$CURP', '$escolaridad')");
+
+if($insertar) {
   echo 'La inserción se completó satisfactoriamente';
 } else {
   echo 'No se pudieron insertar los datos';

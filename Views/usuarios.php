@@ -23,9 +23,15 @@ if (!isset($_SESSION['user_id'])) {
    </head>
    <body>
 
+    
+      <center>
+        <h1 class= "mx-5 my-0 float-center" style="padding-top: 80px;">Usuarios</h1>
+      </center>          
+    
+
      <?php require '../Partials/headerAdmin.php'; ?>
 
-     <div style="padding-top: 90px;">
+     <div style="padding-top: 10px;">
        <?php
        require '../Partials/modalGrupo.php';
        require '../Partials/modalCerrar.php';

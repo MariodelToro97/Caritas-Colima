@@ -21,7 +21,7 @@ $estadoCivil = $_POST['estadoCivP'];
 $CURP = $_POST['PURC'];
 $escolaridadPersona = $_POST['escolaridadP'];
 
-$sql = "UPDATE personas SET fecha= :fechR, apellidop = :apellidoP, apellidom = :apellidoM, Nombre = :nombre,
+/*$sql = "UPDATE personas SET fecha= :fechR, apellidop = :apellidoP, apellidom = :apellidoM, Nombre = :nombre,
 Calle = :calle, numero = :noCalle, colonia = :colonia, municipio = :municipio, CP = :CP, Telefono = :telefono, 
 Edad = :edad, sexo = :sexo, FechaNac = :fechaNac, LugarNac = :lugarNac, EstadoCiv = :estCivil, CURP = :CURP,
 Escolaridad = :escolaridad WHERE idcaso = :idCaso";
@@ -49,7 +49,14 @@ $stmt->bindParam(':CURP', $CURP);
 $stmt->bindParam(':escolaridad', $escolaridadPersona);
 
 
-if ($stmt->execute()) {
+if ($stmt->execute()) {*/
+
+$actualizar = $conexion -> query("UPDATE personas SET fecha= '$fechCaso', apellidop = '$apellidoPaterno', apellidom = '$apellidoMaterno', Nombre = '$nombrePersona',
+Calle = '$callePersona', numero = '$numeroCalle', colonia = '$coloniaPersona', municipio = '$municipioPersona', CP = '$codigoPostal', Telefono = '$telefonoPersona', 
+Edad = '$edadPersona', sexo = '$sexoPersona', FechaNac = '$fechaNacimiento', LugarNac = '$lugarNacimiento', EstadoCiv = '$estadoCivil', CURP = '$CURP',
+Escolaridad = '$escolaridadPersona' WHERE idcaso = '$idCaso'");
+
+if ($actualizar) {
   echo 'Los datos se actualizaron satisfactoriamente';
 } else {
   echo 'No se pudieron actualizar los datos';

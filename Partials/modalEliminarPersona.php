@@ -1,4 +1,4 @@
-<!--Inicio del modal de Eliminar Instituto-->
+<!--Inicio del modal de Eliminar Persona-->
 <div class="modal fade" id="borraPersonaM" tabindex="-1" role="dialog" aria-labelledby="eliminarInstitucionGrupo" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
   <div class="modal-content">
@@ -20,3 +20,4 @@
   </div>
 </div>
 </div>
+<!--Fin del modal de Eliminar Persona-->
