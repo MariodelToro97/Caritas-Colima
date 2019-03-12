@@ -89,7 +89,7 @@ $('#formActividad').submit(function() {
 					alertify.success(data);
 					$('#tablaActividades').load(" #tablaActividades");
 					$('#agregarActividad').modal('hide');
-					vaciarModal();
+					vaciarModal2();
 					resetIngresoActividad();
 				} else {
 					alertify.error("No se pudieron actualizar los datos");
@@ -110,7 +110,7 @@ $('#formActividad').submit(function() {
 					alertify.success(data);
 					$('#tablaActividades').load(" #tablaActividades");
 					$('#agregarActividad').modal('hide');
-					vaciarModal();
+					vaciarModal2();
 				} else {
 					alertify.error("No se pudieron insertar los datos");
 				}
@@ -124,21 +124,21 @@ $('#formActividad').submit(function() {
 });
 
 $('#btnAgregarGrupo').click(function() {
-	vaciarModal();
-	resetIngresoActividad();
+	//vaciarModal();
+	//resetIngresoActividad();
 	setTimeout(function() {
 		$('#selectinstitucion').focus();
 	}, 500);
 });
 
 $('#addActivity').click(function() {
-	vaciarModal();
+	vaciarModal2();
 	resetIngresoActividad();
 	setTimeout(function() {
 		$('#selectinstitucion').focus();
 	}, 500);
 });
-addActivity
+//addActivity
 
 function ponerGrupo(boton) {
 	var numero = boton.value;
@@ -150,10 +150,11 @@ function ponerGrupo(boton) {
 	}, 500);
 }
 
-function vaciarModal() {
+function vaciarModal2() {
 	document.getElementById('selectinstitucion').getElementsByTagName('option')[0].selected = 'selected';
 	document.getElementById('Institucion1').getElementsByTagName('option')[0].selected = 'selected';
 	document.getElementById('Institucion2').getElementsByTagName('option')[0].selected = 'selected';
+	document.getElementById('rolActividad').getElementsByTagName('option')[0].selected = 'selected';
 	$('#fechaActividad').val('');
 	$('#apoyoExtraCa').val('');
 	$('#numeroAsistentes').val('');
@@ -206,14 +207,14 @@ function acomodarEditarActividades(boton) {
 		$('#actividadDos').val(datos[9]);
 		$('#rolActividad').val(datos[12]);
 	}, 500);
-
-	document.getElementById('deleteApoyame').outerHTML = '<button id="deleteApoyame" type="button" class="btn btn-danger" onClick="resetIngresoActividad(this)" data-dismiss="modal" value = "' + idActividad + '">Cancelar</button>';
+	document.getElementById('deleteApoyame').outerHTML = '<button id="deleteApoyame" data-dismiss="modal" type="button" class="btn btn-danger" onClick="resetIngresoActividad(this)" value = "' + idActividad + '">Cancelar</button>';
 	document.getElementById('idActividadInput').innerHTML = '<input id="idActividadInput" value="" type="hidden" name="' + idActividad + '">';
 	document.getElementById("agregarActividadLabel").innerHTML = '<h5 class="modal-title" id="agregarActividadLabel">Editar Actividad</h5>';
 	document.getElementById("guardarActividad").outerHTML = '<button id="guardarActividad" type="submit" class="btn btn-success" value="Actualizar" name = "Actualizar">Actualizar</button>';
 }
 
 function resetIngresoActividad() {	
+		vaciarModal2(); 
 	document.getElementById("agregarActividadLabel").innerHTML = '<h5 class="modal-title" id="agregarActividadLabel">Agregar Actividad</h5>';
 	document.getElementById("guardarActividad").outerHTML = '<input id="guardarActividad" type="submit" class="btn btn-success" value="Guardar" name = "OTRO">';
 }

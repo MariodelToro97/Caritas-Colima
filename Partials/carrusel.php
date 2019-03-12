@@ -19,7 +19,7 @@
 </ol>
 </ol>
 <div class="carousel-inner">
-  <div class="carousel-item active" style="height: 100vh">
+  <div class="carousel-item active" style="height: 100%">
   <img class="d-block w-100" src="../Pictures/Ca1-2.jpg" alt="First slide">
   <div class="carousel-caption d-none d-md-block">
     <p></p>
@@ -59,6 +59,3 @@
        <span class="sr-only">Next</span>
       </a>
   </div>
-
-
-
