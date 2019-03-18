@@ -4,7 +4,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="agregarpersonaLabel">Agregar Persona</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btnx">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="vaciarModal()" id="btnx">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -158,4 +158,5 @@
 <div id="sugerencias">
 
 </div>
+
 <!-- Fin del div de sugerencias en tiempo real-->

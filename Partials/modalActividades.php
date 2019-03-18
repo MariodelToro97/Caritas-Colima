@@ -75,31 +75,24 @@
                 <input type="number" min="0" name="numeroDespensas" class="form-control" id= "numeroDespensas" placeholder="0">
               </div>
               <div class="col-md-6 mt-2">
-                <label for="Institucion1">Institución 1: <span class="text-danger font-weight-bold">*</span></label>
-                <div class="efill">
-                  <select class="custom-select" name="institucionUno" id="Institucion1" required = "">
-                    <option value="" selected>Seleccione una opción</option>
-
-                    <?php
-                    $sql = "SELECT * from instituciones ORDER BY nombreInstitucion";
-                    $result = mysqli_query($conexion, $sql);
-
-                    while($mostrar=mysqli_fetch_array($result)){
-                      ?>
-                      <option value="<?php echo $mostrar['idInstituciones'] ?>"><?php echo $mostrar['nombreInstitucion'] ?></option>
-                      <?php
-                    }
-                    ?>
-                  </select>
+                <div>
+                  <label for="Institucion1">Institución 1: <span class="text-danger font-weight-bold">*</span></label>
+                  <span id="contadorIntUno" style="font-size: 12px; float: right;" class="text-success font-weight-bold">100 caracteres restantes</span>
                 </div>
-              </div>
+                <input type="text" onkeyup="contadorInstitucionUno(this);" class="form-control" maxlength="100" name="institucionUno" id="Institucion1" required>
+              </div>              
               <div class="col-md-6 mt-2">
-                <label for="Institucion2">Institución 2:</label>
-                <div class="efill">
+                <div>
+                  <label for="Institucion2">Institución 2:</label>
+                  <span id="contadorIntDos" style="font-size: 12px; float: right;" class="text-success font-weight-bold">100 caracteres restantes</span>
+                </div>                
+                <input type="text" onkeyup="contadorInstitucionDos(this);" class="form-control" maxlength="100" name="institucionDos" id="Institucion2">
+               <!-- <div class="efill">
                   <select class="custom-select" name="institucionDos" id="Institucion2">
-                    <option value = "" selected>Seleccione una opción</option>
-
+                      <option value = "" selected>Seleccione una opción</option>-->
+                    
                     <?php
+                    /*
                     $sql = "SELECT * from instituciones ORDER BY nombreInstitucion";
                     $result = mysqli_query($conexion, $sql);
 
@@ -108,9 +101,12 @@
                       <option value="<?php echo $mostrar['idInstituciones'] ?>"><?php echo $mostrar['nombreInstitucion'] ?></option>
                       <?php
                     }
+                    */
                     ?>
-                  </select>
-                </div>
+                 <!---
+                 </select>
+                 </div>
+                 ------->  
               </div>
               <div class="col-md-12">
                 <div>

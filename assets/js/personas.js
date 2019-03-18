@@ -85,6 +85,7 @@ $('#formpersona').submit(function () {
 
 
 function vaciarModal() {
+  resetIngresoPersona();
   document.getElementById('SEXO').getElementsByTagName('option')[0].selected = 'selected';
   $('#nombrepersona').val('');
   $('#apellidopaterno').val('');
@@ -239,7 +240,7 @@ function resetIngresoPersona() {
   // console.log("regreso");
   document.getElementById("agregarpersonaLabel").innerHTML = '<h5 class="modal-title" id="agregarpersonaLabel">Agregar Persona</h5>';
   document.getElementById("guardarpersona").innerHTML = '<input id="guardarpersona" type="submit" class="btn btn-success" value="Guardar" name = "OTRO">';
-  vaciarModal();
+  //vaciarModal();
 }
 
 $('#colonia').on('keyup', function () {
@@ -324,7 +325,7 @@ function contadorLugarNacimiento(obj) {
 function convertirMayusculas(may) {
   may.value = may.value.toUpperCase();
   var cadena = may.value;
-  alert(cadena.chartAt(may.length - 1));
+  
   if (may.value == 'Á') {
     may.value = 'A';
   }

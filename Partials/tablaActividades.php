@@ -22,22 +22,14 @@
   <?php
   //$sql = "SELECT * FROM actividades";
   if ($_SESSION['rol'] == 1) {
-    $sql = "SELECT idActividades, idRol, idInstitucion,  ins.nombreInstitucion as nombreInstitucion, DATE_FORMAT(fechaActividad,'%d/%m/%Y') AS fecha, fechaActividad, asistentesActividad, despensasActividad, actividadExtra, (SELECT nombreInstitucion
-                                                                                                                                                                                                                                FROM instituciones
-                                                                                                                                                                                                                                WHERE institucionUno = idInstituciones) AS instUno, institucionUno, (SELECT nombreInstitucion
-                                                                                                                                                                                                                                                                                                    FROM instituciones
-                                                                                                                                                                                                                                                                                                    WHERE institucionDos = idInstituciones) AS instDos, voluntarioActividad, actividadUno, actividadDos
+    $sql = "SELECT idActividades, idRol, idInstitucion,  ins.nombreInstitucion as nombreInstitucion, DATE_FORMAT(fechaActividad,'%d/%m/%Y') AS fecha, fechaActividad, asistentesActividad, despensasActividad, actividadExtra, institucionUno, institucionDos, voluntarioActividad, actividadUno, actividadDos
             FROM instituciones as ins INNER JOIN actividades as ac
                   on ac.idInstitucion = ins.idInstituciones
             ORDER BY fechaActividad";
   } else {
     $numero = $_SESSION['rol'];
 
-    $sql = "SELECT idActividades, idRol, idInstitucion,  ins.nombreInstitucion as nombreInstitucion, DATE_FORMAT(fechaActividad,'%d/%m/%Y') AS fecha, fechaActividad, asistentesActividad, despensasActividad, actividadExtra, (SELECT nombreInstitucion
-                                                                                                                                                                                                                                FROM instituciones
-                                                                                                                                                                                                                                WHERE institucionUno = idInstituciones) AS instUno, institucionUno, (SELECT nombreInstitucion
-                                                                                                                                                                                                                                                                                                    FROM instituciones
-                                                                                                                                                                                                                                                                                                    WHERE institucionDos = idInstituciones) AS instDos, institucionDos, voluntarioActividad, actividadUno, actividadDos
+    $sql = "SELECT idActividades, idRol, idInstitucion,  ins.nombreInstitucion as nombreInstitucion, DATE_FORMAT(fechaActividad,'%d/%m/%Y') AS fecha, fechaActividad, asistentesActividad, despensasActividad, actividadExtra, institucionUno, institucionDos, voluntarioActividad, actividadUno, actividadDos
             FROM instituciones as ins INNER JOIN actividades as ac
                   on ac.idInstitucion = ins.idInstituciones
             WHERE idRol = $numero
@@ -51,8 +43,8 @@
   while($mostrar=mysqli_fetch_array($result)){
     $contador++;
 
-    if ($mostrar['instDos'] == '') {
-      $mostrar['instDos'] = '';
+    if ($mostrar['institucionDos'] == '') {
+      $mostrar['institucionDos'] = '';
     }
 
     ?>
@@ -62,14 +54,14 @@
       <td><?php echo $mostrar['asistentesActividad'] ?></td>
       <td><?php echo $mostrar['despensasActividad'] ?></td>
       <td><?php echo $mostrar['actividadExtra'] ?></td>
-      <td><?php echo $mostrar['instUno'] ?></td>
+      <td><?php echo $mostrar['institucionUno'] ?></td>
 
       <?php
-      if ($mostrar['instDos'] == '') { ?>
+      if ($mostrar['institucionDos'] == '') { ?>
         <td>---</td>
         <?php
       } else { ?>
-        <td> <?php  echo $mostrar['instDos'] ?></td>
+        <td> <?php  echo $mostrar['institucionDos'] ?></td>
       <?php
       }
        ?>

@@ -5,9 +5,9 @@ function contador(obj) {
 	var charRemain = (maxLength - strLength);
 
 	if (charRemain == 0) {
-		document.getElementById("contadorApoyo").innerHTML = '<span id="contadorApoyo" style="font-size: 12px; float: right;" class="text-danger mt-3 font-weight-bold">Haz llegado al límite de escritura</span>';
+		document.getElementById("contadorApoyo").innerHTML = '<span id="contadorApoyo" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
 	} else {
-		document.getElementById("contadorApoyo").innerHTML = '<span id="contadorApoyo" style="font-size: 12px; float: right;" class="text-success mt-3 font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+		document.getElementById("contadorApoyo").innerHTML = '<span id="contadorApoyo" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
 	}
 };
 
@@ -18,9 +18,33 @@ function contadorDos(obj) {
 	var charRemain = (maxLength - strLength);
 
 	if (charRemain == 0) {
-		document.getElementById("contadorvoluntarios").innerHTML = '<span id="contadorvoluntarios" style="font-size: 12px; float: right;" class="text-danger mt-3 font-weight-bold">Haz llegado al límite de escritura</span>';
+		document.getElementById("contadorvoluntarios").innerHTML = '<span id="contadorvoluntarios" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
 	} else {
-		document.getElementById("contadorvoluntarios").innerHTML = '<span id="contadorvoluntarios" style="font-size: 12px; float: right;" class="text-success mt-3 font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+		document.getElementById("contadorvoluntarios").innerHTML = '<span id="contadorvoluntarios" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+	}
+};
+
+function contadorInstitucionUno(obj){
+	var maxLength = 100;
+	var strLength = obj.value.length;
+	var charRemain = (maxLength - strLength);
+
+	if (charRemain == 0) {
+		document.getElementById("contadorIntUno").innerHTML = '<span id="contadorIntUno" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
+	} else {
+		document.getElementById("contadorIntUno").innerHTML = '<span id="contadorIntUno" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+	}
+};
+
+function contadorInstitucionDos(obj) {
+	var maxLength = 100;
+	var strLength = obj.value.length;
+	var charRemain = (maxLength - strLength);
+
+	if (charRemain == 0) {
+		document.getElementById("contadorIntDos").innerHTML = '<span id="contadorIntDos" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
+	} else {
+		document.getElementById("contadorIntDos").innerHTML = '<span id="contadorIntDos" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
 	}
 };
 
@@ -31,9 +55,9 @@ function contadorTres(obj) {
 	var charRemain = (maxLength - strLength);
 
 	if (charRemain == 0) {
-		document.getElementById("contadorActividadUno").innerHTML = '<span id="contadorActividadUno" style="font-size: 12px; float: right;" class="text-danger mt-3 font-weight-bold">Haz llegado al límite de escritura</span>';
+		document.getElementById("contadorActividadUno").innerHTML = '<span id="contadorActividadUno" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
 	} else {
-		document.getElementById("contadorActividadUno").innerHTML = '<span id="contadorActividadUno" style="font-size: 12px; float: right;" class="text-success mt-3 font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+		document.getElementById("contadorActividadUno").innerHTML = '<span id="contadorActividadUno" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
 	}
 };
 
@@ -44,9 +68,9 @@ function contadorCuatro(obj) {
 	var charRemain = (maxLength - strLength);
 
 	if (charRemain == 0) {
-		document.getElementById("contadorActividadDos").innerHTML = '<span id="contadorActividadDos" style="font-size: 12px; float: right;" class="text-danger mt-3 font-weight-bold">Haz llegado al límite de escritura</span>';
+		document.getElementById("contadorActividadDos").innerHTML = '<span id="contadorActividadDos" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
 	} else {
-		document.getElementById("contadorActividadDos").innerHTML = '<span id="contadorActividadDos" style="font-size: 12px; float: right;" class="text-success mt-3 font-weight-bold">' + charRemain + ' caracteres restantes</span>';
+		document.getElementById("contadorActividadDos").innerHTML = '<span id="contadorActividadDos" style="font-size: 12px; float: right;" class="text-success font-weight-bold">' + charRemain + ' caracteres restantes</span>';
 	}
 };
 
@@ -125,7 +149,7 @@ $('#formActividad').submit(function() {
 
 $('#btnAgregarGrupo').click(function() {
 	//vaciarModal();
-	//resetIngresoActividad();
+	resetIngresoActividad();
 	setTimeout(function() {
 		$('#selectinstitucion').focus();
 	}, 500);
@@ -151,11 +175,11 @@ function ponerGrupo(boton) {
 }
 
 function vaciarModal2() {
-	document.getElementById('selectinstitucion').getElementsByTagName('option')[0].selected = 'selected';
-	document.getElementById('Institucion1').getElementsByTagName('option')[0].selected = 'selected';
-	document.getElementById('Institucion2').getElementsByTagName('option')[0].selected = 'selected';
+	document.getElementById('selectinstitucion').getElementsByTagName('option')[0].selected = 'selected';	
 	document.getElementById('rolActividad').getElementsByTagName('option')[0].selected = 'selected';
 	$('#fechaActividad').val('');
+	$('#Institucion1').val('');
+	$('#Institucion2').val('');
 	$('#apoyoExtraCa').val('');
 	$('#numeroAsistentes').val('');
 	$('#numeroDespensas').val('');
@@ -214,7 +238,7 @@ function acomodarEditarActividades(boton) {
 }
 
 function resetIngresoActividad() {	
-		vaciarModal2(); 
+	vaciarModal2(); 
 	document.getElementById("agregarActividadLabel").innerHTML = '<h5 class="modal-title" id="agregarActividadLabel">Agregar Actividad</h5>';
 	document.getElementById("guardarActividad").outerHTML = '<input id="guardarActividad" type="submit" class="btn btn-success" value="Guardar" name = "OTRO">';
 }

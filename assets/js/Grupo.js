@@ -205,8 +205,8 @@ function contadorGrupo(obj){
     var charRemain = (maxLength - strLength);
 
     if(charRemain == 0){
-        document.getElementById("contadorGrupo").innerHTML = '<span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-danger mt-3 font-weight-bold">Haz llegado al límite de escritura</span>';
+        document.getElementById("contadorGrupo").innerHTML = '<span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-danger font-weight-bold">Haz llegado al límite de escritura</span>';
     }else{
-        document.getElementById("contadorGrupo").innerHTML = '<span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-success mt-3 font-weight-bold">'+charRemain+' caracteres restantes</span>';
+        document.getElementById("contadorGrupo").innerHTML = '<span id="contadorGrupo" style="font-size: 12px; float: right;" class="text-success font-weight-bold">'+charRemain+' caracteres restantes</span>';
     }
 };
