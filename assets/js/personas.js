@@ -1,7 +1,7 @@
 $('#formpersona').submit(function () {
-  var boton = $('#guardarpersona').val();
-
-  if (boton == 'Actualizar') {
+  var boton = $('#guardarP').val();
+  
+  if (boton == 'Actualizar') {  
     var idCaso = $('#btncancelarpersona').val();
     var fecha = $('#FechR').val();
     var apellidoPaterno = $('#apellidopaterno').val();
@@ -60,7 +60,7 @@ $('#formpersona').submit(function () {
       }
     });
     return false;
-  } else {
+  } else {    
     $.ajax({
       type: 'POST',
       url: '../Peticiones/insertarPersonas.php',
@@ -72,6 +72,7 @@ $('#formpersona').submit(function () {
           $('#agregarpersona').modal('hide');
           vaciarModal();
         } else {
+          console.log("Data: " +data);
           alertify.success("No se pudieron insertar los datos");
         }
       },
@@ -84,7 +85,7 @@ $('#formpersona').submit(function () {
 });
 
 
-function vaciarModal() {
+function vaciarModal() {  
   resetIngresoPersona();
   document.getElementById('SEXO').getElementsByTagName('option')[0].selected = 'selected';
   $('#nombrepersona').val('');
@@ -144,41 +145,43 @@ function cargarDatosModal(boton) {
   var fila = boton.name;
   var datos = [];
 
+  document.getElementById("btncancelarpersona").outerHTML = '<button id="btncancelarpersona" data-dismiss="modal" type="button" class="btn btn-danger" onClick="vaciarModal()"  value = "' + idPersona + '">Cancelar</button>';
+  document.getElementById("agregarpersonaLabel").innerHTML = '<h5 class="modal-title" id="editarpersonaLabel">Editar Persona</h5>';
+  document.getElementById("guardarP").outerHTML = '<input id="guardarP" type="submit" class="btn btn-success" value="Actualizar">';
+  document.getElementById("btnx").outerHTML = '<button type="button" Onclick="vaciarModal()" class="close" data-dismiss="modal" aria-label="Close" id="btnx"><span aria-hidden="true">&times;</span></button>';
+
   for (var i = 0; i <= 19; i++) {
-    datos[i] = $("#EditarTablaModalPersonas").children().children()[fila].children[i].innerHTML;
+    datos[i] = $("#EditarTablaModalPersonas")
+      .children()
+      .children()[fila].children[i].innerHTML;
   }
   //0= id caso, 1=fecha, 2=apellidoPaterno 3= apellido materno 4=Nombre
-  //5=Nombre completo  (no tomar en cuenta), 6=Calle, 7=Número de calle 
+  //5=Nombre completo  (no tomar en cuenta), 6=Calle, 7=Número de calle
   //8=domicilio completo (No tomar en cuenta), 9= Colonia 10= Municipio
   //11=Código postal, 12=Teléfono, 13=Edad, 14= Sexo, 15=Fecha de nacimiento
   //16=Lugar de nacimiento, 17=Estado civil, 18=CURP, 19=Escolaridad
-  setTimeout(function () {  
-    datos[19] = verificarEscolaridad(datos[19]); 
+  setTimeout(function() {
+    datos[19] = verificarEscolaridad(datos[19]);
     datos[14] = verificarSexo(datos[14]);
     datos[17] = verificarEstCivil(datos[17]);
-    $('#FechR').val(datos[1]);
-    $('#SEXO').val(datos[14]);
-    $('#fechnacimiento').val(datos[15]);
-    $('#apellidopaterno').val(datos[2]);
-    $('#apellidomaterno').val(datos[3]);
-    $('#nombrepersona').val(datos[4]);
-    $('#lugarnacimiento').val(datos[16]);
-    $('#CURP').val(datos[18]);
-    $('#EC').val(datos[17]);
-    $('#Tel').val(datos[12]);
-    $('#EDAD').val(datos[13]);
-    $('#escolaridad').val(datos[19]);
-    $('#calle').val(datos[6]);
-    $('#numerocalle').val(datos[7]);
-    $('#colonia').val(datos[9]);
-    $('#CP').val(datos[11]);
-    $('#municip').val(datos[10]);
+    $("#FechR").val(datos[1]);
+    $("#SEXO").val(datos[14]);
+    $("#fechnacimiento").val(datos[15]);
+    $("#apellidopaterno").val(datos[2]);
+    $("#apellidomaterno").val(datos[3]);
+    $("#nombrepersona").val(datos[4]);
+    $("#lugarnacimiento").val(datos[16]);
+    $("#CURP").val(datos[18]);
+    $("#EC").val(datos[17]);
+    $("#Tel").val(datos[12]);
+    $("#EDAD").val(datos[13]);
+    $("#escolaridad").val(datos[19]);
+    $("#calle").val(datos[6]);
+    $("#numerocalle").val(datos[7]);
+    $("#colonia").val(datos[9]);
+    $("#CP").val(datos[11]);
+    $("#municip").val(datos[10]);
   }, 500);
-
-  document.getElementById('btncancelarpersona').outerHTML = '<button id="btncancelarpersona" data-dismiss="modal" type="button" class="btn btn-danger" onClick="resetIngresoPersona(this)"  value = "' + idPersona + '">Cancelar</button>';
-  document.getElementById("agregarpersonaLabel").innerHTML = '<h5 class="modal-title" id="editarpersonaLabel">Editar Persona</h5>';
-  document.getElementById("guardarpersona").outerHTML = '<button id="guardarpersona" type="submit" class="btn btn-success" value="Actualizar" name = "Actualizar">Actualizar</button>';
-  document.getElementById("btnx").outerHTML = '<button type="button" Onclick="resetIngresoPersona(this)" class="close" data-dismiss="modal" aria-label="Close" id="btnx"><span aria-hidden="true">&times;</span></button>'
 }
 
 function verificarEstCivil(EC2){
@@ -237,37 +240,12 @@ function verificarEscolaridad(esco){
 }
 
 function resetIngresoPersona() {
-  // console.log("regreso");
-  document.getElementById("agregarpersonaLabel").innerHTML = '<h5 class="modal-title" id="agregarpersonaLabel">Agregar Persona</h5>';
-  document.getElementById("guardarpersona").innerHTML = '<input id="guardarpersona" type="submit" class="btn btn-success" value="Guardar" name = "OTRO">';
-  //vaciarModal();
+  console.log("estoy regresando al modal insertar a la normalidad");
+  
+  document.getElementById("editarpersonaLabel").innerHTML = '<h5 class="modal-title" id="agregarpersonaLabel">Agregar Persona</h5>';
+  document.getElementById("guardarP").outerHTML = '<input id="guardarP" type="submit" class="btn btn-success" value="Guardar" name = "OTRO">';
+  
 }
-
-$('#colonia').on('keyup', function () {
-  var key = $(this).val();
-  var dataString = 'key=' + key;
-
-  $.ajax({
-    type: "POST",
-    url: "Peticiones/colonia.php",
-    data: dataString,
-    success: function (data) {
-      //Escribimos las sugerencias que nos manda la consulta
-      $('#sugerencia').fadeIn(1000).html(data);
-      //Al hacer click en alguna de las sugerencias
-      $('.sugerencia-elemento').on('click', function () {
-        //Obtenemos la id unica de la sugerencia pulsada
-        var id = $(this).attr('id');
-        //Editamos el valor del input con data de la sugerencia pulsada
-        $('#colonia').val($('#' + id).attr('data'));
-        //Hacemos desaparecer el resto de sugerencias
-        $('#sugerencia').fadeOut(1000);
-        alert('Has seleccionado el ' + id + ' ' + $('#' + id).attr('data'));
-        return false;
-      });
-    }
-  });
-});
 
 function contadorApellidoPat(obj) {
   //convertirMayusculas(obj);

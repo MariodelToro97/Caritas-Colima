@@ -118,7 +118,6 @@
                 <label class="mt-1" for="numerocalle">Número</label>
                 <input type="number" min="0" name="numerocalle" class="form-control" id= "numerocalle" placeholder="0">
               </div>
-
               <div class="mt-1 col-md-5">
                 <div>
                   <span>Colonia</span>
@@ -145,7 +144,7 @@
         </div>
         <div class="modal-footer">
           <button id="btncancelarpersona" type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-          <input id="guardarpersona" type="submit" class="btn btn-success" value="Guardar">
+          <input id="guardarP" type="submit" class="btn btn-success" value="Guardar">
         </div>
       </div>
     </form>

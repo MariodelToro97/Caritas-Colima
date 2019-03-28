@@ -48,14 +48,18 @@ $stmt->bindParam(':cup', $CURP);
 $stmt->bindParam(':esco', $escolaridad);
 
 if ($stmt->execute()) {*/
+  $verCURP = $conexion -> query("SELECT COUNT(CURP) FROM personas WHERE CURP = '.$CURP.'");
 
-  $insertar = $conexion -> query("INSERT INTO personas (idcaso, fecha, apellidop, apellidom, Nombre, Calle, numero, colonia, municipio, CP, Telefono, Edad, sexo, FechaNac, LugarNac, EstadoCiv, CURP, Escolaridad) VALUES
-                                                        ('', '$Fecharegistro', '$apellidop', '$apellidom', '$Nombre', '$Calle', '$numerocall', '$colonia', '$municipio', '$codigoP', '$telefono', '$edad', '$sexo', '$fechanac', '$lugarNac', '$estadoCivil', '$CURP', '$escolaridad')");
-
-if($insertar) {
+  $insertar = $conexion -> query("INSERT INTO personas ( fecha, apellidop, apellidom, Nombre, Calle, numero, colonia, municipio, CP, Telefono, Edad, sexo, FechaNac, LugarNac, EstadoCiv, CURP, Escolaridad) VALUES
+                                                        ('$Fecharegistro', '$apellidop', '$apellidom', '$Nombre', '$Calle', '$numerocall', '$colonia', '$municipio', '$codigoP', '$telefono', '$edad', '$sexo', '$fechanac', '$lugarNac', '$estadoCivil', '$CURP', '$escolaridad')");
+if($verCURP){
+ echo  'Resultdo: ',$verCURP;
+} else {
+  if($insertar) {
   echo 'La inserción se completó satisfactoriamente';
 } else {
   echo 'No se pudieron insertar los datos';
   exit;
+}
 }
 ?>
