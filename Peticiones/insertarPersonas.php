@@ -48,18 +48,21 @@ $stmt->bindParam(':cup', $CURP);
 $stmt->bindParam(':esco', $escolaridad);
 
 if ($stmt->execute()) {*/
-  $verCURP = $conexion -> query("SELECT COUNT(CURP) FROM personas WHERE CURP = '.$CURP.'");
+  $verCURP = $conexion -> query("SELECT CURP FROM personas WHERE CURP = '$CURP'");
+  //echo mysqli_num_rows($verCURP);
 
+
+if (mysqli_num_rows($verCURP)==0){
   $insertar = $conexion -> query("INSERT INTO personas ( fecha, apellidop, apellidom, Nombre, Calle, numero, colonia, municipio, CP, Telefono, Edad, sexo, FechaNac, LugarNac, EstadoCiv, CURP, Escolaridad) VALUES
                                                         ('$Fecharegistro', '$apellidop', '$apellidom', '$Nombre', '$Calle', '$numerocall', '$colonia', '$municipio', '$codigoP', '$telefono', '$edad', '$sexo', '$fechanac', '$lugarNac', '$estadoCivil', '$CURP', '$escolaridad')");
-if($verCURP){
- echo  'Resultdo: ',$verCURP;
-} else {
+
   if($insertar) {
-  echo 'La inserción se completó satisfactoriamente';
-} else {
-  echo 'No se pudieron insertar los datos';
-  exit;
+    echo 'La inserción se completó satisfactoriamente';
+  } else {
+    echo 'No se pudieron insertar los datos';    
+  }
+}else{
+  echo 'Ya existe una CURP igual';
 }
-}
+ 
 ?>

@@ -65,15 +65,18 @@ $('#formpersona').submit(function () {
       type: 'POST',
       url: '../Peticiones/insertarPersonas.php',
       data: $('#formpersona').serialize(),
-      success: function (data) {        
+      success: function (data) {           
         if (data == 'La inserción se completó satisfactoriamente') {
           alertify.success(data);
           $('#tablapersonas').load(" #tablapersonas");
           $('#agregarpersona').modal('hide');
           vaciarModal();
         } else {
-          console.log("Data: " +data);
-          alertify.success("No se pudieron insertar los datos");
+          if (data == 'Ya existe una CURP igual') {
+            alertify.error(data);
+          } else {           
+            alertify.success("No se pudieron insertar los datos");
+          }
         }
       },
       error: function (r) {
